@@ -8,6 +8,7 @@
 # Cocoapods
 Pods/
 *.lock
+*.xcworkspace
 
 ## User settings
 xcuserdata/
