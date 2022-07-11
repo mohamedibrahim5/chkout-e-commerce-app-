@@ -7,14 +7,6 @@ target 'Merita' do
 	pod 'SDWebImage', '~> 5.0'
 	pod 'Alamofire'
     
-    pod 'FirebaseAuth'
-pod 'FirebaseAnalytics' 
-pod 'Firebase/Firestore' 
-pod 'Firebase/Database'
-pod 'Firebase/Messaging'
-pod 'FacebookCore'
-pod 'FacebookLogin'
-pod 'FBSDKLoginKit'
     
  
   # Pods for Merita
