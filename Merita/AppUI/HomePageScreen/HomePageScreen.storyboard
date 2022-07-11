@@ -78,7 +78,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AC9-X0-e8P">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="211" height="204"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="211" height="197"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="202" id="3gq-fg-qgq"/>
                                                                             <constraint firstAttribute="height" constant="197" id="Sf3-0d-fSG"/>
@@ -343,10 +343,10 @@
             </objects>
             <point key="canvasLocation" x="1378.985507246377" y="-140.625"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Home Page Screan Tab Bar Controller-->
         <scene sceneID="2to-uC-HsR">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="JKa-DX-0J3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="cell" automaticallyAdjustsScrollViewInsets="NO" id="JKa-DX-0J3" customClass="HomePageScreanTabBarController" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="n06-jP-e9p">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -361,7 +361,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gjn-XW-IiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46.376811594202906" y="49.553571428571423"/>
+            <point key="canvasLocation" x="77" y="42"/>
         </scene>
     </scenes>
     <resources>

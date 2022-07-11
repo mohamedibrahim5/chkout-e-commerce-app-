@@ -63,12 +63,16 @@
 		40AED906286F4347006830BD /* EightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AED905286F4347006830BD /* EightModel.swift */; };
 		40AED908286F4358006830BD /* EightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AED907286F4358006830BD /* EightViewModel.swift */; };
 		40AED98E28734844006830BD /* SettingScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40AED98D28734844006830BD /* SettingScreen.storyboard */; };
+		A14E6692287CB123009CBBF5 /* HomePageScreanTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14E6691287CB123009CBBF5 /* HomePageScreanTabBarController.swift */; };
 		A180C62228724BD900521F89 /* productInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A180C62128724BD900521F89 /* productInfoTableViewCell.swift */; };
 		A180C6252872636F00521F89 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A180C6242872636F00521F89 /* ProductInfo.swift */; };
 		A180C6282872759000521F89 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A180C6272872759000521F89 /* ViewModel.swift */; };
 		A18948C5287327310037F05C /* ProductInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A18948C4287327310037F05C /* ProductInfo.storyboard */; };
 		A18B107C2871FFC500AC9A42 /* productInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18B107B2871FFC500AC9A42 /* productInfoViewController.swift */; };
 		A18B107E2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18B107D2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift */; };
+		A1FFE5C6287CA83A0042CC13 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FFE5C5287CA83A0042CC13 /* LoginScreenViewController.swift */; };
+		A1FFE5C8287CAE340042CC13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1FFE5C7287CAE330042CC13 /* GoogleService-Info.plist */; };
+		A1FFE5CA287CAE5C0042CC13 /* SignupScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */; };
 		DB1C64DDCA4F52A168B3B252 /* Pods_Merita.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0E4CB07C86975147247C82 /* Pods_Merita.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,12 +137,16 @@
 		40AED98D28734844006830BD /* SettingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingScreen.storyboard; sourceTree = "<group>"; };
 		6A0E4CB07C86975147247C82 /* Pods_Merita.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merita.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5ED4C444AAD1DFC7413B6F /* Pods-Merita.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merita.debug.xcconfig"; path = "Target Support Files/Pods-Merita/Pods-Merita.debug.xcconfig"; sourceTree = "<group>"; };
+		A14E6691287CB123009CBBF5 /* HomePageScreanTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageScreanTabBarController.swift; sourceTree = "<group>"; };
 		A180C62128724BD900521F89 /* productInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A180C6242872636F00521F89 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		A180C6272872759000521F89 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A18948C4287327310037F05C /* ProductInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductInfo.storyboard; sourceTree = "<group>"; };
 		A18B107B2871FFC500AC9A42 /* productInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoViewController.swift; sourceTree = "<group>"; };
 		A18B107D2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		A1FFE5C5287CA83A0042CC13 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
+		A1FFE5C7287CAE330042CC13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupScreenViewController.swift; sourceTree = "<group>"; };
 		A61DE549F27F9D328AD19D08 /* Pods-Merita.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merita.release.xcconfig"; path = "Target Support Files/Pods-Merita/Pods-Merita.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -403,6 +411,7 @@
 				40AED8AB286F28FA006830BD /* Models */,
 				3EC6BF7D2871D3E700B6AF34 /* Fonts */,
 				40AED8A5286F28E2006830BD /* Info.plist */,
+				A1FFE5C7287CAE330042CC13 /* GoogleService-Info.plist */,
 				40AED8A0286F28E2006830BD /* Assets.xcassets */,
 				40AED89D286F28E1006830BD /* Merita.xcdatamodeld */,
 			);
@@ -412,6 +421,7 @@
 		40AED8AB286F28FA006830BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A1FFE5C4287CA8140042CC13 /* Login Screan */,
 				3EC6BF712871C4F900B6AF34 /* OnboardingScreen */,
 				40AED8B8286F2E24006830BD /* HomePageScreen */,
 				40AED8B9286F2E31006830BD /* ProductsCategoryScreen */,
@@ -422,6 +432,7 @@
 				40AED8BD286F2EEB006830BD /* SeventhScreen */,
 				40AED8BC286F2EDC006830BD /* EighthScreen */,
 				40AED8BA286F2E4C006830BD /* ProductInfoScrean */,
+				A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -474,6 +485,7 @@
 				40AED8C2286F3014006830BD /* Model */,
 				40AED8C4286F304B006830BD /* HomaPageView */,
 				40AED8C3286F3038006830BD /* ViewModel */,
+				A14E6691287CB123009CBBF5 /* HomePageScreanTabBarController.swift */,
 			);
 			path = HomePageScreen;
 			sourceTree = "<group>";
@@ -789,6 +801,14 @@
 			path = ProductInfo;
 			sourceTree = "<group>";
 		};
+		A1FFE5C4287CA8140042CC13 /* Login Screan */ = {
+			isa = PBXGroup;
+			children = (
+				A1FFE5C5287CA83A0042CC13 /* LoginScreenViewController.swift */,
+			);
+			path = "Login Screan";
+			sourceTree = "<group>";
+		};
 		F2B4F2E792D5EF7F60CF7A45 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -862,6 +882,7 @@
 				3E53847D287618760032D0D8 /* ProductsCategoryScreen.storyboard in Resources */,
 				40AED8A1286F28E2006830BD /* Assets.xcassets in Resources */,
 				3EC6BF932872559B00B6AF34 /* SignupScreen.storyboard in Resources */,
+				A1FFE5C8287CAE340042CC13 /* GoogleService-Info.plist in Resources */,
 				A18948C5287327310037F05C /* ProductInfo.storyboard in Resources */,
 				40AED89C286F28E1006830BD /* Main.storyboard in Resources */,
 				3E22E14B2879818900F78067 /* SearchAllProductsScreen.storyboard in Resources */,
@@ -935,6 +956,7 @@
 				40AED8B3286F2AAA006830BD /* ApiServices.swift in Sources */,
 				40AED8AE286F2965006830BD /* JsonDecoder.swift in Sources */,
 				40AED8FA286F42CA006830BD /* FifthModel.swift in Sources */,
+				A14E6692287CB123009CBBF5 /* HomePageScreanTabBarController.swift in Sources */,
 				40AED8EE286F4134006830BD /* ProductsCategoryModel.swift in Sources */,
 				40AED8C9286F3AD9006830BD /* HomePageViewC.swift in Sources */,
 				A180C62228724BD900521F89 /* productInfoTableViewCell.swift in Sources */,
@@ -958,6 +980,7 @@
 				3E0398342877861D00DA2B8A /* ProtocolToPassProduct.swift in Sources */,
 				40AED897286F28E1006830BD /* SceneDelegate.swift in Sources */,
 				3E939417287BFCC900170549 /* SubCategoryProtocol.swift in Sources */,
+				A1FFE5CA287CAE5C0042CC13 /* SignupScreenViewController.swift in Sources */,
 				40AED8FE286F42F5006830BD /* SixthModel.swift in Sources */,
 				3E19DAA42873BA5D005ACCED /* HomePageProtocol.swift in Sources */,
 				A18B107C2871FFC500AC9A42 /* productInfoViewController.swift in Sources */,
@@ -970,6 +993,7 @@
 				3EF81E1F287BE69F000D7E63 /* SubCategoryVC.swift in Sources */,
 				40AED8F0286F414F006830BD /* ProductsCategoryViewModel.swift in Sources */,
 				40AED8F6286F4292006830BD /* FourthModel.swift in Sources */,
+				A1FFE5C6287CA83A0042CC13 /* LoginScreenViewController.swift in Sources */,
 				3EC6BF7C2871C65F00B6AF34 /* OnboardingCViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

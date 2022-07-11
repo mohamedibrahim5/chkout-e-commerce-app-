@@ -6,9 +6,9 @@
 //
 
 import UIKit
-//import FirebaseAuth
-//import FirebaseFirestore
-//import FirebaseDatabase
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseDatabase
 import SDWebImage
 
 class productInfoViewController: UIViewController {
@@ -31,53 +31,53 @@ var arrayOfProducts : ProductCategory?
    
 
     @IBAction func favourite(_ sender: UIButton) {
-//        if userId == nil {
-//            showAlertLogin()
-//        }else {
-//            let db = Firestore.firestore()
-//          let docRef = db.collection("FAV").document("\(userId!)").collection("all information").document("\(productid)")
-//          docRef.getDocument { (document, error) in
-//              if let document = document, document.exists {
-//                  print("add to favourite1")
-//                  let checkFovuritename = db.collection("FAV").document("\(self.userId!)").documentID
-//                  print(checkFovuritename)
-//                  if checkFovuritename == self.userId! {
-//                      let alert = UIAlertController(title: "Warning", message: "Are you want to remove this product from favourite ", preferredStyle: .alert)
-//
-//                      let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
-//                          let db = Firestore.firestore()
-//
-//                              sender.setImage(UIImage(systemName: "heart.slash"), for: .normal)
-//                          db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productid)").delete{ (error) in
-//                              if error == nil {
-//                                  print("delete is done ")
-//                              } else {
-//                                  print("delete is not done ")
-//                              }
-//                          }
-//                      })
-//                      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-//                      })
-//                      alert.addAction(okAction)
-//                      alert.addAction(cancelAction)
-//                      self.present(alert, animated: true)
-//                      print("add to favourite2")
-//                  }
-//                  else {
-//                      print("add to favourite3")
-//                      db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productid)").setData(["price":self.price,"name":self.name,"image":self.image], merge: true)
-//                  }
-//              }
-//              else {
-//                      print("add to favourite4")
-//                      print("Document does not exist")
-//                  productInfoViewController.x = 1
-//                  sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//                  db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productid)").setData(["price":self.price,"name":self.name,"image":self.image], merge: true)
-//              }
-//          }
-//        }
-//
+        if userId == nil {
+            showAlertLogin()
+        }else {
+            let db = Firestore.firestore()
+          let docRef = db.collection("FAV").document("\(userId!)").collection("all information").document("\(productIdString!)")
+          docRef.getDocument { (document, error) in
+              if let document = document, document.exists {
+                  print("add to favourite1")
+                  let checkFovuritename = db.collection("FAV").document("\(self.userId!)").documentID
+                  print(checkFovuritename)
+                  if checkFovuritename == self.userId! {
+                      let alert = UIAlertController(title: "Warning", message: "Are you want to remove this product from favourite ", preferredStyle: .alert)
+
+                      let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+                          let db = Firestore.firestore()
+
+                              sender.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+                          db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").delete{ (error) in
+                              if error == nil {
+                                  print("delete is done ")
+                              } else {
+                                  print("delete is not done ")
+                              }
+                          }
+                      })
+                      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+                      })
+                      alert.addAction(okAction)
+                      alert.addAction(cancelAction)
+                      self.present(alert, animated: true)
+                      print("add to favourite2")
+                  }
+                  else {
+                      print("add to favourite3")
+                      db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.price,"name":self.name,"image":self.image], merge: true)
+                  }
+              }
+              else {
+                      print("add to favourite4")
+                      print("Document does not exist")
+                  productInfoViewController.x = 1
+                  sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                  db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.price,"name":self.name,"image":self.image], merge: true)
+              }
+          }
+        }
+
     }
     @IBOutlet weak var brandName: UILabel!
     @IBAction func addToCart(_ sender: UIButton) {

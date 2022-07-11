@@ -118,6 +118,12 @@ extension GlobalSearchForProductsVC: UICollectionViewDelegate, UICollectionViewD
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
+        vc?.arrayOfProducts = arrayOfAllProducts[indexPath.row]
+        self.navigationController!.pushViewController(vc!, animated: true)
+    }
+    
 }
 
 
