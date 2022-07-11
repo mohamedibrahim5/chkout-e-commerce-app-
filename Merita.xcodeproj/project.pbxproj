@@ -67,6 +67,9 @@
 		A180C62228724BD900521F89 /* productInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A180C62128724BD900521F89 /* productInfoTableViewCell.swift */; };
 		A180C6252872636F00521F89 /* ProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A180C6242872636F00521F89 /* ProductInfo.swift */; };
 		A180C6282872759000521F89 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A180C6272872759000521F89 /* ViewModel.swift */; };
+		A182C52C287CB4E100F74F2E /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182C52B287CB4E000F74F2E /* FavouriteTableViewCell.swift */; };
+		A184FFD2287CBC2700305DB2 /* Favourite Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A184FFD1287CBC2700305DB2 /* Favourite Screen.storyboard */; };
+		A1870EA8287CB38700743344 /* FavouriteScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1870EA7287CB38700743344 /* FavouriteScreenViewController.swift */; };
 		A18948C5287327310037F05C /* ProductInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A18948C4287327310037F05C /* ProductInfo.storyboard */; };
 		A18B107C2871FFC500AC9A42 /* productInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18B107B2871FFC500AC9A42 /* productInfoViewController.swift */; };
 		A18B107E2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18B107D2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift */; };
@@ -141,6 +144,9 @@
 		A180C62128724BD900521F89 /* productInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A180C6242872636F00521F89 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		A180C6272872759000521F89 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		A182C52B287CB4E000F74F2E /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
+		A184FFD1287CBC2700305DB2 /* Favourite Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Favourite Screen.storyboard"; sourceTree = "<group>"; };
+		A1870EA7287CB38700743344 /* FavouriteScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteScreenViewController.swift; sourceTree = "<group>"; };
 		A18948C4287327310037F05C /* ProductInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductInfo.storyboard; sourceTree = "<group>"; };
 		A18B107B2871FFC500AC9A42 /* productInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoViewController.swift; sourceTree = "<group>"; };
 		A18B107D2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -421,6 +427,8 @@
 		40AED8AB286F28FA006830BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A1870EA6287CB37200743344 /* Favourite Screan */,
+				A1870EA5287CB35F00743344 /* Sign Up Screan */,
 				A1FFE5C4287CA8140042CC13 /* Login Screan */,
 				3EC6BF712871C4F900B6AF34 /* OnboardingScreen */,
 				40AED8B8286F2E24006830BD /* HomePageScreen */,
@@ -432,7 +440,6 @@
 				40AED8BD286F2EEB006830BD /* SeventhScreen */,
 				40AED8BC286F2EDC006830BD /* EighthScreen */,
 				40AED8BA286F2E4C006830BD /* ProductInfoScrean */,
-				A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -466,6 +473,7 @@
 		40AED8B7286F2DE5006830BD /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
+				A184FFD0287CBC0800305DB2 /* Favourite Screen */,
 				3E22E1492879812F00F78067 /* SearchInAllProductScreen */,
 				40AED98C28734822006830BD /* SettingScreen */,
 				A18948C3287326D10037F05C /* ProductInfoScrean */,
@@ -783,6 +791,31 @@
 			path = ../../ViewModel;
 			sourceTree = "<group>";
 		};
+		A184FFD0287CBC0800305DB2 /* Favourite Screen */ = {
+			isa = PBXGroup;
+			children = (
+				A184FFD1287CBC2700305DB2 /* Favourite Screen.storyboard */,
+			);
+			path = "Favourite Screen";
+			sourceTree = "<group>";
+		};
+		A1870EA5287CB35F00743344 /* Sign Up Screan */ = {
+			isa = PBXGroup;
+			children = (
+				A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */,
+			);
+			path = "Sign Up Screan";
+			sourceTree = "<group>";
+		};
+		A1870EA6287CB37200743344 /* Favourite Screan */ = {
+			isa = PBXGroup;
+			children = (
+				A1870EA7287CB38700743344 /* FavouriteScreenViewController.swift */,
+				A182C52B287CB4E000F74F2E /* FavouriteTableViewCell.swift */,
+			);
+			path = "Favourite Screan";
+			sourceTree = "<group>";
+		};
 		A18948C3287326D10037F05C /* ProductInfoScrean */ = {
 			isa = PBXGroup;
 			children = (
@@ -888,6 +921,7 @@
 				3E22E14B2879818900F78067 /* SearchAllProductsScreen.storyboard in Resources */,
 				3EC6BF90287235C400B6AF34 /* LoginScreen.storyboard in Resources */,
 				3E3BC21B28733C0C00FFA201 /* HomePageScreen.storyboard in Resources */,
+				A184FFD2287CBC2700305DB2 /* Favourite Screen.storyboard in Resources */,
 				3EC6BF7F2871D46D00B6AF34 /* sf-pro-display-cufonfonts in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -974,11 +1008,13 @@
 				A18B107E2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift in Sources */,
 				3E19DAA02873B189005ACCED /* TVCellForBrands.swift in Sources */,
 				3E35202428749B0C0091D753 /* CVCellForCategoryItem.swift in Sources */,
+				A1870EA8287CB38700743344 /* FavouriteScreenViewController.swift in Sources */,
 				40AED8C6286F3A85006830BD /* BrandesModel.swift in Sources */,
 				A180C6282872759000521F89 /* ViewModel.swift in Sources */,
 				40AED895286F28E1006830BD /* AppDelegate.swift in Sources */,
 				3E0398342877861D00DA2B8A /* ProtocolToPassProduct.swift in Sources */,
 				40AED897286F28E1006830BD /* SceneDelegate.swift in Sources */,
+				A182C52C287CB4E100F74F2E /* FavouriteTableViewCell.swift in Sources */,
 				3E939417287BFCC900170549 /* SubCategoryProtocol.swift in Sources */,
 				A1FFE5CA287CAE5C0042CC13 /* SignupScreenViewController.swift in Sources */,
 				40AED8FE286F42F5006830BD /* SixthModel.swift in Sources */,
