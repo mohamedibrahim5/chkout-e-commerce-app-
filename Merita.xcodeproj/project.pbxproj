@@ -69,6 +69,7 @@
 		A18948C5287327310037F05C /* ProductInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A18948C4287327310037F05C /* ProductInfo.storyboard */; };
 		A18B107C2871FFC500AC9A42 /* productInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18B107B2871FFC500AC9A42 /* productInfoViewController.swift */; };
 		A18B107E2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18B107D2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift */; };
+		DB1C64DDCA4F52A168B3B252 /* Pods_Merita.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A0E4CB07C86975147247C82 /* Pods_Merita.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,12 +131,15 @@
 		40AED905286F4347006830BD /* EightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightModel.swift; sourceTree = "<group>"; };
 		40AED907286F4358006830BD /* EightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EightViewModel.swift; sourceTree = "<group>"; };
 		40AED98D28734844006830BD /* SettingScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingScreen.storyboard; sourceTree = "<group>"; };
+		6A0E4CB07C86975147247C82 /* Pods_Merita.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Merita.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E5ED4C444AAD1DFC7413B6F /* Pods-Merita.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merita.debug.xcconfig"; path = "Target Support Files/Pods-Merita/Pods-Merita.debug.xcconfig"; sourceTree = "<group>"; };
 		A180C62128724BD900521F89 /* productInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoTableViewCell.swift; sourceTree = "<group>"; };
 		A180C6242872636F00521F89 /* ProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfo.swift; sourceTree = "<group>"; };
 		A180C6272872759000521F89 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		A18948C4287327310037F05C /* ProductInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductInfo.storyboard; sourceTree = "<group>"; };
 		A18B107B2871FFC500AC9A42 /* productInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoViewController.swift; sourceTree = "<group>"; };
 		A18B107D2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		A61DE549F27F9D328AD19D08 /* Pods-Merita.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merita.release.xcconfig"; path = "Target Support Files/Pods-Merita/Pods-Merita.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB1C64DDCA4F52A168B3B252 /* Pods_Merita.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +378,7 @@
 				40AED893286F28E1006830BD /* Merita */,
 				40AED892286F28E1006830BD /* Products */,
 				5BCD94774216B9E8772C0920 /* Pods */,
+				F2B4F2E792D5EF7F60CF7A45 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -741,6 +747,8 @@
 		5BCD94774216B9E8772C0920 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				9E5ED4C444AAD1DFC7413B6F /* Pods-Merita.debug.xcconfig */,
+				A61DE549F27F9D328AD19D08 /* Pods-Merita.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -781,6 +789,14 @@
 			path = ProductInfo;
 			sourceTree = "<group>";
 		};
+		F2B4F2E792D5EF7F60CF7A45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A0E4CB07C86975147247C82 /* Pods_Merita.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -788,9 +804,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 40AED8A8286F28E2006830BD /* Build configuration list for PBXNativeTarget "Merita" */;
 			buildPhases = (
+				8A679B807D17BEC109E056A9 /* [CP] Check Pods Manifest.lock */,
 				40AED88D286F28E1006830BD /* Sources */,
 				40AED88E286F28E1006830BD /* Frameworks */,
 				40AED88F286F28E1006830BD /* Resources */,
+				39211B049340F0E7D01AD3C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -854,6 +872,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		39211B049340F0E7D01AD3C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Merita/Pods-Merita-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Merita/Pods-Merita-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Merita/Pods-Merita-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A679B807D17BEC109E056A9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Merita-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		40AED88D286F28E1006830BD /* Sources */ = {
@@ -1044,6 +1104,7 @@
 		};
 		40AED8A9286F28E2006830BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E5ED4C444AAD1DFC7413B6F /* Pods-Merita.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1071,6 +1132,7 @@
 		};
 		40AED8AA286F28E2006830BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A61DE549F27F9D328AD19D08 /* Pods-Merita.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
