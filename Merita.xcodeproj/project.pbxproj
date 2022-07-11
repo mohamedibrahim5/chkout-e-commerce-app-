@@ -427,6 +427,7 @@
 		40AED8AB286F28FA006830BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A184FFD3287CBEA900305DB2 /* Home Tab Bar Controoler */,
 				A1870EA6287CB37200743344 /* Favourite Screan */,
 				A1870EA5287CB35F00743344 /* Sign Up Screan */,
 				A1FFE5C4287CA8140042CC13 /* Login Screan */,
@@ -493,7 +494,6 @@
 				40AED8C2286F3014006830BD /* Model */,
 				40AED8C4286F304B006830BD /* HomaPageView */,
 				40AED8C3286F3038006830BD /* ViewModel */,
-				A14E6691287CB123009CBBF5 /* HomePageScreanTabBarController.swift */,
 			);
 			path = HomePageScreen;
 			sourceTree = "<group>";
@@ -797,6 +797,14 @@
 				A184FFD1287CBC2700305DB2 /* Favourite Screen.storyboard */,
 			);
 			path = "Favourite Screen";
+			sourceTree = "<group>";
+		};
+		A184FFD3287CBEA900305DB2 /* Home Tab Bar Controoler */ = {
+			isa = PBXGroup;
+			children = (
+				A14E6691287CB123009CBBF5 /* HomePageScreanTabBarController.swift */,
+			);
+			path = "Home Tab Bar Controoler";
 			sourceTree = "<group>";
 		};
 		A1870EA5287CB35F00743344 /* Sign Up Screan */ = {
