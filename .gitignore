@@ -9,6 +9,7 @@
 Pods/
 *.lock
 *.xcworkspace
+Merita.xcworkspace/
 
 ## User settings
 xcuserdata/
