@@ -76,6 +76,8 @@ extension ProductsCategoryVC: UICollectionViewDataSource{
         
         print("TitleCategory count  \(arrayOfProductsCategory.count)")
         return arrayOfProductsCategory.count
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -130,6 +132,11 @@ extension ProductsCategoryVC: UICollectionViewDelegate, UICollectionViewDelegate
         let width = (collectionView.frame.width-leftAndRightPaddings)/numberOfItemsPerRow
         return CGSize(width: width, height: width) // You can change width and height here as pr your requirement
         
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
+        vc?.arrayOfProducts = arrayOfProductsCategory[indexPath.row]
+        self.navigationController!.pushViewController(vc!, animated: true)
     }
     
 }
