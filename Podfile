@@ -6,7 +6,6 @@ target 'Merita' do
   use_frameworks!
 	pod 'SDWebImage', '~> 5.0'
 	pod 'Alamofire'
-pod 'FirebaseAuth'
 pod 'Firebase/Firestore' 
 
     
