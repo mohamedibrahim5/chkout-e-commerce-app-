@@ -8,7 +8,6 @@ target 'Merita' do
 	pod 'Alamofire'
 pod 'FirebaseAuth'
 pod 'Firebase/Firestore' 
-pod 'Firebase/Database'
 
     
  
