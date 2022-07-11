@@ -104,7 +104,7 @@ extension TVCellForCategory: UICollectionViewDelegate,UICollectionViewDelegateFl
         
         if let delegateToPassProductsCategory = delegateToPassProductsCategory {
             
-            delegateToPassProductsCategory.collectionView(collectionView, didSelectItemAt: indexPath, productsCategory: arrayOfCategory[indexPath.row].title ?? "hossam")
+            delegateToPassProductsCategory.collectionView(collectionView, didSelectItemAt: indexPath, productsCategory: arrayOfCategory[indexPath.row].title ?? "")
         }
         
     }

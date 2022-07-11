@@ -18,6 +18,8 @@ class TVCellForBrands: UITableViewCell {
     
     var arrayOfBrand = [SmartCollection]()
     
+    var delegateToPassProductsBrand: PassProductsBrand?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -63,7 +65,6 @@ extension TVCellForBrands: UICollectionViewDataSource{
         print("Brand Name: \(brandDetails.title ?? "") ")
         cellBrandItems.configureBrandItemCell(imageBrand: brandDetails.image?.src ?? "" , nameBrand: /*brandDetails.title ??*/ "")
         
-        
         return cellBrandItems
         
     }
@@ -72,6 +73,16 @@ extension TVCellForBrands: UICollectionViewDataSource{
 }
 
 extension TVCellForBrands: UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        if let delegateToPassProductsBrand = delegateToPassProductsBrand {
+            
+            delegateToPassProductsBrand.collectionView(collectionView, didSelectItemAt: indexPath, productsBrandTitle: arrayOfBrand[indexPath.row].title ?? "Not Found")
+        }
+
+    }
  
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 

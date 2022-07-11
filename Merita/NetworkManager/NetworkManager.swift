@@ -88,8 +88,6 @@ class NetworkManager: ApiService {
                     let arrayDecoded: ProductsCategory? = convertFromJson(data: data)
                     arrayOfProductCategory = arrayDecoded?.products ?? []
                     print(url)
-                    print(arrayOfProductCategory)
-                    print(arrayDecoded)
                     completion(arrayOfProductCategory, nil)
                 }
                 if let error = error {

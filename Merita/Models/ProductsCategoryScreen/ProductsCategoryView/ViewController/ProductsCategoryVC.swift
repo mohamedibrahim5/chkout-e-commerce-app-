@@ -22,7 +22,9 @@ class ProductsCategoryVC: UIViewController {
     let productCategoryViewModel = ProductsCategoryViewModel()
     
     var categoryTitle: String?
+    var brandTitle: String?
     var arrayOfProductsCategory = [ProductCategory]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,10 +40,6 @@ class ProductsCategoryVC: UIViewController {
                 }
             }
         }
-    
-    
-    
-    
     }
 }
 
@@ -63,6 +61,19 @@ extension ProductsCategoryVC: UICollectionViewDataSource{
                 
             }
         }
+        
+        for category in self.arrayOfProducts {
+            if let vendor = category.vendor{
+                if let brandTitle = brandTitle{
+                    if vendor == brandTitle {
+                        print("\(vendor) == \(brandTitle)")
+                        arrayOfProductsCategory.append(category)
+                    }
+                }
+                
+            }
+        }
+        
         print("TitleCategory count  \(arrayOfProductsCategory.count)")
         return arrayOfProductsCategory.count
     }
@@ -71,10 +82,9 @@ extension ProductsCategoryVC: UICollectionViewDataSource{
         let cellProductsCategory = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCategoryCViewCell", for: indexPath) as! ProductCategoryCViewCell
         
         
-        
-        
         let productCategoryDetails = arrayOfProductsCategory[indexPath.row]
         
+        //MARK: -  Return Products In Category
         if let tags = productCategoryDetails.tags{
             
             let string = tags
@@ -87,12 +97,18 @@ extension ProductsCategoryVC: UICollectionViewDataSource{
                 }
             }
         }
-        
-        
-        
-       
-        
-        
+        //MARK: - Return Products in Brand
+        if let vendor = productCategoryDetails.vendor{
+            if let brandTitle = brandTitle{
+                if vendor == brandTitle {
+                    print("\(vendor) == \(brandTitle)")
+                    
+                    cellProductsCategory.configureProductCategoryCell(imageProduct: productCategoryDetails.images?[0].src ?? "", titleProduct: productCategoryDetails.title ?? "", priceProduct: productCategoryDetails.variants?[0].price ?? "")
+                    
+                }
+            }
+            
+        }
         
         
         return cellProductsCategory
@@ -101,6 +117,8 @@ extension ProductsCategoryVC: UICollectionViewDataSource{
     
 }
 
+
+//MARK: - Extension for UICollectionViewDelegate
 
 extension ProductsCategoryVC: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     
@@ -113,5 +131,6 @@ extension ProductsCategoryVC: UICollectionViewDelegate, UICollectionViewDelegate
         return CGSize(width: width, height: width) // You can change width and height here as pr your requirement
         
     }
+    
 }
 

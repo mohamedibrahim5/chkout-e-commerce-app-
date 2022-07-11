@@ -8,7 +8,7 @@
 import UIKit
 
 class GlobalSearchForProductsVC: UIViewController {
-
+    
     @IBOutlet weak var allProductsCView: UICollectionView!{
         didSet{
             allProductsCView.dataSource = self
@@ -19,6 +19,8 @@ class GlobalSearchForProductsVC: UIViewController {
     }
     
     var arrayOfAllProducts = [ProductCategory]()
+    //var arrayOfShoesCategory = [ProductCategory]()
+    var titleButton = ""
     let productCategoryViewModel = ProductsCategoryViewModel()
     
     
@@ -38,21 +40,50 @@ class GlobalSearchForProductsVC: UIViewController {
             }
         }
         
-        
-       
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
+    @IBAction func subCategoryBtn(_ sender: UIButton) {
+        
+        print("HI")
+        
+        if let viewController = UIStoryboard(name: "SearchAllProductsScreen", bundle: nil).instantiateViewController(withIdentifier: "SubCategoryVC") as? SubCategoryVC {
+            
+            viewController.passShoesCategoryDelegate = self
+            
+            viewController.providesPresentationContextTransitionStyle = true
+            viewController.definesPresentationContext = true
+            viewController.modalTransitionStyle = .crossDissolve
+            viewController.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext;
+            viewController.view.backgroundColor = UIColor.clear
+            
+            self.present(viewController, animated: true, completion: nil)
+            
+        }
+        
     }
-    */
+    
+}
 
+extension GlobalSearchForProductsVC: SubCategoryProductsProtocol {
+    
+    func setSubCategory(subCategory: [ProductCategory]) {
+        arrayOfAllProducts.removeAll()
+        arrayOfAllProducts = subCategory
+        allProductsCView.reloadData()
+    }
+    
+    
 }
 
 extension GlobalSearchForProductsVC: UICollectionViewDataSource{
@@ -86,4 +117,7 @@ extension GlobalSearchForProductsVC: UICollectionViewDelegate, UICollectionViewD
         return CGSize(width: width, height: width) // You can change width and height here as pr your requirement
         
     }
+    
 }
+
+

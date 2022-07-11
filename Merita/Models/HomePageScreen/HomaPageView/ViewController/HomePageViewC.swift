@@ -9,7 +9,8 @@ import UIKit
 
 class HomePageViewC: UIViewController {
     
-    var name: String?
+    var titleCategory: String?
+    var titleBrand: String?
     
     @IBOutlet weak var brandsAndCategoryTV: UITableView!{
         didSet{
@@ -70,6 +71,7 @@ extension HomePageViewC: UITableViewDataSource{
         
         switch indexPath.row {
         case 0:
+            cellBrands.delegateToPassProductsBrand = self
             return cellBrands
         case 1:
             cellCategory.delegateToPassProductsCategory = self
@@ -96,7 +98,7 @@ extension HomePageViewC: UITableViewDelegate{
             
             let destVC = segue.destination as! ProductsCategoryVC
             
-            destVC.categoryTitle = name
+            destVC.categoryTitle = titleCategory
             
             
         }
@@ -104,11 +106,28 @@ extension HomePageViewC: UITableViewDelegate{
         
     }
     
+}
+
+extension HomePageViewC: PassProductsBrand{
     
-    
-    
-    
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath, productsBrandTitle: String){
+        
+        titleBrand = productsBrandTitle
+        print("titleBrand \(titleBrand ?? "hhhh")")
+        
+        if let viewController = UIStoryboard(name: "ProductsCategoryScreen", bundle: nil).instantiateViewController(withIdentifier: "ProductsCategoryVC") as? ProductsCategoryVC {
+            
+            viewController.brandTitle = titleBrand
+            
+            if let navigator = navigationController {
+                
+                navigator.pushViewController(viewController, animated: true)
+                
+            }
+            
+        }
+        
+    }
     
 }
 
@@ -116,16 +135,12 @@ extension HomePageViewC: PassProductsCategory {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath, productsCategory: String) {
         
-        //        if let indexPath = collectionView.indexPathsForSelectedItems?.first{
-        //
-        //
-        //        }
-        name = productsCategory
-        print("TitleCategory \(name ?? "hhhh")")
+        titleCategory = productsCategory
+        print("TitleCategory \(titleCategory ?? "hhhh")")
         
         if let viewController = UIStoryboard(name: "ProductsCategoryScreen", bundle: nil).instantiateViewController(withIdentifier: "ProductsCategoryVC") as? ProductsCategoryVC {
             
-            viewController.categoryTitle = name
+            viewController.categoryTitle = titleCategory
             
             if let navigator = navigationController {
                 
