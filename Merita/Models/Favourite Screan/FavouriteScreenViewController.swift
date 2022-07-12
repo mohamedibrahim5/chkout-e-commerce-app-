@@ -63,7 +63,7 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FavouriteTableViewCell
         cell.name.text = valueArray[indexPath.row]
-        cell.price.text = valueArrayprice[indexPath.row]
+        cell.price.text = "\(valueArrayprice[indexPath.row])$"
        cell.imageview.sd_setImage(with: URL(string: valueArrayimage[indexPath.row]), placeholderImage: UIImage(named: "test.jpeg"))
         return cell
     }

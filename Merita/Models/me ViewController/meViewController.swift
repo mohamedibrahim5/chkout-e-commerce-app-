@@ -99,7 +99,7 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "washlistcell", for: indexPath) as! meWashListTableViewCell
         let index = indexPath.row
-        cell.nameOfProduct.text = arrayPrice2[index]
+        cell.nameOfProduct.text = "\(arrayPrice2[index])$"
         cell.imageview.sd_setImage(with: URL(string: arrImage[index]), placeholderImage: UIImage(named: "test.jpeg"))
         cell.name.text = arrayName[index]
         return cell
@@ -109,6 +109,6 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 120
     }
 }

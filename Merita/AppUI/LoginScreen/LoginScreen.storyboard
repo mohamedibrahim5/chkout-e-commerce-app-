@@ -291,7 +291,7 @@
                                                 <rect key="frame" x="0.0" y="254" width="414" height="564"/>
                                                 <color key="backgroundColor" name="Background1"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUr-Rw-dJA">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUr-Rw-dJA">
                                                 <rect key="frame" x="28" y="107" width="358" height="563"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ytg-SV-jBx">
@@ -477,6 +477,11 @@
                                                     <constraint firstItem="SLO-m1-iLF" firstAttribute="centerY" secondItem="5D5-UA-9QD" secondAttribute="centerY" id="vR9-3e-TYS"/>
                                                     <constraint firstItem="aj8-va-aX8" firstAttribute="top" secondItem="fNk-l8-cJa" secondAttribute="bottom" constant="7.5" id="x14-4W-Xzh"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uNm-jE-6OT">
                                                 <rect key="frame" x="151.5" y="33" width="111" height="48"/>
