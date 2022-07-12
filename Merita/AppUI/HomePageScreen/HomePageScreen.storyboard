@@ -13,7 +13,7 @@
         <!--Home-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="HomePageViewC" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cellhome" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="HomePageViewC" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -624,7 +624,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="e8H-eF-hf3"/>
-                        <color key="backgroundColor" name="Background2"/>
+                        <color key="backgroundColor" name="Background1"/>
                         <constraints>
                             <constraint firstItem="GjW-pX-CKI" firstAttribute="top" secondItem="e8H-eF-hf3" secondAttribute="top" id="5KC-A3-EmT"/>
                             <constraint firstItem="e8H-eF-hf3" firstAttribute="trailing" secondItem="GjW-pX-CKI" secondAttribute="trailing" id="cF0-Tv-XtP"/>

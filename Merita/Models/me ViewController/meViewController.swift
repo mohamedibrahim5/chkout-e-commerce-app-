@@ -36,30 +36,39 @@ class meViewController: UIViewController {
         print("ordersMore")
     }
     @IBOutlet weak var welcome: UILabel!
-    var userId : String = "P1vuOQ1tQZdIobdZKkCX7FvmcfA3"
+    var userId : String?
     var dataDescription : String?
     var name : [String]?
     @IBOutlet weak var nameOfCustomer: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fastForward, target: self, action: #selector(onShopping(_:))
-//        )
-       
     }
     override func viewWillAppear(_ animated: Bool) {
         
                         let db = Firestore.firestore()
-                db.collection("FAV").document("\(self.userId)").collection("all information").getDocuments { (snapshot, error) in
+        db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
                     
                     if error == nil && snapshot != nil {
                         for document in snapshot!.documents {
-                        self.arrFav = document.data()
-                        print(self.arrFav!["price"]!)
-                        self.arrayPrice2.append(self.arrFav!["price"]! as! String)
-                        self.arrayName.append(self.arrFav!["name"] as! String)
-                        self.arrImage.append(self.arrFav!["image"] as! String)
-                        self.tableview.reloadData()
+                                self.arrFav = document.data()
+                            if self.arrayPrice2.count > 0 {
+                                print("repeted data")
+                                if  self.arrayPrice2[0] == self.arrFav!["price"] as! String && self.arrayName[0] == self.arrFav!["name"] as! String && self.arrImage[0] == self.arrFav!["image"] as! String {
+                                    print("repeted data 2")
+                                } else {
+                                    self.arrayPrice2.append(self.arrFav!["price"]! as! String)
+                                    self.arrayName.append(self.arrFav!["name"] as! String)
+                                    self.arrImage.append(self.arrFav!["image"] as! String)
+                                    self.tableview.reloadData()
+                                }
+                            } else {
+                                self.arrayPrice2.append(self.arrFav!["price"]! as! String)
+                                self.arrayName.append(self.arrFav!["name"] as! String)
+                                self.arrImage.append(self.arrFav!["image"] as! String)
+                                self.tableview.reloadData()
+                            }
+                               
+                            
                 }
             }
         }
@@ -95,5 +104,8 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
         self.navigationController!.pushViewController(vc!, animated: true)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
 }

@@ -251,7 +251,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="31.884057971014496" y="83.705357142857139"/>
+            <point key="canvasLocation" x="-106" y="60"/>
         </scene>
         <!--SignupScreen-->
         <scene sceneID="2ve-wP-M53">
@@ -276,7 +276,7 @@
         <!--Login Screen View Controller-->
         <scene sceneID="8i7-1O-47c">
             <objects>
-                <viewController id="m2A-cq-otv" customClass="LoginScreenViewController" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="celllogin" id="m2A-cq-otv" customClass="LoginScreenViewController" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4gA-by-WAm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -11,9 +11,14 @@ import FirebaseFirestore
 import FirebaseDatabase
 
 class HomePageScreanTabBarController: UITabBarController {
+    var id : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let favvc = self.viewControllers![2] as! FavouriteScreenViewController
+        favvc.userId = id!
+        let mevc = self.viewControllers![3] as! meViewController
+        mevc.userId = id!
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action:  #selector(signOut(_:))
         )
     }
@@ -34,6 +39,7 @@ class HomePageScreanTabBarController: UITabBarController {
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true)
+        print(id!)
     }
 
 }

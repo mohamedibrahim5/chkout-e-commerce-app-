@@ -29,7 +29,7 @@ class LoginScreenViewController: UIViewController {
             if authResult != nil {
                 LoginScreenViewController.idUser = Auth.auth().currentUser!.uid
                 print(LoginScreenViewController.idUser)
-              //  vc?.userId = LoginScreenViewController.idUser
+                vc?.id = LoginScreenViewController.idUser
                 email.text = ""
                 password2.text = ""
                 self.navigationController!.pushViewController(vc!, animated: true)
@@ -40,6 +40,16 @@ class LoginScreenViewController: UIViewController {
             }
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     @IBAction func LoginWithFscebook(_ sender: UIButton) {
         let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController

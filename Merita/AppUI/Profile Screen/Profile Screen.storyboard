@@ -227,7 +227,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" name="Background2"/>
+                                        <color key="backgroundColor" name="Background1"/>
                                         <constraints>
                                             <constraint firstItem="jvR-oi-Kvh" firstAttribute="height" secondItem="A6h-c8-TOV" secondAttribute="height" multiplier="0.746944" id="4VB-37-z9W"/>
                                             <constraint firstItem="5mn-l0-jay" firstAttribute="top" secondItem="whw-cu-BVf" secondAttribute="bottom" constant="46" id="7ZE-Gc-NHC"/>
@@ -258,7 +258,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gSe-XL-YVN"/>
-                        <color key="backgroundColor" name="Background2"/>
+                        <color key="backgroundColor" name="Background1"/>
                         <constraints>
                             <constraint firstItem="gxL-A8-K10" firstAttribute="leading" secondItem="gSe-XL-YVN" secondAttribute="leading" id="NTv-Pd-0Tm"/>
                             <constraint firstItem="gSe-XL-YVN" firstAttribute="trailing" secondItem="gxL-A8-K10" secondAttribute="trailing" id="VhK-zo-Les"/>
@@ -274,7 +274,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdO-7b-48a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-697" y="-36"/>
+            <point key="canvasLocation" x="-838" y="-48"/>
         </scene>
     </scenes>
     <resources>
