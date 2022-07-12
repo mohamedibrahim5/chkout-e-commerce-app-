@@ -19,6 +19,8 @@ class FavouriteScreenViewController: UIViewController {
     var arrImage : [String] = []
     var userId : String?
     var valueArray: [String] = []
+    var valueArrayprice: [String] = []
+    var valueArrayimage: [String] = []
     var currencyArray: [String] = []
     
     @IBOutlet weak var tableview: UITableView!
@@ -38,12 +40,9 @@ class FavouriteScreenViewController: UIViewController {
 //                                self.valueArray.append(document.data()["name"] as! String)
 //                                }
                             print("roro\(document.documentID)")
-                            if document.data().count == self.valueArray.count {
-                                
-                            }
-                            else {
-                                self.valueArray.append(document.data()["name"] as! String)
-                            }
+                        self.valueArray.append(document.data()["name"] as! String)
+                        self.valueArrayprice.append(document.data()["price"] as! String)
+                        self.valueArrayimage.append(document.data()["image"] as! String)
                             
 //                            for i in 1...document.data().count{
 //                                self.valueArray.append(document.data()["name"] as! String)
@@ -64,13 +63,11 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! FavouriteTableViewCell
         cell.name.text = valueArray[indexPath.row]
-//        cell.price.text = arrayPrice2[indexPath.row]
-//       cell.imageview.sd_setImage(with: URL(string: arrImage[indexPath.row]), placeholderImage: UIImage(named: "test.jpeg"))
+        cell.price.text = valueArrayprice[indexPath.row]
+       cell.imageview.sd_setImage(with: URL(string: valueArrayimage[indexPath.row]), placeholderImage: UIImage(named: "test.jpeg"))
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         107
     }
-    
-    
 }
