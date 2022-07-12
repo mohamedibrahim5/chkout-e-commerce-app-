@@ -47,7 +47,7 @@ class meViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         
-                        let db = Firestore.firestore()
+        let db = Firestore.firestore()
         db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
                     
                     if error == nil && snapshot != nil {

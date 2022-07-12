@@ -79,11 +79,10 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AC9-X0-e8P">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="211" height="197"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="211" height="204"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="197" id="Sf3-0d-fSG"/>
-                                                                            <constraint firstAttribute="height" constant="197" id="p0i-sA-UkU"/>
-                                                                            <constraint firstAttribute="width" constant="211" id="uGx-g7-ifH"/>
+                                                                            <constraint firstAttribute="width" constant="211" id="sJo-8Y-1Uc"/>
+                                                                            <constraint firstAttribute="height" constant="197" id="u5D-SE-1Rn"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -95,7 +94,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="211" height="204"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adidas" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6X6-a2-ItK">
-                                                                                <rect key="frame" x="8" y="91" width="195" height="22.5"/>
+                                                                                <rect key="frame" x="72" y="91" width="59.5" height="22.5"/>
                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -105,11 +104,11 @@
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="trailing" secondItem="6X6-a2-ItK" secondAttribute="trailing" constant="8" id="OM3-LC-z1F"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="6X6-a2-ItK" secondAttribute="trailing" constant="79.5" id="OM3-LC-z1F"/>
                                                                             <constraint firstAttribute="height" constant="204" id="SNg-qt-wRI"/>
-                                                                            <constraint firstItem="6X6-a2-ItK" firstAttribute="centerX" secondItem="uSt-1J-EcO" secondAttribute="centerX" id="jZ2-Wr-JNE"/>
+                                                                            <constraint firstItem="6X6-a2-ItK" firstAttribute="centerX" secondItem="uSt-1J-EcO" secondAttribute="centerX" constant="-3.75" id="jZ2-Wr-JNE"/>
                                                                             <constraint firstItem="6X6-a2-ItK" firstAttribute="centerY" secondItem="uSt-1J-EcO" secondAttribute="centerY" id="pfz-8K-5HH"/>
-                                                                            <constraint firstItem="6X6-a2-ItK" firstAttribute="leading" secondItem="uSt-1J-EcO" secondAttribute="leading" constant="8" id="zmv-qi-5xn"/>
+                                                                            <constraint firstItem="6X6-a2-ItK" firstAttribute="leading" secondItem="uSt-1J-EcO" secondAttribute="leading" constant="72" id="zmv-qi-5xn"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -121,13 +120,13 @@
                                                             </view>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstItem="AC9-X0-e8P" firstAttribute="top" secondItem="WGi-hs-woj" secondAttribute="top" id="1jd-E6-JgT"/>
-                                                                <constraint firstItem="AC9-X0-e8P" firstAttribute="leading" secondItem="WGi-hs-woj" secondAttribute="leading" id="6me-wX-lx7"/>
-                                                                <constraint firstAttribute="trailing" secondItem="AC9-X0-e8P" secondAttribute="trailing" id="E6h-M5-16U"/>
+                                                                <constraint firstAttribute="bottom" secondItem="AC9-X0-e8P" secondAttribute="bottom" id="6cX-zN-uTU"/>
+                                                                <constraint firstItem="AC9-X0-e8P" firstAttribute="top" secondItem="WGi-hs-woj" secondAttribute="top" id="Ewg-K5-pOJ"/>
                                                                 <constraint firstItem="uSt-1J-EcO" firstAttribute="top" secondItem="WGi-hs-woj" secondAttribute="top" id="Ldr-lY-JWg"/>
-                                                                <constraint firstItem="uSt-1J-EcO" firstAttribute="leading" secondItem="AC9-X0-e8P" secondAttribute="leading" id="gZa-5n-QLf"/>
+                                                                <constraint firstAttribute="trailing" secondItem="AC9-X0-e8P" secondAttribute="trailing" id="eKa-42-o78"/>
                                                                 <constraint firstAttribute="trailing" secondItem="uSt-1J-EcO" secondAttribute="trailing" id="rL7-jX-kbp"/>
                                                                 <constraint firstAttribute="bottom" secondItem="uSt-1J-EcO" secondAttribute="bottom" id="v8k-c9-icZ"/>
+                                                                <constraint firstItem="AC9-X0-e8P" firstAttribute="leading" secondItem="WGi-hs-woj" secondAttribute="leading" id="wxl-xi-67t"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

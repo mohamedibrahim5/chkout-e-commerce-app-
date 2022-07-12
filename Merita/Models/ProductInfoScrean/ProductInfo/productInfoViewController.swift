@@ -65,7 +65,7 @@ var arrayOfProducts : ProductCategory?
                   }
                   else {
                       print("add to favourite3")
-                      db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.price,"name":self.name,"image":self.image], merge: true)
+                      db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!], merge: true)
                   }
               }
               else {
@@ -73,7 +73,7 @@ var arrayOfProducts : ProductCategory?
                       print("Document does not exist")
                   productInfoViewController.x = 1
                   sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                  db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.price,"name":self.name,"image":self.image], merge: true)
+                  db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!], merge: true)
               }
           }
         }
