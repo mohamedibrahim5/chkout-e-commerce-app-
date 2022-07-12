@@ -23,6 +23,10 @@ class meViewController: UIViewController {
     }
     
     @IBAction func cart(_ sender: UIBarButtonItem) {
+        print("ordersMore")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "cartcell") as! cartViewController
+        vc.userId = userId
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func washListMore(_ sender: UIButton) {
         print("washListMore")
@@ -32,10 +36,7 @@ class meViewController: UIViewController {
     }
    
     @IBAction func ordersMore(_ sender: UIButton) {
-        print("ordersMore")
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "cartcell") as! cartViewController
-        vc.userId = userId
-        self.navigationController?.pushViewController(vc, animated: true)
+       
     }
     @IBOutlet weak var welcome: UILabel!
     var userId : String?
