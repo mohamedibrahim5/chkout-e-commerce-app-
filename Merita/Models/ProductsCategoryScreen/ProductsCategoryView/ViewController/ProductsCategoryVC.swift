@@ -8,6 +8,7 @@
 import UIKit
 
 class ProductsCategoryVC: UIViewController {
+    var userId :String?
     
     @IBOutlet weak var productCategoryCView: UICollectionView!{
         didSet{
@@ -136,6 +137,7 @@ extension ProductsCategoryVC: UICollectionViewDelegate, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
         vc?.arrayOfProducts = arrayOfProductsCategory[indexPath.row]
+        vc?.userId = userId
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     

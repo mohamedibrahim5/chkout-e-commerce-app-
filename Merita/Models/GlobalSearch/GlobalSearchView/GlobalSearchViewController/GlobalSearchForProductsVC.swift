@@ -8,7 +8,7 @@
 import UIKit
 
 class GlobalSearchForProductsVC: UIViewController {
-    
+    var userId : String?
     @IBOutlet weak var allProductsCView: UICollectionView!{
         didSet{
             allProductsCView.dataSource = self
@@ -121,6 +121,7 @@ extension GlobalSearchForProductsVC: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
         vc?.arrayOfProducts = arrayOfAllProducts[indexPath.row]
+        vc?.userId = userId
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     

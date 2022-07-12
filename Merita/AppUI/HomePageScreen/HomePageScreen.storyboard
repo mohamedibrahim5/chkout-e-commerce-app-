@@ -353,6 +353,22 @@
             </objects>
             <point key="canvasLocation" x="-659" y="129"/>
         </scene>
+        <!--cart-->
+        <scene sceneID="abS-WY-XTe">
+            <objects>
+                <viewController storyboardIdentifier="cartcell" id="I2o-tL-mDF" customClass="cartViewController" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gQi-3B-bMa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="veq-db-5yT"/>
+                        <color key="backgroundColor" name="Background1"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="cart" image="cart.fill.badge.plus" catalog="system" id="eB2-tC-Prm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SIa-5d-pRF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1149" y="284"/>
+        </scene>
         <!--Home Page Screan Tab Bar Controller-->
         <scene sceneID="2to-uC-HsR">
             <objects>
@@ -368,6 +384,7 @@
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="mOX-IB-RqM"/>
                         <segue destination="wqU-o7-3AE" kind="relationship" relationship="viewControllers" id="PuT-f2-Bbi"/>
                         <segue destination="t2Y-vf-og9" kind="relationship" relationship="viewControllers" id="Arh-a8-sNd"/>
+                        <segue destination="I2o-tL-mDF" kind="relationship" relationship="viewControllers" id="hGu-jf-ONa"/>
                         <segue destination="55t-5F-Nm0" kind="relationship" relationship="viewControllers" id="vLf-RM-Ue8"/>
                     </connections>
                 </tabBarController>
@@ -646,6 +663,7 @@
     </scenes>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="cart.fill.badge.plus" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="rosette" catalog="system" width="106" height="128"/>

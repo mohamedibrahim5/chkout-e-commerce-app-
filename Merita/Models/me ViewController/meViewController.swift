@@ -26,14 +26,16 @@ class meViewController: UIViewController {
     }
     @IBAction func washListMore(_ sender: UIButton) {
         print("washListMore")
-     //   print(userId!)
         let vc = UIStoryboard(name: "Favourite Screen", bundle: nil).instantiateViewController(withIdentifier: "cell2") as? FavouriteScreenViewController
-       // vc!.userId = userId
+        vc!.userId = userId
         self.navigationController!.pushViewController(vc!, animated: true)
     }
    
     @IBAction func ordersMore(_ sender: UIButton) {
         print("ordersMore")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "cartcell") as! cartViewController
+        vc.userId = userId
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBOutlet weak var welcome: UILabel!
     var userId : String?

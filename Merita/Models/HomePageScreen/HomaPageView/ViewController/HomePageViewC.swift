@@ -11,6 +11,7 @@ class HomePageViewC: UIViewController {
     
     var titleCategory: String?
     var titleBrand: String?
+    var userId:String?
     
     @IBOutlet weak var brandsAndCategoryTV: UITableView!{
         didSet{
@@ -97,6 +98,7 @@ extension HomePageViewC: UITableViewDelegate{
         if segue.identifier == "goToProductsCategoryVC"{
             
             let destVC = segue.destination as! ProductsCategoryVC
+            destVC.userId = userId
             
             destVC.categoryTitle = titleCategory
             
@@ -118,7 +120,7 @@ extension HomePageViewC: PassProductsBrand{
         if let viewController = UIStoryboard(name: "ProductsCategoryScreen", bundle: nil).instantiateViewController(withIdentifier: "ProductsCategoryVC") as? ProductsCategoryVC {
             
             viewController.brandTitle = titleBrand
-            
+            viewController.userId = userId
             if let navigator = navigationController {
                 
                 navigator.pushViewController(viewController, animated: true)
@@ -141,7 +143,7 @@ extension HomePageViewC: PassProductsCategory {
         if let viewController = UIStoryboard(name: "ProductsCategoryScreen", bundle: nil).instantiateViewController(withIdentifier: "ProductsCategoryVC") as? ProductsCategoryVC {
             
             viewController.categoryTitle = titleCategory
-            
+            viewController.userId = userId
             if let navigator = navigationController {
                 
                 navigator.pushViewController(viewController, animated: true)

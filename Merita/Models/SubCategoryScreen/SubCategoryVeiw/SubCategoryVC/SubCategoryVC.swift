@@ -9,7 +9,7 @@ import UIKit
 
 class SubCategoryVC: UIViewController {
     
-    
+    var userId:String?
     @IBOutlet weak var shoesBtnOutlet: UIButton!
     
     var passShoesCategoryDelegate: SubCategoryProductsProtocol?

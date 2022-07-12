@@ -17,8 +17,14 @@ class HomePageScreanTabBarController: UITabBarController {
         super.viewDidLoad()
         let favvc = self.viewControllers![2] as! FavouriteScreenViewController
         favvc.userId = id!
-        let mevc = self.viewControllers![3] as! meViewController
+        let mevc = self.viewControllers![4] as! meViewController
         mevc.userId = id!
+        let homevc = self.viewControllers![0] as! HomePageViewC
+        homevc.userId = id!
+        let searchvc = self.viewControllers![1] as! GlobalSearchForProductsVC
+        searchvc.userId = id!
+        let cartvc = self.viewControllers![1] as! cartViewController
+        cartvc.userId = id!
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out", style: .done, target: self, action:  #selector(signOut(_:))
         )
     }
