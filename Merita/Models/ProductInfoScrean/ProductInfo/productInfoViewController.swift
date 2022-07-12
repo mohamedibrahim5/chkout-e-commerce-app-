@@ -12,6 +12,7 @@ import FirebaseDatabase
 import SDWebImage
 
 class productInfoViewController: UIViewController {
+    @IBOutlet weak var pageControler: UIPageControl!
     
 var arrayOfProducts : ProductCategory?
     
@@ -25,6 +26,8 @@ var arrayOfProducts : ProductCategory?
     var productprice : String?
     var productimage : String?
     var productimages : [String]?
+    var timer :Timer?
+    var currentCellIndex = 0
     var price : String =  "1255"
     var name : String = "Adidass"
     var image : String = "https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300"
@@ -93,6 +96,7 @@ var arrayOfProducts : ProductCategory?
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        pageControler.numberOfPages = 3
         productname = (arrayOfProducts?.title)!
         productdis = (arrayOfProducts?.body_html)!
         productName.text = productname
@@ -104,12 +108,24 @@ var arrayOfProducts : ProductCategory?
         productprice = arrayOfProducts?.variants![0].price
         productPrice.text = ("\(productprice!)$")
         productimage = arrayOfProducts?.images![0].src
-//        productimages?.append((arrayOfProducts?.images![0].src)!)
-//        productimages?.append((arrayOfProducts?.images![1].src)!)
-//        productimages?.append((arrayOfProducts?.images![2].src)!)
-//        productimages?.append((arrayOfProducts?.images![3].src)!)
         productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")"]
+//                collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
+     
+        statrtTimer()
         
+    }
+    func statrtTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(movToNextIndex), userInfo: nil, repeats: true)
+    }
+    @objc func movToNextIndex (){
+        if currentCellIndex < 2 {
+            currentCellIndex += 1
+        } else {
+            currentCellIndex = 0
+        }
+        
+        collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
+        pageControler.currentPage = currentCellIndex
     }
     override func viewWillAppear(_ animated: Bool) {
        if productInfoViewController.x == 1 {
@@ -130,9 +146,16 @@ extension productInfoViewController : UICollectionViewDataSource,UICollectionVie
         cell.imageviewproduct.sd_setImage(with: URL(string: "\(productimages![indexPath.row])"), placeholderImage: UIImage(named: "test.jpeg"))
         return cell
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: self.view.frame.width*0.99, height: self.view.frame.width*0.5)
-//    }
+   
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.view.frame.width*1, height: self.view.frame.height*0.3)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    
 }
 extension productInfoViewController {
     func showAlertLogin(){

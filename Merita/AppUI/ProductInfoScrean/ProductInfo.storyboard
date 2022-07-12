@@ -29,6 +29,7 @@
         <!--Product Info View Controller-->
         <scene sceneID="O3w-os-GZC">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5H-m9-7E4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="cell" id="2Tg-0n-9nb" customClass="productInfoViewController" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2j2-Sb-AR0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
@@ -40,50 +41,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTy-Lo-5VE">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1022"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TL9-th-Fcw">
-                                                <rect key="frame" x="0.0" y="56" width="414" height="200"/>
-                                                <color key="backgroundColor" name="Background2"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="200" id="8kR-nd-9BP"/>
-                                                </constraints>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zFg-li-aOO">
-                                                    <size key="itemSize" width="356" height="183"/>
-                                                    <size key="estimatedItemSize" width="128" height="128"/>
-                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                </collectionViewFlowLayout>
-                                                <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productinfocell" id="0rI-1J-M1R" customClass="productInfoCollectionViewCell" customModule="Merita" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="8.5" width="356" height="183"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="2yu-kO-tNi">
-                                                            <rect key="frame" x="0.0" y="0.0" width="356" height="183"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VRw-L4-xQk">
-                                                                    <rect key="frame" x="30" y="6.5" width="296" height="170"/>
-                                                                    <color key="backgroundColor" name="Background2"/>
-                                                                </imageView>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="VRw-L4-xQk" firstAttribute="centerX" secondItem="2yu-kO-tNi" secondAttribute="centerX" id="Gdn-g4-y7f"/>
-                                                                <constraint firstItem="VRw-L4-xQk" firstAttribute="leading" secondItem="2yu-kO-tNi" secondAttribute="leading" constant="30" id="PVJ-vc-pOV"/>
-                                                                <constraint firstItem="VRw-L4-xQk" firstAttribute="centerY" secondItem="2yu-kO-tNi" secondAttribute="centerY" id="UvH-Gi-4Hv"/>
-                                                                <constraint firstItem="VRw-L4-xQk" firstAttribute="top" secondItem="2yu-kO-tNi" secondAttribute="top" constant="6.5" id="gIO-wd-7Fn"/>
-                                                            </constraints>
-                                                        </collectionViewCellContentView>
-                                                        <size key="customSize" width="356" height="183"/>
-                                                        <connections>
-                                                            <outlet property="imageviewproduct" destination="VRw-L4-xQk" id="dfr-yH-Sbl"/>
-                                                        </connections>
-                                                    </collectionViewCell>
-                                                </cells>
-                                                <connections>
-                                                    <outlet property="dataSource" destination="2Tg-0n-9nb" id="fHW-KD-Lhi"/>
-                                                    <outlet property="delegate" destination="2Tg-0n-9nb" id="R9b-xA-8DU"/>
-                                                </connections>
-                                            </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIs-Dc-2r8">
                                                 <rect key="frame" x="30" y="300" width="354" height="663"/>
                                                 <subviews>
@@ -231,17 +188,73 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="cell" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eno-Ke-yV3">
+                                                <rect key="frame" x="0.0" y="-9" width="414" height="270"/>
+                                                <color key="backgroundColor" name="Background2"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="270" id="xuI-MT-FmP"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SkO-Cn-RTk">
+                                                    <size key="itemSize" width="388" height="238"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productinfocell" id="tE8-85-tS1" customClass="productInfoCollectionViewCell" customModule="Merita" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="16" width="388" height="238"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lrU-ym-pwV">
+                                                            <rect key="frame" x="0.0" y="0.0" width="388" height="238"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yOF-ad-uLp">
+                                                                    <rect key="frame" x="0.0" y="8" width="388" height="222"/>
+                                                                    <color key="backgroundColor" name="Background2"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="222" id="HEY-gy-Lde"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" name="Background2"/>
+                                                            <constraints>
+                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="top" secondItem="lrU-ym-pwV" secondAttribute="top" constant="8" id="Bmd-Wc-t3E"/>
+                                                                <constraint firstAttribute="trailing" secondItem="yOF-ad-uLp" secondAttribute="trailing" id="IGM-YJ-ht9"/>
+                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="leading" secondItem="lrU-ym-pwV" secondAttribute="leading" id="Klp-Pm-Chn"/>
+                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="width" secondItem="lrU-ym-pwV" secondAttribute="width" id="RnT-bh-J6u"/>
+                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="top" secondItem="lrU-ym-pwV" secondAttribute="top" constant="8" id="VVU-qf-FYl"/>
+                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="height" secondItem="lrU-ym-pwV" secondAttribute="height" multiplier="0.696262" constant="56.289719626168221" id="Zr2-Gq-hbf"/>
+                                                                <constraint firstAttribute="bottom" secondItem="yOF-ad-uLp" secondAttribute="bottom" constant="8" id="qRK-7N-MAk"/>
+                                                            </constraints>
+                                                        </collectionViewCellContentView>
+                                                        <size key="customSize" width="388" height="238"/>
+                                                        <connections>
+                                                            <outlet property="imageviewproduct" destination="yOF-ad-uLp" id="bw6-se-KGc"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="2Tg-0n-9nb" id="TOd-JE-ja9"/>
+                                                    <outlet property="delegate" destination="2Tg-0n-9nb" id="MZu-cz-6P3"/>
+                                                </connections>
+                                            </collectionView>
+                                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="LVv-ww-Gmc">
+                                                <rect key="frame" x="149" y="269" width="116" height="26"/>
+                                                <color key="pageIndicatorTintColor" red="0.91437468389999998" green="0.14772679089999999" blue="0.31194894620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="currentPageIndicatorTintColor" name="AccentColor"/>
+                                            </pageControl>
                                         </subviews>
                                         <color key="backgroundColor" name="Background2"/>
                                         <constraints>
-                                            <constraint firstItem="EIs-Dc-2r8" firstAttribute="top" secondItem="TL9-th-Fcw" secondAttribute="bottom" constant="44" id="3Es-e7-hNm"/>
                                             <constraint firstItem="EIs-Dc-2r8" firstAttribute="width" relation="greaterThanOrEqual" secondItem="iTy-Lo-5VE" secondAttribute="width" multiplier="0.855072" id="47h-54-jsG"/>
                                             <constraint firstAttribute="trailing" secondItem="EIs-Dc-2r8" secondAttribute="trailing" constant="30" id="5LJ-Uf-ldW"/>
-                                            <constraint firstItem="TL9-th-Fcw" firstAttribute="top" secondItem="iTy-Lo-5VE" secondAttribute="top" constant="56" id="FMH-Ly-sgd"/>
-                                            <constraint firstItem="TL9-th-Fcw" firstAttribute="width" secondItem="iTy-Lo-5VE" secondAttribute="width" id="GjA-qA-TjJ"/>
+                                            <constraint firstItem="Eno-Ke-yV3" firstAttribute="leading" secondItem="iTy-Lo-5VE" secondAttribute="leading" id="9ZL-wo-fe9"/>
+                                            <constraint firstAttribute="trailing" secondItem="Eno-Ke-yV3" secondAttribute="trailing" id="ADn-Tj-4I2"/>
+                                            <constraint firstItem="Eno-Ke-yV3" firstAttribute="top" secondItem="iTy-Lo-5VE" secondAttribute="top" constant="-9" id="AUS-5b-1rC"/>
                                             <constraint firstItem="EIs-Dc-2r8" firstAttribute="leading" secondItem="iTy-Lo-5VE" secondAttribute="leading" constant="30" id="Hb4-MD-Flh"/>
-                                            <constraint firstAttribute="trailing" secondItem="TL9-th-Fcw" secondAttribute="trailing" id="Opn-DC-2iY"/>
-                                            <constraint firstItem="TL9-th-Fcw" firstAttribute="leading" secondItem="iTy-Lo-5VE" secondAttribute="leading" id="UUe-69-i58"/>
+                                            <constraint firstItem="EIs-Dc-2r8" firstAttribute="top" secondItem="Eno-Ke-yV3" secondAttribute="bottom" constant="39" id="ZOW-la-SXn"/>
+                                            <constraint firstItem="LVv-ww-Gmc" firstAttribute="centerX" secondItem="Eno-Ke-yV3" secondAttribute="centerX" id="fCs-To-Amg"/>
+                                            <constraint firstItem="LVv-ww-Gmc" firstAttribute="bottom" secondItem="Eno-Ke-yV3" secondAttribute="bottom" constant="34" id="wT1-Iz-dPv"/>
                                             <constraint firstAttribute="bottom" secondItem="EIs-Dc-2r8" secondAttribute="bottom" constant="59" id="xaD-Gw-YPQ"/>
                                         </constraints>
                                     </view>
@@ -269,20 +282,23 @@
                     <size key="freeformSize" width="414" height="1100"/>
                     <connections>
                         <outlet property="brandName" destination="2Et-Mv-05Q" id="xL8-6F-WmL"/>
-                        <outlet property="collectionView" destination="TL9-th-Fcw" id="BpC-1t-kuS"/>
+                        <outlet property="collectionView" destination="Eno-Ke-yV3" id="qrK-dT-23l"/>
+                        <outlet property="pageControler" destination="LVv-ww-Gmc" id="tdn-Qn-QVV"/>
                         <outlet property="productDescription" destination="PM0-14-Bgv" id="KO1-bM-SYs"/>
                         <outlet property="productName" destination="yAq-Zl-TDF" id="mfQ-81-3dE"/>
                         <outlet property="productPrice" destination="6Ka-ML-LY2" id="MDD-I3-ISk"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t5H-m9-7E4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="477" y="-46"/>
+            <point key="canvasLocation" x="579.71014492753625" y="-44.196428571428569"/>
         </scene>
     </scenes>
     <resources>
         <image name="heart.slash" catalog="system" width="128" height="115"/>
         <image name="star" catalog="system" width="128" height="116"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Background1">
             <color red="0.80000001192092896" green="0.45100000500679016" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

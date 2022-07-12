@@ -321,7 +321,7 @@
                                                 <rect key="frame" x="0.0" y="254" width="414" height="828"/>
                                                 <color key="backgroundColor" name="Background1"/>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZC-hg-gUx">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZC-hg-gUx">
                                                 <rect key="frame" x="28" y="136" width="358" height="797"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="93o-F1-jAz">
@@ -493,6 +493,11 @@
                                                     <constraint firstItem="93o-F1-jAz" firstAttribute="leading" secondItem="0ZC-hg-gUx" secondAttribute="leading" constant="92" id="zUF-3p-A83"/>
                                                     <constraint firstItem="u4v-KY-cmq" firstAttribute="top" secondItem="l1H-qw-YJh" secondAttribute="bottom" constant="18" id="zpY-mJ-ylZ"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="10"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FTW-47-sci">
                                                 <rect key="frame" x="137.5" y="34" width="139" height="48"/>
@@ -543,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uj9-fV-ZeY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="658" y="-933"/>
+            <point key="canvasLocation" x="551" y="-1067"/>
         </scene>
     </scenes>
     <resources>
