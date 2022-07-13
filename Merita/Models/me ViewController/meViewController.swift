@@ -66,8 +66,6 @@ class meViewController: UIViewController {
                 }
             }
         }
-        
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         let db = Firestore.firestore()

@@ -89,6 +89,7 @@ class LoginScreenViewController: UIViewController {
                             let values = ["name": userName] as [String : Any]
                             self.db.collection("customerinformation").document(Auth.auth().currentUser!.uid).setData(["name":values["name"]!,"uid":user!.user.uid])
                             LoginScreenViewController.checkname = values ["name"] as! String
+                            AddingEmailInApi(name:  LoginScreenViewController.checkname, email: (Auth.auth().currentUser?.email)!, password: "********", uidFirebase: Auth.auth().currentUser!.uid)
                             usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                                     // error in database save
                             if err != nil {
@@ -101,7 +102,7 @@ class LoginScreenViewController: UIViewController {
                     
                     LoginScreenViewController.idUser = Auth.auth().currentUser!.uid
                     print(LoginScreenViewController.idUser)
-                 //   vc?.userId = LoginScreenViewController.idUser
+                    vc?.id = LoginScreenViewController.idUser
                     self.navigationController!.pushViewController(vc!, animated: true)
                 }
                 if error != nil {
