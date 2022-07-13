@@ -21,6 +21,25 @@
                                 <rect key="frame" x="0.0" y="324" width="414" height="572"/>
                                 <color key="backgroundColor" name="Background1"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Favourite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCN-Dw-8qD">
+                                <rect key="frame" x="136.5" y="219" width="141" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="141" id="k5c-WP-BVp"/>
+                                    <constraint firstAttribute="height" constant="37" id="ssf-az-0VR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" name="Background1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icloud.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Hje-Mw-87A">
+                                <rect key="frame" x="82" y="349" width="250" height="199"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" name="Background2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="nCQ-l9-BTT"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="w57-rY-aY7"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="93J-oG-lx2">
                                 <rect key="frame" x="20" y="76" width="374" height="743"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -93,16 +112,21 @@
                         <viewLayoutGuide key="safeArea" id="aQX-XN-eIm"/>
                         <color key="backgroundColor" name="Background2"/>
                         <constraints>
+                            <constraint firstItem="KCN-Dw-8qD" firstAttribute="centerX" secondItem="GtK-8H-gjX" secondAttribute="centerX" id="1zF-4d-bTc"/>
+                            <constraint firstItem="KCN-Dw-8qD" firstAttribute="top" secondItem="8AV-L3-aUp" secondAttribute="bottom" constant="148" id="2gj-Jz-qis"/>
                             <constraint firstAttribute="bottom" secondItem="AGP-ba-laM" secondAttribute="bottom" id="7fe-h2-32r"/>
                             <constraint firstItem="aQX-XN-eIm" firstAttribute="trailing" secondItem="93J-oG-lx2" secondAttribute="trailing" constant="20" id="8cH-Tr-KFy"/>
+                            <constraint firstItem="Hje-Mw-87A" firstAttribute="centerY" secondItem="GtK-8H-gjX" secondAttribute="centerY" id="Ffk-fw-R0d"/>
                             <constraint firstItem="AGP-ba-laM" firstAttribute="leading" secondItem="aQX-XN-eIm" secondAttribute="leading" id="OLX-vX-hyf"/>
                             <constraint firstItem="8AV-L3-aUp" firstAttribute="centerX" secondItem="GtK-8H-gjX" secondAttribute="centerX" id="Pmw-7f-RAq"/>
                             <constraint firstItem="8AV-L3-aUp" firstAttribute="top" secondItem="aQX-XN-eIm" secondAttribute="top" id="ScE-Og-4uL"/>
                             <constraint firstItem="93J-oG-lx2" firstAttribute="leading" secondItem="aQX-XN-eIm" secondAttribute="leading" constant="20" id="Tgv-2K-gXy"/>
                             <constraint firstItem="AGP-ba-laM" firstAttribute="trailing" secondItem="aQX-XN-eIm" secondAttribute="trailing" id="VAd-lv-fT8"/>
                             <constraint firstItem="aQX-XN-eIm" firstAttribute="bottom" secondItem="93J-oG-lx2" secondAttribute="bottom" constant="43" id="ZY1-aq-QO2"/>
+                            <constraint firstItem="Hje-Mw-87A" firstAttribute="centerX" secondItem="GtK-8H-gjX" secondAttribute="centerX" id="cFB-4o-FxJ"/>
                             <constraint firstItem="93J-oG-lx2" firstAttribute="top" secondItem="aQX-XN-eIm" secondAttribute="top" constant="32" id="cdu-jn-YK1"/>
                             <constraint firstItem="AGP-ba-laM" firstAttribute="top" secondItem="aQX-XN-eIm" secondAttribute="top" constant="280" id="jeN-vb-b6h"/>
+                            <constraint firstItem="AGP-ba-laM" firstAttribute="top" secondItem="KCN-Dw-8qD" secondAttribute="bottom" constant="68" id="twL-H8-PWd"/>
                             <constraint firstItem="93J-oG-lx2" firstAttribute="top" secondItem="8AV-L3-aUp" secondAttribute="bottom" constant="5" id="wAU-3r-Czn"/>
                         </constraints>
                     </view>
@@ -113,10 +137,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwx-th-xLq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-448" y="115"/>
+            <point key="canvasLocation" x="-449.27536231884062" y="114.50892857142857"/>
         </scene>
     </scenes>
     <resources>
+        <image name="icloud.slash" catalog="system" width="128" height="101"/>
         <image name="suit.heart.fill" catalog="system" width="128" height="109"/>
         <image name="test" width="296" height="170"/>
         <namedColor name="Background1">

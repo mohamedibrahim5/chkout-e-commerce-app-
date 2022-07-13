@@ -92,6 +92,7 @@ class meViewController: UIViewController {
         }
 }
 }
+
 extension meViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if valueArray.count  > 2 {
@@ -150,4 +151,5 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
             complationHandler(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAtion])
-    }}
+    }
+}

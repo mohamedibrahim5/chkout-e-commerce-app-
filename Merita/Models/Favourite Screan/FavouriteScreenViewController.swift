@@ -66,6 +66,11 @@ class FavouriteScreenViewController: UIViewController {
                     
         }
 }
+    override func viewDidAppear(_ animated: Bool) {
+        if valueArray.count == 0 {
+            tableview.isHidden = true
+        }
+    }
 }
 extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,6 +125,10 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
             self.tableview.beginUpdates()
             self.tableview.deleteRows(at: [indexPath], with: .automatic)
             self.tableview.endUpdates()
+            if self.valueArray.count == 0 {
+                self.tableview.isHidden = true
+                self.tableview.reloadData()
+            }
             complationHandler(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAtion])
