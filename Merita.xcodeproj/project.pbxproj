@@ -71,6 +71,7 @@
 		A182C52C287CB4E100F74F2E /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A182C52B287CB4E000F74F2E /* FavouriteTableViewCell.swift */; };
 		A184FFD2287CBC2700305DB2 /* Favourite Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A184FFD1287CBC2700305DB2 /* Favourite Screen.storyboard */; };
 		A1859797287D8A5B0023E9B3 /* cartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1859796287D8A5B0023E9B3 /* cartViewController.swift */; };
+		A186CE77287F6FE2009EC26D /* SignUpAddingPostInApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186CE76287F6FE2009EC26D /* SignUpAddingPostInApi.swift */; };
 		A186E37D287CC26600B72134 /* Profile Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A186E37C287CC26600B72134 /* Profile Screen.storyboard */; };
 		A186E380287CD03800B72134 /* meViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186E37F287CD03800B72134 /* meViewController.swift */; };
 		A186E382287CD09B00B72134 /* meWashListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186E381287CD09B00B72134 /* meWashListTableViewCell.swift */; };
@@ -153,6 +154,7 @@
 		A182C52B287CB4E000F74F2E /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
 		A184FFD1287CBC2700305DB2 /* Favourite Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Favourite Screen.storyboard"; sourceTree = "<group>"; };
 		A1859796287D8A5B0023E9B3 /* cartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartViewController.swift; sourceTree = "<group>"; };
+		A186CE76287F6FE2009EC26D /* SignUpAddingPostInApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAddingPostInApi.swift; sourceTree = "<group>"; };
 		A186E37C287CC26600B72134 /* Profile Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Profile Screen.storyboard"; sourceTree = "<group>"; };
 		A186E37F287CD03800B72134 /* meViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meViewController.swift; sourceTree = "<group>"; };
 		A186E381287CD09B00B72134 /* meWashListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = meWashListTableViewCell.swift; sourceTree = "<group>"; };
@@ -858,6 +860,7 @@
 			isa = PBXGroup;
 			children = (
 				A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */,
+				A186CE76287F6FE2009EC26D /* SignUpAddingPostInApi.swift */,
 			);
 			path = "Sign Up Screan";
 			sourceTree = "<group>";
@@ -1064,6 +1067,7 @@
 				A18B107E2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift in Sources */,
 				3E19DAA02873B189005ACCED /* TVCellForBrands.swift in Sources */,
 				A186E382287CD09B00B72134 /* meWashListTableViewCell.swift in Sources */,
+				A186CE77287F6FE2009EC26D /* SignUpAddingPostInApi.swift in Sources */,
 				3E35202428749B0C0091D753 /* CVCellForCategoryItem.swift in Sources */,
 				A1870EA8287CB38700743344 /* FavouriteScreenViewController.swift in Sources */,
 				A186E380287CD03800B72134 /* meViewController.swift in Sources */,
