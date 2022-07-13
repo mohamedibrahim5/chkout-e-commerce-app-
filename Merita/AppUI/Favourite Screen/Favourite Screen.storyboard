@@ -49,7 +49,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wnk-Mb-qrO">
-                                                    <rect key="frame" x="179" y="59" width="187" height="21"/>
+                                                    <rect key="frame" x="179" y="75" width="187" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -58,13 +58,13 @@
                                             <constraints>
                                                 <constraint firstItem="Nvh-1O-qfp" firstAttribute="leading" secondItem="tCJ-ut-mmZ" secondAttribute="leading" constant="14" id="3QF-dM-nRm"/>
                                                 <constraint firstAttribute="trailing" secondItem="tng-zK-GoF" secondAttribute="trailing" constant="8" id="7cv-Ee-4Fh"/>
-                                                <constraint firstAttribute="bottom" secondItem="Wnk-Mb-qrO" secondAttribute="bottom" constant="27" id="DEA-he-oXz"/>
+                                                <constraint firstAttribute="bottom" secondItem="Wnk-Mb-qrO" secondAttribute="bottom" constant="11" id="DEA-he-oXz"/>
                                                 <constraint firstItem="Wnk-Mb-qrO" firstAttribute="width" secondItem="tCJ-ut-mmZ" secondAttribute="width" multiplier="0.5" id="Ewm-0D-wpC"/>
                                                 <constraint firstItem="tng-zK-GoF" firstAttribute="width" secondItem="tCJ-ut-mmZ" secondAttribute="width" multiplier="0.5" id="Ge0-qL-8ot"/>
                                                 <constraint firstItem="Wnk-Mb-qrO" firstAttribute="leading" secondItem="Nvh-1O-qfp" secondAttribute="trailing" constant="4" id="IBK-Eg-Lr1"/>
                                                 <constraint firstItem="Nvh-1O-qfp" firstAttribute="width" secondItem="tCJ-ut-mmZ" secondAttribute="width" multiplier="0.430481" id="JSh-Ox-qve"/>
                                                 <constraint firstItem="tng-zK-GoF" firstAttribute="leading" secondItem="Nvh-1O-qfp" secondAttribute="trailing" constant="4" id="R4H-x9-c9m"/>
-                                                <constraint firstItem="Wnk-Mb-qrO" firstAttribute="top" secondItem="tng-zK-GoF" secondAttribute="bottom" constant="27" id="ZsC-EY-jkI"/>
+                                                <constraint firstItem="Wnk-Mb-qrO" firstAttribute="top" secondItem="tng-zK-GoF" secondAttribute="bottom" constant="43" id="ZsC-EY-jkI"/>
                                                 <constraint firstItem="Wnk-Mb-qrO" firstAttribute="height" secondItem="tCJ-ut-mmZ" secondAttribute="height" multiplier="0.196262" id="hDI-RW-OJY"/>
                                                 <constraint firstItem="Nvh-1O-qfp" firstAttribute="top" secondItem="tCJ-ut-mmZ" secondAttribute="top" constant="6" id="li5-Y5-qek"/>
                                                 <constraint firstItem="tng-zK-GoF" firstAttribute="top" secondItem="tCJ-ut-mmZ" secondAttribute="top" constant="11" id="q1c-Mt-MSv"/>

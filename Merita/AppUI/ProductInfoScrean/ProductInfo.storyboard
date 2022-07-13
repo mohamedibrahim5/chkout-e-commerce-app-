@@ -81,7 +81,7 @@
                                                             <color key="baseBackgroundColor" name="BackgroundView"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="favourite:" destination="2Tg-0n-9nb" eventType="touchUpInside" id="pyo-JK-khb"/>
+                                                            <action selector="favourite:" destination="2Tg-0n-9nb" eventType="touchUpInside" id="cl4-LP-DFY"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxL-FW-0ci">
@@ -290,6 +290,7 @@
                     <connections>
                         <outlet property="brandName" destination="2Et-Mv-05Q" id="xL8-6F-WmL"/>
                         <outlet property="collectionView" destination="Eno-Ke-yV3" id="qrK-dT-23l"/>
+                        <outlet property="favourite" destination="Vcs-Go-asm" id="VwK-3a-Rdm"/>
                         <outlet property="pageControler" destination="LVv-ww-Gmc" id="tdn-Qn-QVV"/>
                         <outlet property="productDescription" destination="PM0-14-Bgv" id="KO1-bM-SYs"/>
                         <outlet property="productName" destination="yAq-Zl-TDF" id="mfQ-81-3dE"/>

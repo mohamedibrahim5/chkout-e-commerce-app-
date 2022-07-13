@@ -19,11 +19,10 @@ class meViewController: UIViewController {
     var valueArrayimage : [String] = []
     var valueArrayprice : [String] = []
     var valueArray : [String] = []
-    var mapname : [String] = []
-    var mapPrice : [String] = []
-    var mapImage : [String] = []
     var arrayOfProduct = [ProductCategory]()
     let productCategoryViewModel = ProductsCategoryViewModel()
+    var arrayTitle : [String] = []
+    var numberOfIndexPath : Int?
    
     @IBOutlet weak var tableview: UITableView!
     
@@ -54,46 +53,49 @@ class meViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         productCategoryViewModel.fetchProductCategory()
-        productCategoryViewModel.bindingProductCategory = { allProducts, error in
-            if let allProducts = allProducts {
-                self.arrayOfProduct = allProducts
+        productCategoryViewModel.bindingProductCategory = { productsCategory, error in
+            if let productsCategory = productsCategory {
+                self.arrayOfProduct = productsCategory
                 DispatchQueue.main.async {
-                    self.tableview.reloadData()
+                    self.arrayTitle.removeAll()
+                    for index in 0..<self.arrayOfProduct.count{
+                        self.arrayTitle.append(self.arrayOfProduct[index].title!)
+                        print(self.arrayTitle[index])
+                    }
                 }
                 if let error = error{
                     print(error.localizedDescription)
                 }
             }
         }
+        tableview?.dataSource = self;
+        tableview?.delegate = self;
+        
+        let db = Firestore.firestore()
+        db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
+            
+            if error == nil && snapshot != nil {
+                self.valueArrayimage.removeAll()
+                self.valueArray.removeAll()
+                self.valueArrayprice.removeAll()
+                for document in snapshot!.documents {
+                self.valueArray.append(document.data()["name"] as! String)
+                self.valueArrayprice.append(document.data()["price"] as! String)
+                self.valueArrayimage.append(document.data()["image"] as! String)
+               
+                  
+        }
+                
+                self.tableview.reloadData()
+              
+        }
+            
+        }
+        tableview.reloadData()
     }
     override func viewWillAppear(_ animated: Bool) {
         let db = Firestore.firestore()
-db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
-    
-    if error == nil && snapshot != nil {
-        for document in snapshot!.documents {
-        self.valueArray.append(document.data()["name"] as! String)
-        self.valueArrayprice.append(document.data()["price"] as! String)
-        self.valueArrayimage.append(document.data()["image"] as! String)
-            let arr = self.valueArray
-            let rediciendArray = arr.reduce(into: [:], { $0[$1,default:0] += 1})
-            let sorteandolos = rediciendArray.sorted(by: {$0.value > $1.value })
-            let arr2 = self.valueArrayprice
-            let rediciendArray2 = arr2.reduce(into: [:], { $0[$1,default:0] += 1})
-            let sorteandolos2 = rediciendArray2.sorted(by: {$0.value > $1.value })
-            let arr3 = self.valueArrayimage
-            let rediciendArray3 = arr3.reduce(into: [:], { $0[$1,default:0] += 1})
-            let sorteandolos3 = rediciendArray3.sorted(by: {$0.value > $1.value })
-            self.mapname = sorteandolos.map({$0.key})
-            self.mapPrice = sorteandolos2.map({$0.key})
-            self.mapImage = sorteandolos3.map({$0.key})
-            self.tableview.reloadData()
-          
-}
-      
-}
-    
-}
+
                 let docRef = db.collection("customerinformation").document(Auth.auth().currentUser!.uid)
                 docRef.getDocument { (document, error) in
                     if let document = document, document.exists {
@@ -107,27 +109,45 @@ db.collection("FAV").document("\(self.userId!)").collection("all information").g
 }
 extension meViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if mapname.count  > 2 {
+        if valueArray.count  > 2 {
             return 2
         } else {
-            return mapname.count
+            return valueArray.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "washlistcell", for: indexPath) as! meWashListTableViewCell
         let index = indexPath.row
-        cell.nameOfProduct.text = "\(mapPrice[index])$"
-        cell.imageview.sd_setImage(with: URL(string: mapImage[index]))
-        cell.name.text = mapname[index]
+        cell.nameOfProduct.text = "\(valueArrayprice[index])$"
+        cell.imageview.sd_setImage(with: URL(string: valueArrayimage[index]))
+        cell.name.text = valueArray[index]
         return cell
-    }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
-        vc?.arrayOfProducts = arrayOfProduct[indexPath.row]
-        self.navigationController!.pushViewController(vc!, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
+        let checkName = valueArray[indexPath.row]
+        for i in 0..<arrayOfProduct.count{
+            if checkName == arrayOfProduct[i].title {
+                numberOfIndexPath = i
+            }
+        }
+        vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
+        self.navigationController!.pushViewController(vc!, animated: true)
+    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { action, view, complationHandler in
+            self.valueArray.remove(at: indexPath.row)
+            self.valueArrayprice.remove(at: indexPath.row)
+            self.valueArrayimage.remove(at: indexPath.row)
+            self.tableview.beginUpdates()
+            self.tableview.deleteRows(at: [indexPath], with: .automatic)
+            self.tableview.endUpdates()
+            complationHandler(true)
+        }
+        return UISwipeActionsConfiguration(actions: [deleteAtion])
     }
 }

@@ -15,6 +15,7 @@ class productInfoViewController: UIViewController {
     @IBOutlet weak var pageControler: UIPageControl!
     
 var arrayOfProducts : ProductCategory?
+    var btnSelected = true
     
     static var x : Int = 0
     var productIdString : String?
@@ -32,8 +33,9 @@ var arrayOfProducts : ProductCategory?
     var name : String = "Adidass"
     var image : String = "https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300"
    
-
+    @IBOutlet weak var favourite: UIButton!
     @IBAction func favourite(_ sender: UIButton) {
+        btnSelected = !btnSelected
         if userId == nil {
             showAlertLogin()
         }else {
@@ -49,8 +51,7 @@ var arrayOfProducts : ProductCategory?
 
                       let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
                           let db = Firestore.firestore()
-
-                              sender.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+                          sender.setImage(UIImage(systemName: "heart.slash"), for: .normal)
                           db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").delete{ (error) in
                               if error == nil {
                                   print("delete is done ")
@@ -76,7 +77,7 @@ var arrayOfProducts : ProductCategory?
                       print("Document does not exist")
                   productInfoViewController.x = 1
                   sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                  db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!], merge: true)
+                  db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!], merge: true)
               }
           }
         }
@@ -87,7 +88,6 @@ var arrayOfProducts : ProductCategory?
        // print(userId!)
         print("add to cart")
         print(productId!)
-        print("koko")
         print(productIdString!)
     }
     @IBOutlet weak var productPrice: UILabel!
@@ -96,6 +96,7 @@ var arrayOfProducts : ProductCategory?
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         pageControler.numberOfPages = 3
         productname = (arrayOfProducts?.title)!
         productdis = (arrayOfProducts?.body_html)!
@@ -109,8 +110,6 @@ var arrayOfProducts : ProductCategory?
         productPrice.text = ("\(productprice!)$")
         productimage = arrayOfProducts?.images![0].src
         productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")"]
-//                collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
-     
         statrtTimer()
         
     }
@@ -128,12 +127,13 @@ var arrayOfProducts : ProductCategory?
         pageControler.currentPage = currentCellIndex
     }
     override func viewWillAppear(_ animated: Bool) {
-       if productInfoViewController.x == 1 {
-           
-        }
-    }
-    func doSomethingDependingOnWhoSent(_ sender: UIButton) {
-        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        
+//        if  productInfoViewController.x == 0 {
+//            favourite.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+//        }
+//       if productInfoViewController.x == 1 {
+//           favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+//        }
     }
 }
 extension productInfoViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{

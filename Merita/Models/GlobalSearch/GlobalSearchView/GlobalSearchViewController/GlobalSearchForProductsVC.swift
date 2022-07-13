@@ -87,16 +87,13 @@ extension GlobalSearchForProductsVC: SubCategoryProductsProtocol {
     func setSubCategory(subCategory: [ProductCategory]) {
         arrayOfAllProducts.removeAll()
         arrayOfAllProducts = subCategory
+        searchText2.removeAll()
         for i in 0..<self.arrayOfAllProducts.count {
             self.searchText2.append(self.arrayOfAllProducts[i].title!)
         }
-        
         self.filterData = self.searchText2
+        print("number of product \(filterData.count)")
         self.searchBar.delegate = self
-        arrayOfAllProducts.removeAll()
-        for i in 0..<self.filterData.count {
-            self.arrayOfAllProducts[i].title = filterData[i]
-        }
         allProductsCView.reloadData()
     }
     
@@ -105,8 +102,8 @@ extension GlobalSearchForProductsVC: SubCategoryProductsProtocol {
 
 extension GlobalSearchForProductsVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-      //  return filterData.count
-        return arrayOfAllProducts.count
+        return filterData.count
+      //  return arrayOfAllProducts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -115,8 +112,7 @@ extension GlobalSearchForProductsVC: UICollectionViewDataSource{
         
         
         let productDetails = arrayOfAllProducts[indexPath.row]
-   //     ProductCell.nameProduct.text = filterData[indexPath.row]
-        ProductCell.configureAllProductCell(imageProduct: productDetails.image?.src ?? "", titleProduct: productDetails.title ?? "", priceProduct: productDetails.variants?[0].price ?? "")
+        ProductCell.configureAllProductCell(imageProduct: productDetails.image?.src ?? "", titleProduct: filterData[indexPath.row], priceProduct: productDetails.variants?[0].price ?? "")
         
         return ProductCell
     }
