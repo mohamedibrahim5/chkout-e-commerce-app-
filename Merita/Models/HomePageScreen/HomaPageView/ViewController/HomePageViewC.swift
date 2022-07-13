@@ -9,6 +9,18 @@ import UIKit
 
 class HomePageViewC: UIViewController {
     
+    @IBOutlet var collection: UICollectionView!{
+        didSet{
+            collection.delegate = self
+            collection.dataSource = self
+        }
+    }
+    var arrayOfImages = [ UIImage(named: "imgOne")!, UIImage(named: "imgTwo")!, UIImage(named: "imgThree")!, UIImage(named: "imgFour")! ]
+
+    var timer: Timer?
+    var currentCellIndex = 0
+
+    
     var titleCategory: String?
     var titleBrand: String?
     var userId:String?
@@ -27,6 +39,7 @@ class HomePageViewC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startTimer()
         let homePageViewModel = HomePageViewModel()  // create view model object
         homePageViewModel.fetchBrands()         // call fetching function
         homePageViewModel.bindingData = { brands, error in
@@ -55,6 +68,22 @@ class HomePageViewC: UIViewController {
      }
      */
     
+    func startTimer()
+    {
+        timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(moveToNextIndex) , userInfo: nil, repeats: true)
+    }
+    @objc func moveToNextIndex()
+    {
+        if currentCellIndex < arrayOfImages.count - 1{
+            currentCellIndex += 1
+        }else
+        {
+            currentCellIndex = 0
+        }
+        
+        collection.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
+       // pc.currentPage = currentCellIndex
+    }
 }
 
 
@@ -156,4 +185,25 @@ extension HomePageViewC: PassProductsCategory {
     }
     
     
+}
+
+extension HomePageViewC:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return arrayOfImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collection.dequeueReusableCell(withReuseIdentifier: "adsCell", for: indexPath) as! AdsCollectionViewCell
+        cell.imageCell.image = arrayOfImages[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize (width: collection.frame.width, height: collection.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
 }
