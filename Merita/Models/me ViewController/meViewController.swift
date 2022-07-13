@@ -71,6 +71,16 @@ class meViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         let db = Firestore.firestore()
+        let docRef = db.collection("customerinformation").document(Auth.auth().currentUser!.uid)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                self.welcome.text = "Welcome"
+                self.nameOfCustomer.text = document["name"] as? String
+            } else {
+                print("Document does not exist")
+            }
+        }
+
         db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
             
             if error == nil && snapshot != nil {
