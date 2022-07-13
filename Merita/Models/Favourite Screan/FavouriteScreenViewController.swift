@@ -34,19 +34,10 @@ class FavouriteScreenViewController: UIViewController {
                     
                     if error == nil && snapshot != nil {
                         for document in snapshot!.documents {
-//                            for (key, value) in (document.data()) {
-//                                    print("key is - \(key) and value is - \(value)")
-//                                self.currencyArray.append(key)
-//                                self.valueArray.append(document.data()["name"] as! String)
-//                                }
                             print("roro\(document.documentID)")
                         self.valueArray.append(document.data()["name"] as! String)
                         self.valueArrayprice.append(document.data()["price"] as! String)
                         self.valueArrayimage.append(document.data()["image"] as! String)
-                            
-//                            for i in 1...document.data().count{
-//                                self.valueArray.append(document.data()["name"] as! String)
-//                            }
                           
                 }
                         self.tableview.reloadData()

@@ -16,6 +16,9 @@ class meViewController: UIViewController {
     var arrayPrice2 : [String] = []
     var arrayName : [String] = []
     var arrImage : [String] = []
+    var valueArrayimage : [String] = []
+    var valueArrayprice : [String] = []
+    var valueArray : [String] = []
    
     @IBOutlet weak var tableview: UITableView!
     
@@ -49,32 +52,20 @@ class meViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         let db = Firestore.firestore()
-        db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
-                    
-                    if error == nil && snapshot != nil {
-                        for document in snapshot!.documents {
-                                self.arrFav = document.data()
-                            if self.arrayPrice2.count > 0 {
-                                print("repeted data")
-                                if  self.arrayPrice2[0] == self.arrFav!["price"] as! String && self.arrayName[0] == self.arrFav!["name"] as! String && self.arrImage[0] == self.arrFav!["image"] as! String {
-                                    print("repeted data 2")
-                                } else {
-                                    self.arrayPrice2.append(self.arrFav!["price"]! as! String)
-                                    self.arrayName.append(self.arrFav!["name"] as! String)
-                                    self.arrImage.append(self.arrFav!["image"] as! String)
-                                    self.tableview.reloadData()
-                                }
-                            } else {
-                                self.arrayPrice2.append(self.arrFav!["price"]! as! String)
-                                self.arrayName.append(self.arrFav!["name"] as! String)
-                                self.arrImage.append(self.arrFav!["image"] as! String)
-                                self.tableview.reloadData()
-                            }
-                               
-                            
-                }
-            }
-        }
+db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
+    
+    if error == nil && snapshot != nil {
+        for document in snapshot!.documents {
+            print("roro\(document.documentID)")
+        self.valueArray.append(document.data()["name"] as! String)
+        self.valueArrayprice.append(document.data()["price"] as! String)
+        self.valueArrayimage.append(document.data()["image"] as! String)
+          
+}
+        self.tableview.reloadData()
+}
+    
+}
                 let docRef = db.collection("customerinformation").document(Auth.auth().currentUser!.uid)
                 docRef.getDocument { (document, error) in
                     if let document = document, document.exists {
