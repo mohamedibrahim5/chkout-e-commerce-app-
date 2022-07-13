@@ -47,8 +47,6 @@ class meViewController: UIViewController {
     }
     @IBOutlet weak var welcome: UILabel!
     var userId : String?
-    var dataDescription : String?
-    var name : [String]?
     @IBOutlet weak var nameOfCustomer: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,9 +66,10 @@ class meViewController: UIViewController {
                 }
             }
         }
-        tableview?.dataSource = self;
-        tableview?.delegate = self;
         
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
         let db = Firestore.firestore()
         db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
             
@@ -91,20 +90,6 @@ class meViewController: UIViewController {
         }
             
         }
-        tableview.reloadData()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        let db = Firestore.firestore()
-
-                let docRef = db.collection("customerinformation").document(Auth.auth().currentUser!.uid)
-                docRef.getDocument { (document, error) in
-                    if let document = document, document.exists {
-                        self.welcome.text = "Welcome"
-                        self.nameOfCustomer.text = document["name"] as? String
-                    } else {
-                        print("Document does not exist")
-                    }
-                }
 }
 }
 extension meViewController:UITableViewDelegate,UITableViewDataSource {
@@ -140,6 +125,22 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { action, view, complationHandler in
+            print(indexPath.row)
+            print(self.valueArray[indexPath.row])
+            let checkName = self.valueArray[indexPath.row]
+            for i in 0..<self.arrayOfProduct.count{
+                if checkName == self.arrayOfProduct[i].title {
+                    self.numberOfIndexPath = i
+                }
+            }
+            let db = Firestore.firestore()
+            db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.arrayOfProduct[self.numberOfIndexPath!].id!)").delete{ (error) in
+                if error == nil {
+                    print("delete is done ")
+                } else {
+                    print("delete is not done ")
+                }
+            }
             self.valueArray.remove(at: indexPath.row)
             self.valueArrayprice.remove(at: indexPath.row)
             self.valueArrayimage.remove(at: indexPath.row)
@@ -149,5 +150,4 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
             complationHandler(true)
         }
         return UISwipeActionsConfiguration(actions: [deleteAtion])
-    }
-}
+    }}

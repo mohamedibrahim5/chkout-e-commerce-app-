@@ -21,7 +21,6 @@ class FavouriteScreenViewController: UIViewController {
     var valueArray: [String] = []
     var valueArrayprice: [String] = []
     var valueArrayimage: [String] = []
-    var currencyArray: [String] = []
     var arrayOfProduct : [ProductCategory] = [ProductCategory]()
     let productCategoryViewModel = ProductsCategoryViewModel()
     var arrayTitle : [String] = []
@@ -86,7 +85,9 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
         for i in 0..<arrayOfProduct.count{
             if checkName == arrayOfProduct[i].title {
                 numberOfIndexPath = i
-                print(numberOfIndexPath!)
+                print("\(numberOfIndexPath!)")
+                print("\(arrayOfProduct[numberOfIndexPath!].id!)")
+                
             }
         }
         vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
@@ -97,10 +98,8 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { action, view, complationHandler in
-            self.valueArray.remove(at: indexPath.row)
-            self.valueArrayprice.remove(at: indexPath.row)
-            self.valueArrayimage.remove(at: indexPath.row)
-            self.tableview.beginUpdates()
+            print(indexPath.row)
+            print(self.valueArray[indexPath.row])
             let checkName = self.valueArray[indexPath.row]
             for i in 0..<self.arrayOfProduct.count{
                 if checkName == self.arrayOfProduct[i].title {
@@ -115,6 +114,10 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
                     print("delete is not done ")
                 }
             }
+            self.valueArray.remove(at: indexPath.row)
+            self.valueArrayprice.remove(at: indexPath.row)
+            self.valueArrayimage.remove(at: indexPath.row)
+            self.tableview.beginUpdates()
             self.tableview.deleteRows(at: [indexPath], with: .automatic)
             self.tableview.endUpdates()
             complationHandler(true)
