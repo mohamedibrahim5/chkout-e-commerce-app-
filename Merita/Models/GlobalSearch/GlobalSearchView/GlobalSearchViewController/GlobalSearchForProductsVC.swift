@@ -8,6 +8,9 @@
 import UIKit
 
 class GlobalSearchForProductsVC: UIViewController {
+    var searchText2 : [String] = []
+    var filterData : [String] = []
+    @IBOutlet weak var searchBar: UISearchBar!
     var userId : String?
     @IBOutlet weak var allProductsCView: UICollectionView!{
         didSet{
@@ -33,12 +36,16 @@ class GlobalSearchForProductsVC: UIViewController {
                 self.arrayOfAllProducts = allProducts
                 DispatchQueue.main.async {
                     self.allProductsCView.reloadData()
+                   
                 }
                 if let error = error{
                     print(error.localizedDescription)
                 }
             }
         }
+        
+    }
+    override class func validateValue(_ ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws {
         
     }
     
@@ -80,6 +87,16 @@ extension GlobalSearchForProductsVC: SubCategoryProductsProtocol {
     func setSubCategory(subCategory: [ProductCategory]) {
         arrayOfAllProducts.removeAll()
         arrayOfAllProducts = subCategory
+        for i in 0..<self.arrayOfAllProducts.count {
+            self.searchText2.append(self.arrayOfAllProducts[i].title!)
+        }
+        
+        self.filterData = self.searchText2
+        self.searchBar.delegate = self
+        arrayOfAllProducts.removeAll()
+        for i in 0..<self.filterData.count {
+            self.arrayOfAllProducts[i].title = filterData[i]
+        }
         allProductsCView.reloadData()
     }
     
@@ -88,6 +105,7 @@ extension GlobalSearchForProductsVC: SubCategoryProductsProtocol {
 
 extension GlobalSearchForProductsVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+      //  return filterData.count
         return arrayOfAllProducts.count
     }
     
@@ -97,7 +115,7 @@ extension GlobalSearchForProductsVC: UICollectionViewDataSource{
         
         
         let productDetails = arrayOfAllProducts[indexPath.row]
-        
+   //     ProductCell.nameProduct.text = filterData[indexPath.row]
         ProductCell.configureAllProductCell(imageProduct: productDetails.image?.src ?? "", titleProduct: productDetails.title ?? "", priceProduct: productDetails.variants?[0].price ?? "")
         
         return ProductCell
@@ -127,4 +145,13 @@ extension GlobalSearchForProductsVC: UICollectionViewDelegate, UICollectionViewD
     
 }
 
+extension GlobalSearchForProductsVC : UISearchBarDelegate
+{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterData = searchText.isEmpty ? searchText2 : searchText2.filter({(dataString: String) -> Bool in
+            return dataString.range(of: searchText, options: .caseInsensitive) != nil
+        })
 
+        allProductsCView.reloadData()
+    }
+}

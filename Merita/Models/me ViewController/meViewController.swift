@@ -19,6 +19,11 @@ class meViewController: UIViewController {
     var valueArrayimage : [String] = []
     var valueArrayprice : [String] = []
     var valueArray : [String] = []
+    var mapname : [String] = []
+    var mapPrice : [String] = []
+    var mapImage : [String] = []
+    var arrayOfProduct = [ProductCategory]()
+    let productCategoryViewModel = ProductsCategoryViewModel()
    
     @IBOutlet weak var tableview: UITableView!
     
@@ -48,21 +53,44 @@ class meViewController: UIViewController {
     @IBOutlet weak var nameOfCustomer: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        productCategoryViewModel.fetchProductCategory()
+        productCategoryViewModel.bindingProductCategory = { allProducts, error in
+            if let allProducts = allProducts {
+                self.arrayOfProduct = allProducts
+                DispatchQueue.main.async {
+                    self.tableview.reloadData()
+                }
+                if let error = error{
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
-        
         let db = Firestore.firestore()
 db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
     
     if error == nil && snapshot != nil {
         for document in snapshot!.documents {
-            print("roro\(document.documentID)")
         self.valueArray.append(document.data()["name"] as! String)
         self.valueArrayprice.append(document.data()["price"] as! String)
         self.valueArrayimage.append(document.data()["image"] as! String)
+            let arr = self.valueArray
+            let rediciendArray = arr.reduce(into: [:], { $0[$1,default:0] += 1})
+            let sorteandolos = rediciendArray.sorted(by: {$0.value > $1.value })
+            let arr2 = self.valueArrayprice
+            let rediciendArray2 = arr2.reduce(into: [:], { $0[$1,default:0] += 1})
+            let sorteandolos2 = rediciendArray2.sorted(by: {$0.value > $1.value })
+            let arr3 = self.valueArrayimage
+            let rediciendArray3 = arr3.reduce(into: [:], { $0[$1,default:0] += 1})
+            let sorteandolos3 = rediciendArray3.sorted(by: {$0.value > $1.value })
+            self.mapname = sorteandolos.map({$0.key})
+            self.mapPrice = sorteandolos2.map({$0.key})
+            self.mapImage = sorteandolos3.map({$0.key})
+            self.tableview.reloadData()
           
 }
-        self.tableview.reloadData()
+      
 }
     
 }
@@ -79,24 +107,24 @@ db.collection("FAV").document("\(self.userId!)").collection("all information").g
 }
 extension meViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if arrayPrice2.count > 2 {
+        if mapname.count  > 2 {
             return 2
         } else {
-            return arrayPrice2.count
+            return mapname.count
         }
-       
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "washlistcell", for: indexPath) as! meWashListTableViewCell
         let index = indexPath.row
-        cell.nameOfProduct.text = "\(arrayPrice2[index])$"
-        cell.imageview.sd_setImage(with: URL(string: arrImage[index]), placeholderImage: UIImage(named: "test.jpeg"))
-        cell.name.text = arrayName[index]
+        cell.nameOfProduct.text = "\(mapPrice[index])$"
+        cell.imageview.sd_setImage(with: URL(string: mapImage[index]))
+        cell.name.text = mapname[index]
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
+        vc?.arrayOfProducts = arrayOfProduct[indexPath.row]
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

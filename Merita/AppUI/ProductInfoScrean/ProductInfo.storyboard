@@ -29,7 +29,6 @@
         <!--Product Info View Controller-->
         <scene sceneID="O3w-os-GZC">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t5H-m9-7E4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="cell" id="2Tg-0n-9nb" customClass="productInfoViewController" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2j2-Sb-AR0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1100"/>
@@ -214,15 +213,18 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="222" id="HEY-gy-Lde"/>
                                                                     </constraints>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="15"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
                                                                 </imageView>
                                                             </subviews>
                                                             <color key="backgroundColor" name="Background2"/>
                                                             <constraints>
-                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="top" secondItem="lrU-ym-pwV" secondAttribute="top" constant="8" id="Bmd-Wc-t3E"/>
                                                                 <constraint firstAttribute="trailing" secondItem="yOF-ad-uLp" secondAttribute="trailing" id="IGM-YJ-ht9"/>
                                                                 <constraint firstItem="yOF-ad-uLp" firstAttribute="leading" secondItem="lrU-ym-pwV" secondAttribute="leading" id="Klp-Pm-Chn"/>
                                                                 <constraint firstItem="yOF-ad-uLp" firstAttribute="width" secondItem="lrU-ym-pwV" secondAttribute="width" id="RnT-bh-J6u"/>
-                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="top" secondItem="lrU-ym-pwV" secondAttribute="top" constant="8" id="VVU-qf-FYl"/>
                                                                 <constraint firstItem="yOF-ad-uLp" firstAttribute="height" secondItem="lrU-ym-pwV" secondAttribute="height" multiplier="0.696262" constant="56.289719626168221" id="Zr2-Gq-hbf"/>
                                                                 <constraint firstAttribute="bottom" secondItem="yOF-ad-uLp" secondAttribute="bottom" constant="8" id="qRK-7N-MAk"/>
                                                             </constraints>
@@ -233,6 +235,11 @@
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="dataSource" destination="2Tg-0n-9nb" id="TOd-JE-ja9"/>
                                                     <outlet property="delegate" destination="2Tg-0n-9nb" id="MZu-cz-6P3"/>
@@ -289,6 +296,7 @@
                         <outlet property="productPrice" destination="6Ka-ML-LY2" id="MDD-I3-ISk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t5H-m9-7E4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="579.71014492753625" y="-44.196428571428569"/>
         </scene>

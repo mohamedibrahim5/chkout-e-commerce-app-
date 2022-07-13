@@ -258,7 +258,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gSe-XL-YVN"/>
-                        <color key="backgroundColor" name="Background1"/>
+                        <color key="backgroundColor" name="Background2"/>
                         <constraints>
                             <constraint firstItem="gxL-A8-K10" firstAttribute="leading" secondItem="gSe-XL-YVN" secondAttribute="leading" id="NTv-Pd-0Tm"/>
                             <constraint firstItem="gSe-XL-YVN" firstAttribute="trailing" secondItem="gxL-A8-K10" secondAttribute="trailing" id="VhK-zo-Les"/>
@@ -275,7 +275,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdO-7b-48a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-839.13043478260875" y="-48.214285714285715"/>
+            <point key="canvasLocation" x="-902.89855072463774" y="-67.633928571428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="i5e-9J-htW">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="YFg-Oy-bUe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ekM-Hf-pkp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSf-bY-Lhu">
+                                <rect key="frame" x="0.0" y="113" width="414" height="783"/>
+                                <color key="backgroundColor" name="Background1"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INN-CR-nGL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="221"/>
+                                <color key="backgroundColor" name="Background2"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusByBottonLeft">
+                                        <real key="value" value="117"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="LeftAndRightRadius">
+                                        <real key="value" value="117"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sWJ-Ed-aHm">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="subtotalColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TPB-D4-Mj8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TPB-D4-Mj8" firstAttribute="bottom" secondItem="INN-CR-nGL" secondAttribute="bottom" constant="641" id="3F7-7w-6BE"/>
+                            <constraint firstItem="INN-CR-nGL" firstAttribute="leading" secondItem="TPB-D4-Mj8" secondAttribute="leading" id="6C9-9i-SLg"/>
+                            <constraint firstItem="INN-CR-nGL" firstAttribute="top" secondItem="ekM-Hf-pkp" secondAttribute="top" id="7lU-IA-Vab"/>
+                            <constraint firstItem="INN-CR-nGL" firstAttribute="trailing" secondItem="TPB-D4-Mj8" secondAttribute="trailing" id="8go-Mt-meu"/>
+                            <constraint firstItem="PSf-bY-Lhu" firstAttribute="leading" secondItem="TPB-D4-Mj8" secondAttribute="leading" id="FRr-HQ-Doi"/>
+                            <constraint firstAttribute="bottom" secondItem="PSf-bY-Lhu" secondAttribute="bottom" id="Gtv-o2-Xx8"/>
+                            <constraint firstItem="PSf-bY-Lhu" firstAttribute="trailing" secondItem="TPB-D4-Mj8" secondAttribute="trailing" id="nyv-Vg-gZM"/>
+                            <constraint firstItem="PSf-bY-Lhu" firstAttribute="top" secondItem="TPB-D4-Mj8" secondAttribute="top" constant="69" id="wVS-c0-KVR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZO-KY-9uE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2020" y="-121"/>
         </scene>
     </scenes>
     <resources>
@@ -293,6 +341,9 @@
         </namedColor>
         <namedColor name="colorButton">
             <color red="0.68999999761581421" green="0.15700000524520874" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="subtotalColor">
+            <color red="0.082000002264976501" green="0.82700002193450928" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

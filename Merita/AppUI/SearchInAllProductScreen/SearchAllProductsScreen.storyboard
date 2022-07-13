@@ -384,6 +384,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="allProductsCView" destination="JNf-dJ-SAn" id="Emg-dv-C5C"/>
+                        <outlet property="searchBar" destination="9Rd-2Y-6vz" id="aTc-N8-7C9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXO-fh-2KV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
