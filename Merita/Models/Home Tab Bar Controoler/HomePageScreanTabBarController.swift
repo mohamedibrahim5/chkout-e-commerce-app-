@@ -16,7 +16,6 @@ class HomePageScreanTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let id = UserDefaults.standard.string(forKey: "Login1")
-        print("koko\(id!)")
         let mevc = self.viewControllers![3] as! meViewController
         mevc.userId = id!
         let homevc = self.viewControllers![0] as! HomePageViewC
