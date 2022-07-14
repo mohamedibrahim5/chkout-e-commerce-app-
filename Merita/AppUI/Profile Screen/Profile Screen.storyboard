@@ -59,7 +59,7 @@
                                                         </constraints>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="0.0"/>
+                                                                <real key="value" value="20"/>
                                                             </userDefinedRuntimeAttribute>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusByBottonLeft">
                                                                 <real key="value" value="0.0"/>
@@ -87,14 +87,14 @@
                                                                                     </constraints>
                                                                                 </imageView>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCI-BX-7dl">
-                                                                                    <rect key="frame" x="195" y="5" width="176" height="24"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                                    <rect key="frame" x="195" y="5" width="176" height="18"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHm-WU-cEJ">
-                                                                                    <rect key="frame" x="195" y="46" width="39" height="20.5"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <rect key="frame" x="195" y="20" width="35" height="18"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -105,7 +105,7 @@
                                                                                 <constraint firstAttribute="bottom" secondItem="fYO-eZ-opB" secondAttribute="bottom" constant="25" id="ICb-Uy-hhQ"/>
                                                                                 <constraint firstAttribute="trailing" secondItem="HCI-BX-7dl" secondAttribute="trailing" constant="9" id="M1P-sv-yeo"/>
                                                                                 <constraint firstItem="HCI-BX-7dl" firstAttribute="leading" secondItem="fYO-eZ-opB" secondAttribute="trailing" constant="29" id="UWQ-MF-xq6"/>
-                                                                                <constraint firstItem="WHm-WU-cEJ" firstAttribute="top" secondItem="HCI-BX-7dl" secondAttribute="bottom" constant="17" id="inf-rk-MJI"/>
+                                                                                <constraint firstItem="WHm-WU-cEJ" firstAttribute="top" secondItem="HCI-BX-7dl" secondAttribute="bottom" constant="-3" id="inf-rk-MJI"/>
                                                                                 <constraint firstItem="HCI-BX-7dl" firstAttribute="top" secondItem="8Bo-3h-6Ob" secondAttribute="top" constant="5" id="oIT-Y7-7gc"/>
                                                                                 <constraint firstItem="fYO-eZ-opB" firstAttribute="top" secondItem="8Bo-3h-6Ob" secondAttribute="top" constant="5" id="qxH-js-EnD"/>
                                                                                 <constraint firstItem="fYO-eZ-opB" firstAttribute="leading" secondItem="8Bo-3h-6Ob" secondAttribute="leadingMargin" id="wOt-4T-VYx"/>
@@ -118,6 +118,11 @@
                                                                         </connections>
                                                                     </tableViewCell>
                                                                 </prototypes>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="20"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <outlet property="dataSource" destination="Qjm-PS-TJq" id="xi1-CX-lkH"/>
                                                                     <outlet property="delegate" destination="Qjm-PS-TJq" id="Eel-pR-gdZ"/>
@@ -258,7 +263,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gSe-XL-YVN"/>
-                        <color key="backgroundColor" name="Background1"/>
+                        <color key="backgroundColor" name="Background2"/>
                         <constraints>
                             <constraint firstItem="gxL-A8-K10" firstAttribute="leading" secondItem="gSe-XL-YVN" secondAttribute="leading" id="NTv-Pd-0Tm"/>
                             <constraint firstItem="gSe-XL-YVN" firstAttribute="trailing" secondItem="gxL-A8-K10" secondAttribute="trailing" id="VhK-zo-Les"/>
@@ -275,7 +280,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZdO-7b-48a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-839.13043478260875" y="-48.214285714285715"/>
+            <point key="canvasLocation" x="-902.89855072463774" y="-67.633928571428569"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="i5e-9J-htW">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="YFg-Oy-bUe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ekM-Hf-pkp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSf-bY-Lhu">
+                                <rect key="frame" x="0.0" y="113" width="414" height="783"/>
+                                <color key="backgroundColor" name="Background1"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="INN-CR-nGL">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="221"/>
+                                <color key="backgroundColor" name="Background2"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusByBottonLeft">
+                                        <real key="value" value="117"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="LeftAndRightRadius">
+                                        <real key="value" value="117"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sWJ-Ed-aHm">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="subtotalColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TPB-D4-Mj8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TPB-D4-Mj8" firstAttribute="bottom" secondItem="INN-CR-nGL" secondAttribute="bottom" constant="641" id="3F7-7w-6BE"/>
+                            <constraint firstItem="INN-CR-nGL" firstAttribute="leading" secondItem="TPB-D4-Mj8" secondAttribute="leading" id="6C9-9i-SLg"/>
+                            <constraint firstItem="INN-CR-nGL" firstAttribute="top" secondItem="ekM-Hf-pkp" secondAttribute="top" id="7lU-IA-Vab"/>
+                            <constraint firstItem="INN-CR-nGL" firstAttribute="trailing" secondItem="TPB-D4-Mj8" secondAttribute="trailing" id="8go-Mt-meu"/>
+                            <constraint firstItem="PSf-bY-Lhu" firstAttribute="leading" secondItem="TPB-D4-Mj8" secondAttribute="leading" id="FRr-HQ-Doi"/>
+                            <constraint firstAttribute="bottom" secondItem="PSf-bY-Lhu" secondAttribute="bottom" id="Gtv-o2-Xx8"/>
+                            <constraint firstItem="PSf-bY-Lhu" firstAttribute="trailing" secondItem="TPB-D4-Mj8" secondAttribute="trailing" id="nyv-Vg-gZM"/>
+                            <constraint firstItem="PSf-bY-Lhu" firstAttribute="top" secondItem="TPB-D4-Mj8" secondAttribute="top" constant="69" id="wVS-c0-KVR"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HZO-KY-9uE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2020" y="-121"/>
         </scene>
     </scenes>
     <resources>
@@ -293,6 +346,9 @@
         </namedColor>
         <namedColor name="colorButton">
             <color red="0.68999999761581421" green="0.15700000524520874" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="subtotalColor">
+            <color red="0.082000002264976501" green="0.82700002193450928" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

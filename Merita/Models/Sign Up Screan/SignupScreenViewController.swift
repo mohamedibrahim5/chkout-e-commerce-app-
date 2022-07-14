@@ -27,6 +27,7 @@ class SignupScreenViewController: UIViewController {
         else {
             Auth.auth().createUser(withEmail: email.text!, password: password.text!) { [self] authResult, error in
                 if authResult != nil {
+                    AddingEmailInApi(name: name.text!, email: email.text!, password: password.text!, uidFirebase: Auth.auth().currentUser!.uid)
 
                     db.collection("customerinformation").document(Auth.auth().currentUser!.uid).setData(["name":name.text!,"uid":authResult!.user.uid])
 

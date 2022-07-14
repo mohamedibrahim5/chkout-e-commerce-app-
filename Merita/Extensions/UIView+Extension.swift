@@ -93,3 +93,25 @@ import UIKit
  
  }
     
+extension UIButton{
+    func flash (){
+        let flash = CABasicAnimation(keyPath: "transform.scale")
+        flash.duration = 0.6
+        flash.fromValue = 0.75
+        flash.toValue = 1.5
+        flash.autoreverses = true
+        flash.repeatCount = 10
+        layer.add(flash, forKey: nil)
+    }
+}
+extension UIImageView{
+    func flash (){
+        let flash = CABasicAnimation(keyPath: "transform.scale")
+        flash.duration = 0.6
+        flash.fromValue = 0.75
+        flash.toValue = 1.5
+        flash.autoreverses = true
+        flash.repeatCount = 2000
+        layer.add(flash, forKey: nil)
+    }
+}

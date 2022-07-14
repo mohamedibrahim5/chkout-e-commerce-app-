@@ -21,7 +21,7 @@ struct ProductsCategory : Codable {
 
 class ProductCategory : NSObject, Codable {
     let id : Int?
-    let title : String?
+    var title : String?
     let body_html : String?
     let vendor : String?
     let product_type : String?

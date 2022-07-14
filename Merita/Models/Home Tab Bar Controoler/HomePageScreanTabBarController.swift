@@ -11,12 +11,12 @@ import FirebaseFirestore
 import FirebaseDatabase
 
 class HomePageScreanTabBarController: UITabBarController {
-    var id : String?
+//    var id :String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let favvc = self.viewControllers![2] as! FavouriteScreenViewController
-//        favvc.userId = id!
+        let id = UserDefaults.standard.string(forKey: "Login1")
+        print("koko\(id!)")
         let mevc = self.viewControllers![3] as! meViewController
         mevc.userId = id!
         let homevc = self.viewControllers![0] as! HomePageViewC
@@ -38,6 +38,7 @@ class HomePageScreanTabBarController: UITabBarController {
         } catch let signOutError as NSError {
           print("Error signing out: %@", signOutError)
         }
+            UserDefaults.standard.set(false, forKey: "Login")
             self.navigationController?.popViewController(animated: true)
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
@@ -45,7 +46,6 @@ class HomePageScreanTabBarController: UITabBarController {
         alert.addAction(okAction)
         alert.addAction(cancelAction)
         self.present(alert, animated: true)
-        print(id!)
     }
 
 }

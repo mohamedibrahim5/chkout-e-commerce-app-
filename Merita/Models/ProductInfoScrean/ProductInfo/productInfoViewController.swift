@@ -14,7 +14,8 @@ import SDWebImage
 class productInfoViewController: UIViewController {
     @IBOutlet weak var pageControler: UIPageControl!
     
-var arrayOfProducts : ProductCategory?
+    @IBOutlet weak var rating: UILabel!
+    var arrayOfProducts : ProductCategory?
     
     static var x : Int = 0
     var productIdString : String?
@@ -28,12 +29,14 @@ var arrayOfProducts : ProductCategory?
     var productimages : [String]?
     var timer :Timer?
     var currentCellIndex = 0
+    var checkHeart : Int = 0
     var price : String =  "1255"
     var name : String = "Adidass"
     var image : String = "https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300"
    
-
+    @IBOutlet weak var favourite: UIButton!
     @IBAction func favourite(_ sender: UIButton) {
+        sender.flash()
         if userId == nil {
             showAlertLogin()
         }else {
@@ -49,8 +52,8 @@ var arrayOfProducts : ProductCategory?
 
                       let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
                           let db = Firestore.firestore()
-
-                              sender.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+                          UserDefaults.standard.set(0, forKey: "fill")
+                          self.favourite.setImage(UIImage(systemName: "heart.slash"), for: .normal)
                           db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").delete{ (error) in
                               if error == nil {
                                   print("delete is done ")
@@ -74,9 +77,9 @@ var arrayOfProducts : ProductCategory?
               else {
                       print("add to favourite4")
                       print("Document does not exist")
-                  productInfoViewController.x = 1
-                  sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                  db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!], merge: true)
+                  self.favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                  UserDefaults.standard.set(self.productId, forKey: "fill")
+                  db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!], merge: true)
               }
           }
         }
@@ -84,10 +87,8 @@ var arrayOfProducts : ProductCategory?
     }
     @IBOutlet weak var brandName: UILabel!
     @IBAction func addToCart(_ sender: UIButton) {
-       // print(userId!)
         print("add to cart")
         print(productId!)
-        print("koko")
         print(productIdString!)
     }
     @IBOutlet weak var productPrice: UILabel!
@@ -96,7 +97,8 @@ var arrayOfProducts : ProductCategory?
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageControler.numberOfPages = 3
+        
+        pageControler.numberOfPages = (arrayOfProducts?.images!.count)!
         productname = (arrayOfProducts?.title)!
         productdis = (arrayOfProducts?.body_html)!
         productName.text = productname
@@ -108,10 +110,19 @@ var arrayOfProducts : ProductCategory?
         productprice = arrayOfProducts?.variants![0].price
         productPrice.text = ("\(productprice!)$")
         productimage = arrayOfProducts?.images![0].src
-        productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")"]
-//                collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
-     
+        if arrayOfProducts?.images?.count == 2 {
+            productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")"]
+        } else if arrayOfProducts?.images?.count == 3 {
+            productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")"]
+        } else if arrayOfProducts?.images?.count == 4 {
+            productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")","\(arrayOfProducts?.images![3].src! ?? "")"]
+        } else if arrayOfProducts?.images?.count == 5 {
+            productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")","\(arrayOfProducts?.images![3].src! ?? "")","\(arrayOfProducts?.images![4].src! ?? "")"]
+        }
         statrtTimer()
+        let rndomNumber = Double.random(in: 2...5)
+        let finalRandomNumber = Double(round(10*rndomNumber)/10)
+        rating.text = String(finalRandomNumber)
         
     }
     func statrtTimer(){
@@ -126,14 +137,13 @@ var arrayOfProducts : ProductCategory?
         
         collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
         pageControler.currentPage = currentCellIndex
+        
     }
     override func viewWillAppear(_ animated: Bool) {
-       if productInfoViewController.x == 1 {
-           
+        self.checkHeart = UserDefaults.standard.integer(forKey: "fill")
+        if self.checkHeart == productId {
+            favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
-    }
-    func doSomethingDependingOnWhoSent(_ sender: UIButton) {
-        sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
     }
 }
 extension productInfoViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
@@ -143,7 +153,7 @@ extension productInfoViewController : UICollectionViewDataSource,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "productinfocell", for: indexPath) as! productInfoCollectionViewCell
-        cell.imageviewproduct.sd_setImage(with: URL(string: "\(productimages![indexPath.row])"), placeholderImage: UIImage(named: "test.jpeg"))
+        cell.imageviewproduct.sd_setImage(with: URL(string: "\(productimages![indexPath.row])"))
         return cell
     }
    
@@ -153,9 +163,9 @@ extension productInfoViewController : UICollectionViewDataSource,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
-    
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.pageControler.currentPage = indexPath.row
+    }
 }
 extension productInfoViewController {
     func showAlertLogin(){

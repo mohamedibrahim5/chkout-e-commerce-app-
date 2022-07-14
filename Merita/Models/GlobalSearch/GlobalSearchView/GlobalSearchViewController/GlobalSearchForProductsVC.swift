@@ -8,6 +8,10 @@
 import UIKit
 
 class GlobalSearchForProductsVC: UIViewController {
+    @IBOutlet weak var imageview: UIImageView!
+    var searchText2 : [String] = []
+    var filterData : [String] = []
+    @IBOutlet weak var searchBar: UISearchBar!
     var userId : String?
     @IBOutlet weak var allProductsCView: UICollectionView!{
         didSet{
@@ -26,6 +30,13 @@ class GlobalSearchForProductsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageview.flash()
+         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
+             imageview.isHidden = false
+        UserDefaults.standard.set(true, forKey: "ExecuteOnce")
+        }
+       
+    
         
         productCategoryViewModel.fetchProductCategory()
         productCategoryViewModel.bindingProductCategory = { allProducts, error in
@@ -33,12 +44,16 @@ class GlobalSearchForProductsVC: UIViewController {
                 self.arrayOfAllProducts = allProducts
                 DispatchQueue.main.async {
                     self.allProductsCView.reloadData()
+                   
                 }
                 if let error = error{
                     print(error.localizedDescription)
                 }
             }
         }
+        
+    }
+    override class func validateValue(_ ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws {
         
     }
     
@@ -54,7 +69,7 @@ class GlobalSearchForProductsVC: UIViewController {
      */
     
     @IBAction func subCategoryBtn(_ sender: UIButton) {
-        
+        imageview.isHidden = true
         print("HI")
         
         if let viewController = UIStoryboard(name: "SearchAllProductsScreen", bundle: nil).instantiateViewController(withIdentifier: "SubCategoryVC") as? SubCategoryVC {
@@ -80,6 +95,13 @@ extension GlobalSearchForProductsVC: SubCategoryProductsProtocol {
     func setSubCategory(subCategory: [ProductCategory]) {
         arrayOfAllProducts.removeAll()
         arrayOfAllProducts = subCategory
+        searchText2.removeAll()
+        for i in 0..<self.arrayOfAllProducts.count {
+            self.searchText2.append(self.arrayOfAllProducts[i].title!)
+        }
+        self.filterData = self.searchText2
+        print("number of product \(filterData.count)")
+        self.searchBar.delegate = self
         allProductsCView.reloadData()
     }
     
@@ -88,7 +110,8 @@ extension GlobalSearchForProductsVC: SubCategoryProductsProtocol {
 
 extension GlobalSearchForProductsVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrayOfAllProducts.count
+        return filterData.count
+      //  return arrayOfAllProducts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -97,8 +120,7 @@ extension GlobalSearchForProductsVC: UICollectionViewDataSource{
         
         
         let productDetails = arrayOfAllProducts[indexPath.row]
-        
-        ProductCell.configureAllProductCell(imageProduct: productDetails.image?.src ?? "", titleProduct: productDetails.title ?? "", priceProduct: productDetails.variants?[0].price ?? "")
+        ProductCell.configureAllProductCell(imageProduct: productDetails.image?.src ?? "", titleProduct: filterData[indexPath.row], priceProduct: productDetails.variants?[0].price ?? "")
         
         return ProductCell
     }
@@ -127,4 +149,13 @@ extension GlobalSearchForProductsVC: UICollectionViewDelegate, UICollectionViewD
     
 }
 
+extension GlobalSearchForProductsVC : UISearchBarDelegate
+{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterData = searchText.isEmpty ? searchText2 : searchText2.filter({(dataString: String) -> Bool in
+            return dataString.range(of: searchText, options: .caseInsensitive) != nil
+        })
 
+        allProductsCView.reloadData()
+    }
+}
