@@ -13,6 +13,8 @@ import FacebookCore
 import FacebookLogin
 import FBSDKLoginKit
 import FBSDKCoreKit
+import GoogleSignIn
+import Firebase
 
 class LoginScreenViewController: UIViewController {
 
@@ -121,9 +123,30 @@ class LoginScreenViewController: UIViewController {
     
     
     @IBAction func google(_ sender: UIButton) {
-        print(LoginScreenViewController.idUser)
-        print(LoginScreenViewController.checkname)
-        
+        let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
+
+            if let error = error {
+          print(error)
+          }
+            guard let auth = user?.authentication else { return }
+            let credintal = GoogleAuthProvider.credential(withIDToken: auth.idToken!, accessToken: auth.accessToken)
+            Auth.auth().signIn(with: credintal) { AuthResult, error in
+                if let error = error {
+                    print(error)
+                }
+                if AuthResult != nil {
+                     let name = Auth.auth().currentUser?.displayName
+                    self.db.collection("customerinformation").document(Auth.auth().currentUser!.uid).setData(["name":name!,"uid":Auth.auth().currentUser?.uid as Any])
+                    AddingEmailInApi(name: name!, email: (Auth.auth().currentUser?.email)!, password: "********", uidFirebase: Auth.auth().currentUser!.uid)
+                                vc?.id = Auth.auth().currentUser?.uid
+                                self.navigationController!.pushViewController(vc!, animated: true)
+                }
+            }
+        }
     }
     
     

@@ -45,13 +45,6 @@ class GlobalSearchForProductsVC: UIViewController {
         }
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        func setSubCategory2(subCategory: [ProductCategory]) {
-            arrayOfAllProducts = subCategory
-            self.searchBar.delegate = self
-            allProductsCView.reloadData()
-        }
-    }
     override class func validateValue(_ ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws {
         
     }
