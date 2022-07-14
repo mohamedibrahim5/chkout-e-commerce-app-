@@ -147,7 +147,7 @@
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AC9-X0-e8P">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="211" height="197"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="211" height="204"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="211" id="sJo-8Y-1Uc"/>
                                                                             <constraint firstAttribute="height" constant="197" id="u5D-SE-1Rn"/>
@@ -162,7 +162,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="211" height="204"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adidas" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6X6-a2-ItK">
-                                                                                <rect key="frame" x="72" y="91" width="59.5" height="22.5"/>
+                                                                                <rect key="frame" x="76" y="91" width="59.5" height="22.5"/>
                                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <nil key="highlightedColor"/>
@@ -172,11 +172,8 @@
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.25" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="trailing" secondItem="6X6-a2-ItK" secondAttribute="trailing" constant="79.5" id="OM3-LC-z1F"/>
-                                                                            <constraint firstAttribute="height" constant="204" id="SNg-qt-wRI"/>
-                                                                            <constraint firstItem="6X6-a2-ItK" firstAttribute="centerX" secondItem="uSt-1J-EcO" secondAttribute="centerX" constant="-3.75" id="jZ2-Wr-JNE"/>
-                                                                            <constraint firstItem="6X6-a2-ItK" firstAttribute="centerY" secondItem="uSt-1J-EcO" secondAttribute="centerY" id="pfz-8K-5HH"/>
-                                                                            <constraint firstItem="6X6-a2-ItK" firstAttribute="leading" secondItem="uSt-1J-EcO" secondAttribute="leading" constant="72" id="zmv-qi-5xn"/>
+                                                                            <constraint firstItem="6X6-a2-ItK" firstAttribute="centerX" secondItem="uSt-1J-EcO" secondAttribute="centerX" id="tpO-Ui-vBa"/>
+                                                                            <constraint firstItem="6X6-a2-ItK" firstAttribute="centerY" secondItem="uSt-1J-EcO" secondAttribute="centerY" id="vQh-BF-jYY"/>
                                                                         </constraints>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -188,13 +185,14 @@
                                                             </view>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="bottom" secondItem="AC9-X0-e8P" secondAttribute="bottom" id="6cX-zN-uTU"/>
-                                                                <constraint firstItem="AC9-X0-e8P" firstAttribute="top" secondItem="WGi-hs-woj" secondAttribute="top" id="Ewg-K5-pOJ"/>
-                                                                <constraint firstItem="uSt-1J-EcO" firstAttribute="top" secondItem="WGi-hs-woj" secondAttribute="top" id="Ldr-lY-JWg"/>
-                                                                <constraint firstAttribute="trailing" secondItem="AC9-X0-e8P" secondAttribute="trailing" id="eKa-42-o78"/>
-                                                                <constraint firstAttribute="trailing" secondItem="uSt-1J-EcO" secondAttribute="trailing" id="rL7-jX-kbp"/>
-                                                                <constraint firstAttribute="bottom" secondItem="uSt-1J-EcO" secondAttribute="bottom" id="v8k-c9-icZ"/>
-                                                                <constraint firstItem="AC9-X0-e8P" firstAttribute="leading" secondItem="WGi-hs-woj" secondAttribute="leading" id="wxl-xi-67t"/>
+                                                                <constraint firstItem="uSt-1J-EcO" firstAttribute="trailing" secondItem="AC9-X0-e8P" secondAttribute="trailing" id="4pr-cS-a74"/>
+                                                                <constraint firstItem="AC9-X0-e8P" firstAttribute="top" secondItem="WGi-hs-woj" secondAttribute="top" id="Sqy-6H-fgA"/>
+                                                                <constraint firstAttribute="bottom" secondItem="uSt-1J-EcO" secondAttribute="bottom" id="Y9M-3e-4sd"/>
+                                                                <constraint firstItem="uSt-1J-EcO" firstAttribute="leading" secondItem="AC9-X0-e8P" secondAttribute="leading" id="fUC-5s-feQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="AC9-X0-e8P" secondAttribute="trailing" id="nwj-b3-vCy"/>
+                                                                <constraint firstItem="uSt-1J-EcO" firstAttribute="top" secondItem="WGi-hs-woj" secondAttribute="top" id="olX-30-Fd9"/>
+                                                                <constraint firstAttribute="bottom" secondItem="AC9-X0-e8P" secondAttribute="bottom" id="u2t-WH-muw"/>
+                                                                <constraint firstItem="AC9-X0-e8P" firstAttribute="leading" secondItem="WGi-hs-woj" secondAttribute="leading" id="uRC-NW-7UU"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -390,6 +388,16 @@
             </objects>
             <point key="canvasLocation" x="863.768115942029" y="49.553571428571423"/>
         </scene>
+        <!--AddCartScreen-->
+        <scene sceneID="FDb-4e-fyV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AddCartScreen" id="RQJ-Gf-Hqa" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Cart" image="cart.fill.badge.plus" catalog="system" id="1og-NH-Y9d"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vf1-UH-kdO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-237" y="467"/>
+        </scene>
         <!--SearchAllProductsScreen-->
         <scene sceneID="dgR-BR-Yl2">
             <objects>
@@ -454,6 +462,7 @@
                         <segue destination="wqU-o7-3AE" kind="relationship" relationship="viewControllers" id="PuT-f2-Bbi"/>
                         <segue destination="I2o-tL-mDF" kind="relationship" relationship="viewControllers" id="hGu-jf-ONa"/>
                         <segue destination="55t-5F-Nm0" kind="relationship" relationship="viewControllers" id="vLf-RM-Ue8"/>
+                        <segue destination="RQJ-Gf-Hqa" kind="relationship" relationship="viewControllers" id="01N-OK-x8b"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gjn-XW-IiH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

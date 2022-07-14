@@ -24,15 +24,23 @@ import UIKit
         }
     }
      
-    @IBInspectable var LeftAndRightRadius: CGFloat {
-         get { return self.LeftAndRightRadius }
-         set {
-             self.layer.cornerRadius = newValue
-             self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-         }
-     }
-     
-    
+     @IBInspectable var BottonLAndRRadius: CGFloat {
+          get { return self.BottonLAndRRadius }
+          set {
+              self.layer.cornerRadius = newValue
+              self.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+          }
+         
+      }
+      
+      
+      @IBInspectable var TopLAndRRadius: CGFloat {
+           get { return self.TopLAndRRadius }
+           set {
+               self.layer.cornerRadius = newValue
+               self.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+           }
+      }
     /*
     
     /* The color of the shadow. Defaults to opaque black. Colors created
