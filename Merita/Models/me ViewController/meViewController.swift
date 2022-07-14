@@ -119,7 +119,7 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 150
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
@@ -129,6 +129,7 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
                 numberOfIndexPath = i
             }
         }
+        vc?.userId = userId
         vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
         self.navigationController!.pushViewController(vc!, animated: true)
     }

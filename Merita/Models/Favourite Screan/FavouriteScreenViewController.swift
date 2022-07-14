@@ -95,6 +95,7 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
                 
             }
         }
+        vc?.userId = userId
         vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
         self.navigationController!.pushViewController(vc!, animated: true)
     }
