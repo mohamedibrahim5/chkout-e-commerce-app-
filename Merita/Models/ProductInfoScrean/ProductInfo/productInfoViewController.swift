@@ -14,7 +14,8 @@ import SDWebImage
 class productInfoViewController: UIViewController {
     @IBOutlet weak var pageControler: UIPageControl!
     
-var arrayOfProducts : ProductCategory?
+    @IBOutlet weak var rating: UILabel!
+    var arrayOfProducts : ProductCategory?
     var btnSelected = true
     
     static var x : Int = 0
@@ -111,6 +112,9 @@ var arrayOfProducts : ProductCategory?
         productimage = arrayOfProducts?.images![0].src
         productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")"]
         statrtTimer()
+        let rndomNumber = Double.random(in: 2...5)
+        let finalRandomNumber = Double(round(10*rndomNumber)/10)
+        rating.text = String(finalRandomNumber)
         
     }
     func statrtTimer(){
