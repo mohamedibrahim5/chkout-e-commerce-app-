@@ -8,6 +8,7 @@
 import UIKit
 
 class GlobalSearchForProductsVC: UIViewController {
+    @IBOutlet weak var imageview: UIImageView!
     var searchText2 : [String] = []
     var filterData : [String] = []
     @IBOutlet weak var searchBar: UISearchBar!
@@ -29,6 +30,7 @@ class GlobalSearchForProductsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         
         productCategoryViewModel.fetchProductCategory()
         productCategoryViewModel.bindingProductCategory = { allProducts, error in
@@ -44,6 +46,10 @@ class GlobalSearchForProductsVC: UIViewController {
             }
         }
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        imageview.isHidden = false
+        imageview.flash()
     }
     override class func validateValue(_ ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws {
         
@@ -61,7 +67,7 @@ class GlobalSearchForProductsVC: UIViewController {
      */
     
     @IBAction func subCategoryBtn(_ sender: UIButton) {
-        
+        imageview.isHidden = true
         print("HI")
         
         if let viewController = UIStoryboard(name: "SearchAllProductsScreen", bundle: nil).instantiateViewController(withIdentifier: "SubCategoryVC") as? SubCategoryVC {

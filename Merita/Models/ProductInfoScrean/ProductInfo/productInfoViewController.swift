@@ -36,6 +36,7 @@ class productInfoViewController: UIViewController {
    
     @IBOutlet weak var favourite: UIButton!
     @IBAction func favourite(_ sender: UIButton) {
+        sender.flash()
         btnSelected = !btnSelected
         if userId == nil {
             showAlertLogin()
@@ -86,7 +87,6 @@ class productInfoViewController: UIViewController {
     }
     @IBOutlet weak var brandName: UILabel!
     @IBAction func addToCart(_ sender: UIButton) {
-       // print(userId!)
         print("add to cart")
         print(productId!)
         print(productIdString!)
@@ -98,7 +98,7 @@ class productInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pageControler.numberOfPages = 3
+        pageControler.numberOfPages = (arrayOfProducts?.images!.count)!
         productname = (arrayOfProducts?.title)!
         productdis = (arrayOfProducts?.body_html)!
         productName.text = productname
@@ -110,7 +110,15 @@ class productInfoViewController: UIViewController {
         productprice = arrayOfProducts?.variants![0].price
         productPrice.text = ("\(productprice!)$")
         productimage = arrayOfProducts?.images![0].src
-        productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")"]
+        if arrayOfProducts?.images?.count == 2 {
+            productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")"]
+        } else if arrayOfProducts?.images?.count == 3 {
+            productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")"]
+        } else if arrayOfProducts?.images?.count == 4 {
+            productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")","\(arrayOfProducts?.images![3].src! ?? "")"]
+        } else if arrayOfProducts?.images?.count == 5 {
+            productimages = ["\(arrayOfProducts?.images![0].src! ?? "")","\(arrayOfProducts?.images![1].src! ?? "")","\(arrayOfProducts?.images![2].src! ?? "")","\(arrayOfProducts?.images![3].src! ?? "")","\(arrayOfProducts?.images![4].src! ?? "")"]
+        }
         statrtTimer()
         let rndomNumber = Double.random(in: 2...5)
         let finalRandomNumber = Double(round(10*rndomNumber)/10)
@@ -129,15 +137,7 @@ class productInfoViewController: UIViewController {
         
         collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
         pageControler.currentPage = currentCellIndex
-    }
-    override func viewWillAppear(_ animated: Bool) {
         
-//        if  productInfoViewController.x == 0 {
-//            favourite.setImage(UIImage(systemName: "heart.slash"), for: .normal)
-//        }
-//       if productInfoViewController.x == 1 {
-//           favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//        }
     }
 }
 extension productInfoViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
@@ -147,7 +147,7 @@ extension productInfoViewController : UICollectionViewDataSource,UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "productinfocell", for: indexPath) as! productInfoCollectionViewCell
-        cell.imageviewproduct.sd_setImage(with: URL(string: "\(productimages![indexPath.row])"), placeholderImage: UIImage(named: "test.jpeg"))
+        cell.imageviewproduct.sd_setImage(with: URL(string: "\(productimages![indexPath.row])"))
         return cell
     }
    
@@ -157,9 +157,9 @@ extension productInfoViewController : UICollectionViewDataSource,UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
-    
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.pageControler.currentPage = indexPath.row
+    }
 }
 extension productInfoViewController {
     func showAlertLogin(){

@@ -349,9 +349,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iiu-Cr-8Uf">
-                                <rect key="frame" x="354" y="764" width="40" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iiu-Cr-8Uf">
+                                <rect key="frame" x="354" y="764" width="40" height="31"/>
                                 <color key="backgroundColor" name="CircelColor"/>
                                 <color key="tintColor" name="colorButton"/>
                                 <state key="normal" title="Button"/>
@@ -365,17 +364,30 @@
                                     <action selector="subCategoryBtn:" destination="x8G-iB-Ano" eventType="touchUpInside" id="pG4-xR-9LZ"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.down.forward" catalog="system" id="jzJ-In-JAm">
+                                <rect key="frame" x="163" y="636" width="251" height="106"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" name="subtotalColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WR8-qg-nxU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Iiu-Cr-8Uf" firstAttribute="top" secondItem="jzJ-In-JAm" secondAttribute="bottom" constant="19" id="0zH-th-zVb"/>
                             <constraint firstItem="HOm-qe-msP" firstAttribute="top" secondItem="WR8-qg-nxU" secondAttribute="top" constant="30" id="1tQ-pr-Ooo"/>
                             <constraint firstAttribute="bottom" secondItem="HOm-qe-msP" secondAttribute="bottom" id="3Gg-FY-4Ql"/>
                             <constraint firstItem="HOm-qe-msP" firstAttribute="trailing" secondItem="WR8-qg-nxU" secondAttribute="trailing" id="FIS-cM-nNc"/>
+                            <constraint firstItem="Iiu-Cr-8Uf" firstAttribute="leading" secondItem="WR8-qg-nxU" secondAttribute="leading" constant="354" id="IEd-e8-joV"/>
                             <constraint firstItem="jwk-3K-3iC" firstAttribute="leading" secondItem="WR8-qg-nxU" secondAttribute="leading" id="PUS-WO-4v2"/>
                             <constraint firstItem="jwk-3K-3iC" firstAttribute="top" secondItem="G2m-sh-NWf" secondAttribute="top" id="SbR-Vb-GuD"/>
                             <constraint firstItem="HOm-qe-msP" firstAttribute="leading" secondItem="WR8-qg-nxU" secondAttribute="leading" id="Y02-s9-G4U"/>
                             <constraint firstItem="WR8-qg-nxU" firstAttribute="bottom" secondItem="jwk-3K-3iC" secondAttribute="bottom" constant="580" id="Y7D-09-km7"/>
+                            <constraint firstItem="Iiu-Cr-8Uf" firstAttribute="trailing" secondItem="G2m-sh-NWf" secondAttribute="trailingMargin" id="qdd-2T-C8U"/>
                             <constraint firstItem="jwk-3K-3iC" firstAttribute="trailing" secondItem="WR8-qg-nxU" secondAttribute="trailing" id="xrE-5P-5fY"/>
                         </constraints>
                     </view>
@@ -384,16 +396,18 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="allProductsCView" destination="JNf-dJ-SAn" id="Emg-dv-C5C"/>
+                        <outlet property="imageview" destination="jzJ-In-JAm" id="kh9-lp-ChQ"/>
                         <outlet property="searchBar" destination="9Rd-2Y-6vz" id="aTc-N8-7C9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LXO-fh-2KV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-287" y="32"/>
+            <point key="canvasLocation" x="-288.40579710144931" y="31.473214285714285"/>
         </scene>
     </scenes>
     <resources>
         <image name="accessories" width="64" height="64"/>
+        <image name="arrow.down.forward" catalog="system" width="128" height="112"/>
         <image name="family-clothes" width="64" height="64"/>
         <image name="icons8-shoes-64" width="64" height="64"/>
         <image name="pencil.slash" catalog="system" width="128" height="113"/>
@@ -413,6 +427,9 @@
         </namedColor>
         <namedColor name="colorButton">
             <color red="0.68999999761581421" green="0.15700000524520874" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="subtotalColor">
+            <color red="0.082000002264976501" green="0.82700002193450928" blue="0.071000002324581146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
