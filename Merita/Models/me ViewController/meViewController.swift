@@ -31,9 +31,10 @@ class meViewController: UIViewController {
     
     @IBAction func cart(_ sender: UIBarButtonItem) {
         print("ordersMore")
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "cartcell") as! cartViewController
-        vc.userId = userId
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = UIStoryboard(name: "AddCartScreen", bundle: nil).instantiateViewController(withIdentifier: "cartcell") as? cartViewController
+        vc!.userId = userId
+        self.navigationController!.pushViewController(vc!, animated: true)
+        
     }
     @IBAction func washListMore(_ sender: UIButton) {
         print("washListMore")
