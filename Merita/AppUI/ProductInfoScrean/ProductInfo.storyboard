@@ -91,7 +91,7 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" cornerStyle="capsule">
-                                                            <imageReference key="image" image="star" catalog="system" symbolScale="large"/>
+                                                            <imageReference key="image" image="star.fill" catalog="system" symbolScale="large"/>
                                                             <backgroundConfiguration key="background"/>
                                                             <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                                         </buttonConfiguration>
@@ -305,7 +305,7 @@
     </scenes>
     <resources>
         <image name="heart.slash" catalog="system" width="128" height="115"/>
-        <image name="star" catalog="system" width="128" height="116"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
