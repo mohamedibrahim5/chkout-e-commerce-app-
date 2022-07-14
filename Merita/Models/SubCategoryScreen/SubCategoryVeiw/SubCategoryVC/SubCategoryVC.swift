@@ -79,6 +79,7 @@ class SubCategoryVC: UIViewController {
     
     
     @IBAction func dismissBtnInView(_ sender: UIButton) {
+        dismissSubCategoryVc()
         print("Pressed Button inView")
     }
     

@@ -281,6 +281,7 @@ dreams. you will find here
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Vrr-HS-NL2">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="colorButton"/>
                         <navigationBarAppearance key="standardAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
