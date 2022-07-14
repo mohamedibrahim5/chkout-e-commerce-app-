@@ -30,6 +30,12 @@ class GlobalSearchForProductsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        imageview.flash()
+         if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
+             imageview.isHidden = false
+        UserDefaults.standard.set(true, forKey: "ExecuteOnce")
+        }
+       
     
         
         productCategoryViewModel.fetchProductCategory()
@@ -46,10 +52,6 @@ class GlobalSearchForProductsVC: UIViewController {
             }
         }
         
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        imageview.isHidden = false
-        imageview.flash()
     }
     override class func validateValue(_ ioValue: AutoreleasingUnsafeMutablePointer<AnyObject?>, forKey inKey: String) throws {
         

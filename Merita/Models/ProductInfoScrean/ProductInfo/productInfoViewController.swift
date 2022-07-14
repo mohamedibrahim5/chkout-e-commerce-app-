@@ -16,7 +16,6 @@ class productInfoViewController: UIViewController {
     
     @IBOutlet weak var rating: UILabel!
     var arrayOfProducts : ProductCategory?
-    var btnSelected = true
     
     static var x : Int = 0
     var productIdString : String?
@@ -30,6 +29,7 @@ class productInfoViewController: UIViewController {
     var productimages : [String]?
     var timer :Timer?
     var currentCellIndex = 0
+    var checkHeart : Int = 0
     var price : String =  "1255"
     var name : String = "Adidass"
     var image : String = "https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300"
@@ -37,7 +37,6 @@ class productInfoViewController: UIViewController {
     @IBOutlet weak var favourite: UIButton!
     @IBAction func favourite(_ sender: UIButton) {
         sender.flash()
-        btnSelected = !btnSelected
         if userId == nil {
             showAlertLogin()
         }else {
@@ -53,7 +52,8 @@ class productInfoViewController: UIViewController {
 
                       let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
                           let db = Firestore.firestore()
-                          sender.setImage(UIImage(systemName: "heart.slash"), for: .normal)
+                          UserDefaults.standard.set(0, forKey: "fill")
+                          self.favourite.setImage(UIImage(systemName: "heart.slash"), for: .normal)
                           db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").delete{ (error) in
                               if error == nil {
                                   print("delete is done ")
@@ -77,8 +77,8 @@ class productInfoViewController: UIViewController {
               else {
                       print("add to favourite4")
                       print("Document does not exist")
-                  productInfoViewController.x = 1
-                  sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                  self.favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                  UserDefaults.standard.set(self.productId, forKey: "fill")
                   db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!], merge: true)
               }
           }
@@ -138,6 +138,12 @@ class productInfoViewController: UIViewController {
         collectionView.scrollToItem(at: IndexPath(item: currentCellIndex, section: 0), at: .centeredHorizontally, animated: true)
         pageControler.currentPage = currentCellIndex
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.checkHeart = UserDefaults.standard.integer(forKey: "fill")
+        if self.checkHeart == productId {
+            favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
     }
 }
 extension productInfoViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{

@@ -26,14 +26,17 @@ class LoginScreenViewController: UIViewController {
     @IBOutlet weak var password: UIView!
     @IBOutlet weak var email: UITextField!
     @IBAction func login(_ sender: UIButton) {
-        let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
+       
         Auth.auth().signIn(withEmail: email.text!, password: password2.text!) {[self] authResult, error in
             if authResult != nil {
                 LoginScreenViewController.idUser = Auth.auth().currentUser!.uid
                 print(LoginScreenViewController.idUser)
-                vc?.id = LoginScreenViewController.idUser
                 email.text = ""
                 password2.text = ""
+                UserDefaults.standard.set(true, forKey: "Login")
+                let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
+            //   vc?.id = LoginScreenViewController.idUser
+                UserDefaults.standard.set(LoginScreenViewController.idUser, forKey: "Login1")
                 self.navigationController!.pushViewController(vc!, animated: true)
                
             }
@@ -54,7 +57,7 @@ class LoginScreenViewController: UIViewController {
     
     
     @IBAction func LoginWithFscebook(_ sender: UIButton) {
-        let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
+        
         let loginManger = LoginManager()
         loginManger.logIn(permissions: ["public_profile","email"], from: self,handler: {(result,error) in
             if result != nil {
@@ -104,7 +107,10 @@ class LoginScreenViewController: UIViewController {
                     
                     LoginScreenViewController.idUser = Auth.auth().currentUser!.uid
                     print(LoginScreenViewController.idUser)
-                    vc?.id = LoginScreenViewController.idUser
+                    UserDefaults.standard.set(true, forKey: "Login")
+                    let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
+                    UserDefaults.standard.set(LoginScreenViewController.idUser, forKey: "Login1")
+                //    vc?.id = LoginScreenViewController.idUser
                     self.navigationController!.pushViewController(vc!, animated: true)
                 }
                 if error != nil {
@@ -123,7 +129,6 @@ class LoginScreenViewController: UIViewController {
     
     
     @IBAction func google(_ sender: UIButton) {
-        let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
         let config = GIDConfiguration(clientID: clientID)
@@ -142,7 +147,11 @@ class LoginScreenViewController: UIViewController {
                      let name = Auth.auth().currentUser?.displayName
                     self.db.collection("customerinformation").document(Auth.auth().currentUser!.uid).setData(["name":name!,"uid":Auth.auth().currentUser?.uid as Any])
                     AddingEmailInApi(name: name!, email: (Auth.auth().currentUser?.email)!, password: "********", uidFirebase: Auth.auth().currentUser!.uid)
-                                vc?.id = Auth.auth().currentUser?.uid
+                    LoginScreenViewController.idUser = Auth.auth().currentUser!.uid
+                    UserDefaults.standard.set(true, forKey: "Login")
+                    let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
+                    UserDefaults.standard.set(LoginScreenViewController.idUser, forKey: "Login1")
+                       //         vc?.id = Auth.auth().currentUser?.uid
                                 self.navigationController!.pushViewController(vc!, animated: true)
                 }
             }
@@ -156,6 +165,11 @@ class LoginScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         password2.isSecureTextEntry = true
+        if UserDefaults.standard.bool(forKey: "Login") {
+            let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
+       //     vc?.id = LoginScreenViewController.idUser
+            self.navigationController!.pushViewController(vc!, animated: false)
+        }
     }
 
 }
