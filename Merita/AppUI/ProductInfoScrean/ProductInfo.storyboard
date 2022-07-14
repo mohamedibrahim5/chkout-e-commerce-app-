@@ -188,48 +188,65 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="cell" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eno-Ke-yV3">
-                                                <rect key="frame" x="0.0" y="-9" width="414" height="270"/>
+                                                <rect key="frame" x="0.0" y="17" width="414" height="244"/>
                                                 <color key="backgroundColor" name="Background2"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="270" id="xuI-MT-FmP"/>
+                                                    <constraint firstAttribute="height" constant="244" id="xuI-MT-FmP"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SkO-Cn-RTk">
-                                                    <size key="itemSize" width="388" height="238"/>
+                                                    <size key="itemSize" width="400" height="237"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productinfocell" id="tE8-85-tS1" customClass="productInfoCollectionViewCell" customModule="Merita" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="16" width="388" height="238"/>
+                                                        <rect key="frame" x="0.0" y="3.5" width="400" height="237"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lrU-ym-pwV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="388" height="238"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="237"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yOF-ad-uLp">
-                                                                    <rect key="frame" x="0.0" y="8" width="388" height="222"/>
-                                                                    <color key="backgroundColor" name="Background2"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaV-J7-eFI">
+                                                                    <rect key="frame" x="0.0" y="8" width="400" height="229"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yOF-ad-uLp">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="229"/>
+                                                                            <color key="backgroundColor" name="colorInCart"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="229" id="HEY-gy-Lde"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <real key="value" value="15"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" name="colorInCart"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="222" id="HEY-gy-Lde"/>
+                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="leading" secondItem="GaV-J7-eFI" secondAttribute="leading" id="0iA-4o-9uR"/>
+                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="centerX" secondItem="GaV-J7-eFI" secondAttribute="centerX" id="5ix-g9-zLb"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="yOF-ad-uLp" secondAttribute="trailing" id="6qb-6g-lbQ"/>
+                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="centerY" secondItem="GaV-J7-eFI" secondAttribute="centerY" id="bMV-r1-shV"/>
+                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="top" secondItem="GaV-J7-eFI" secondAttribute="topMargin" constant="-8" id="r4z-eT-EGr"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                            <real key="value" value="15"/>
+                                                                            <real key="value" value="50"/>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
-                                                                </imageView>
+                                                                </view>
                                                             </subviews>
                                                             <color key="backgroundColor" name="Background2"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="yOF-ad-uLp" secondAttribute="trailing" id="IGM-YJ-ht9"/>
-                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="leading" secondItem="lrU-ym-pwV" secondAttribute="leading" id="Klp-Pm-Chn"/>
-                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="width" secondItem="lrU-ym-pwV" secondAttribute="width" id="RnT-bh-J6u"/>
-                                                                <constraint firstItem="yOF-ad-uLp" firstAttribute="height" secondItem="lrU-ym-pwV" secondAttribute="height" multiplier="0.696262" constant="56.289719626168221" id="Zr2-Gq-hbf"/>
-                                                                <constraint firstAttribute="bottom" secondItem="yOF-ad-uLp" secondAttribute="bottom" constant="8" id="qRK-7N-MAk"/>
+                                                                <constraint firstAttribute="trailing" secondItem="GaV-J7-eFI" secondAttribute="trailing" id="DdA-ym-71V"/>
+                                                                <constraint firstItem="GaV-J7-eFI" firstAttribute="top" secondItem="lrU-ym-pwV" secondAttribute="top" constant="8" id="hv7-XG-InJ"/>
+                                                                <constraint firstItem="GaV-J7-eFI" firstAttribute="leading" secondItem="lrU-ym-pwV" secondAttribute="leading" id="iFX-jz-bar"/>
+                                                                <constraint firstAttribute="bottom" secondItem="GaV-J7-eFI" secondAttribute="bottom" id="m41-za-Yo4"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="388" height="238"/>
+                                                        <size key="customSize" width="400" height="237"/>
                                                         <connections>
                                                             <outlet property="imageviewproduct" destination="yOF-ad-uLp" id="bw6-se-KGc"/>
                                                         </connections>
@@ -257,7 +274,7 @@
                                             <constraint firstAttribute="trailing" secondItem="EIs-Dc-2r8" secondAttribute="trailing" constant="30" id="5LJ-Uf-ldW"/>
                                             <constraint firstItem="Eno-Ke-yV3" firstAttribute="leading" secondItem="iTy-Lo-5VE" secondAttribute="leading" id="9ZL-wo-fe9"/>
                                             <constraint firstAttribute="trailing" secondItem="Eno-Ke-yV3" secondAttribute="trailing" id="ADn-Tj-4I2"/>
-                                            <constraint firstItem="Eno-Ke-yV3" firstAttribute="top" secondItem="iTy-Lo-5VE" secondAttribute="top" constant="-9" id="AUS-5b-1rC"/>
+                                            <constraint firstItem="Eno-Ke-yV3" firstAttribute="top" secondItem="iTy-Lo-5VE" secondAttribute="top" constant="17" id="AUS-5b-1rC"/>
                                             <constraint firstItem="EIs-Dc-2r8" firstAttribute="leading" secondItem="iTy-Lo-5VE" secondAttribute="leading" constant="30" id="Hb4-MD-Flh"/>
                                             <constraint firstItem="EIs-Dc-2r8" firstAttribute="top" secondItem="Eno-Ke-yV3" secondAttribute="bottom" constant="39" id="ZOW-la-SXn"/>
                                             <constraint firstItem="LVv-ww-Gmc" firstAttribute="centerX" secondItem="Eno-Ke-yV3" secondAttribute="centerX" id="fCs-To-Amg"/>
@@ -317,6 +334,9 @@
         </namedColor>
         <namedColor name="BackgroundView">
             <color red="0.96899998188018799" green="0.96100002527236938" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="colorInCart">
+            <color red="0.74099999666213989" green="0.2669999897480011" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

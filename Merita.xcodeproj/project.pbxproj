@@ -80,6 +80,7 @@
 		A18948C5287327310037F05C /* ProductInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A18948C4287327310037F05C /* ProductInfo.storyboard */; };
 		A18B107C2871FFC500AC9A42 /* productInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18B107B2871FFC500AC9A42 /* productInfoViewController.swift */; };
 		A18B107E2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18B107D2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift */; };
+		A19A72B2288076C000D02A3E /* cartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19A72B1288076C000D02A3E /* cartTableViewCell.swift */; };
 		A1FFE5C6287CA83A0042CC13 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FFE5C5287CA83A0042CC13 /* LoginScreenViewController.swift */; };
 		A1FFE5C8287CAE340042CC13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A1FFE5C7287CAE330042CC13 /* GoogleService-Info.plist */; };
 		A1FFE5CA287CAE5C0042CC13 /* SignupScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */; };
@@ -164,6 +165,7 @@
 		A18948C4287327310037F05C /* ProductInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProductInfo.storyboard; sourceTree = "<group>"; };
 		A18B107B2871FFC500AC9A42 /* productInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoViewController.swift; sourceTree = "<group>"; };
 		A18B107D2871FFFE00AC9A42 /* productInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = productInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		A19A72B1288076C000D02A3E /* cartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cartTableViewCell.swift; sourceTree = "<group>"; };
 		A1FFE5C5287CA83A0042CC13 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
 		A1FFE5C7287CAE330042CC13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupScreenViewController.swift; sourceTree = "<group>"; };
@@ -846,6 +848,7 @@
 			isa = PBXGroup;
 			children = (
 				A1859796287D8A5B0023E9B3 /* cartViewController.swift */,
+				A19A72B1288076C000D02A3E /* cartTableViewCell.swift */,
 			);
 			path = "cart view ";
 			sourceTree = "<group>";
@@ -1047,6 +1050,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EC6BF792871C61B00B6AF34 /* OnboardingVC.swift in Sources */,
+				A19A72B2288076C000D02A3E /* cartTableViewCell.swift in Sources */,
 				3EC6BF822871DB5300B6AF34 /* UserDefaults+Extension.swift in Sources */,
 				3EC6BF762871C57A00B6AF34 /* OnboardingSlide.swift in Sources */,
 				40AED899286F28E1006830BD /* ProductsCategoryVC.swift in Sources */,

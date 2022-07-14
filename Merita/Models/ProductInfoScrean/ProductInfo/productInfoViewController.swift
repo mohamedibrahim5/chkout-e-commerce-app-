@@ -30,10 +30,6 @@ class productInfoViewController: UIViewController {
     var timer :Timer?
     var currentCellIndex = 0
     var checkHeart : Int = 0
-    var price : String =  "1255"
-    var name : String = "Adidass"
-    var image : String = "https://images.ctfassets.net/hrltx12pl8hq/7yQR5uJhwEkRfjwMFJ7bUK/dc52a0913e8ff8b5c276177890eb0129/offset_comp_772626-opt.jpg?fit=fill&w=800&h=300"
-   
     @IBOutlet weak var favourite: UIButton!
     @IBAction func favourite(_ sender: UIButton) {
         sender.flash()
@@ -87,9 +83,33 @@ class productInfoViewController: UIViewController {
     }
     @IBOutlet weak var brandName: UILabel!
     @IBAction func addToCart(_ sender: UIButton) {
-        print("add to cart")
         print(productId!)
         print(productIdString!)
+        if userId == nil {
+            showAlertLogin()
+        } else {
+            let db = Firestore.firestore()
+          let docRef = db.collection("Cart").document("\(userId!)").collection("all information").document("\(productIdString!)")
+          docRef.getDocument { (document, error) in
+              if let document = document, document.exists {
+                  print("add to Cart")
+                  let checkFovuritename = db.collection("Cart").document("\(self.userId!)").documentID
+                  print(checkFovuritename)
+                  if checkFovuritename == self.userId! {
+                      self.repetedCart()
+                  }
+                  else {
+                      print("add to Cart")
+                      db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!], merge: true)
+                  }
+              }
+              else {
+                      print("add to Cart")
+                      print("Document does not exist")
+                  db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!], merge: true)
+              }
+          }
+        }
     }
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productDescription: UITextView!
@@ -173,6 +193,14 @@ extension productInfoViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
         
+    }
+    func repetedCart (){
+        let alert = UIAlertController(title: "Warning", message: " you are add it before ", preferredStyle: .alert)
+
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        self.present(alert, animated: true)
+        print("add to Cart")
     }
 }
 

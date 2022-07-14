@@ -13,10 +13,6 @@ import SDWebImage
 
 class FavouriteScreenViewController: UIViewController {
     
-    var arrFav : Dictionary<String, Any>?
-    var arrayPrice2 : [String] = []
-    var arrayName : [String] = []
-    var arrImage : [String] = []
     var userId : String?
     var valueArray: [String] = []
     var valueArrayprice: [String] = []
