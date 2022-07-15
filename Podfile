@@ -17,6 +17,8 @@ pod 'FacebookCore'
 pod 'FacebookLogin'
 pod 'FBSDKLoginKit'
 pod 'GoogleSignIn'
+pod 'SwiftMessages'
+pod 'NVActivityIndicatorView'
  
   # Pods for Merita
 
