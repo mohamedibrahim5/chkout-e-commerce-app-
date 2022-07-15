@@ -92,6 +92,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "cartcell", for: indexPath) as! cartTableViewCell
+        cell.numberProductInCell.text = "1"
         cell.imageProduct.sd_setImage(with: URL(string: valueArrayimage[indexPath.row]))
         cell.nameProduct.text = valueArray[indexPath.row]
         cell.priceProduct.text = valueArrayprice[indexPath.row]
