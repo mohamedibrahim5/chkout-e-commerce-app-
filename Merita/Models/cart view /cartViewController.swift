@@ -26,6 +26,7 @@ class cartViewController: UIViewController {
     var newTotalPrice2 : Double = 0
     var numberOfIndexPath : Int?
     var numberOfItems : Int = 0
+    var total : Double?
 
 
     
@@ -92,6 +93,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "cartcell", for: indexPath) as! cartTableViewCell
+        numberOfProduct.text = "\(valueArray.count)"
         cell.numberProductInCell.text = "1"
         cell.imageProduct.sd_setImage(with: URL(string: valueArrayimage[indexPath.row]))
         cell.nameProduct.text = valueArray[indexPath.row]
@@ -111,7 +113,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
                 totalPrice.text = "\(total)$"
                 cell.numberProductInCell.text = "\(count)"
                 numberOfItems = numberOfItems+1
-                numberOfProduct.text = "\(2+numberOfItems)"
+                numberOfProduct.text = "\(valueArray.count+numberOfItems)"
                 cell.total.text = "\(Double(count) * totalOfPrice[indexPath.row])"
             }
                
@@ -126,11 +128,11 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
             }else {
                 let num : Double = totalOfPrice[indexPath.row]
                 newTotalPrice = newTotalPrice - num
-                let total = totalPrice2 + newTotalPrice
-                totalPrice.text = "\(total)$"
+                 total = totalPrice2 + newTotalPrice
+                totalPrice.text = "\(total!)$"
                 cell.numberProductInCell.text = "\(count)"
                 numberOfItems = numberOfItems-1
-                numberOfProduct.text = "\(2+numberOfItems)"
+                numberOfProduct.text = "\(valueArray.count+numberOfItems)"
                 cell.total.text = "\(Double(count) * totalOfPrice[indexPath.row])"
             }
            
@@ -155,6 +157,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
             db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.arrayOfProduct[self.numberOfIndexPath!].id!)").delete{ (error) in
                 if error == nil {
                     print("delete is done ")
+               //     self.totalPrice.text = "\(self.total! - self.totalOfPrice[indexPath.row])$"
                 } else {
                     print("delete is not done ")
                 }
