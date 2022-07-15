@@ -26,7 +26,7 @@ class cartViewController: UIViewController {
     var newTotalPrice2 : Double = 0
     var numberOfIndexPath : Int?
     var numberOfItems : Int = 0
-    var total : Double?
+    static var totall : Double = 0
 
 
     
@@ -38,6 +38,8 @@ class cartViewController: UIViewController {
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tableview.refreshControl = UIRefreshControl ()
+//        self.tableview.refreshControl?.addTarget(Self.self, action: #selector(self.didPullToFresh), for: .valueChanged)
         productCategoryViewModel.fetchProductCategory()
         productCategoryViewModel.bindingProductCategory = { productsCategory, error in
             if let productsCategory = productsCategory {
@@ -76,6 +78,8 @@ class cartViewController: UIViewController {
                             }
                             print(self.totalPrice2)
                             self.totalPrice.text = "\(self.totalPrice2)$"
+                            cartViewController.totall = self.totalPrice2
+                            print("koko\(cartViewController.totall)")
                           
                 }
                         self.tableview.reloadData()
@@ -110,11 +114,13 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
                 let num : Double = totalOfPrice[indexPath.row]
                 newTotalPrice = newTotalPrice + num
                 let total = totalPrice2 + newTotalPrice
+                cartViewController.totall = total
                 totalPrice.text = "\(total)$"
                 cell.numberProductInCell.text = "\(count)"
                 numberOfItems = numberOfItems+1
                 numberOfProduct.text = "\(valueArray.count+numberOfItems)"
                 cell.total.text = "\(Double(count) * totalOfPrice[indexPath.row])"
+                print("koko\(cartViewController.totall)")
             }
                
             
@@ -128,12 +134,14 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
             }else {
                 let num : Double = totalOfPrice[indexPath.row]
                 newTotalPrice = newTotalPrice - num
-                 total = totalPrice2 + newTotalPrice
-                totalPrice.text = "\(total!)$"
+                 let total = totalPrice2 + newTotalPrice
+                cartViewController.totall = total
+                totalPrice.text = "\(total)$"
                 cell.numberProductInCell.text = "\(count)"
                 numberOfItems = numberOfItems-1
                 numberOfProduct.text = "\(valueArray.count+numberOfItems)"
                 cell.total.text = "\(Double(count) * totalOfPrice[indexPath.row])"
+                print("koko\(cartViewController.totall)")
             }
            
         }
@@ -157,7 +165,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
             db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.arrayOfProduct[self.numberOfIndexPath!].id!)").delete{ (error) in
                 if error == nil {
                     print("delete is done ")
-               //     self.totalPrice.text = "\(self.total! - self.totalOfPrice[indexPath.row])$"
+         //           self.totalPrice.text = "\(self.totalPrice2 - self.totalOfPrice[indexPath.row])$"
                 } else {
                     print("delete is not done ")
                 }
@@ -188,4 +196,12 @@ extension cartViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
 }
+    @objc private func didPullToFresh(){
+        print("staart refreshing")
+        DispatchQueue.main.async {
+            self.tableview.refreshControl?.endRefreshing()
+        }
+    }
+
+    
 }

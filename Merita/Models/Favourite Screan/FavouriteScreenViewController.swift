@@ -111,6 +111,7 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
             let db = Firestore.firestore()
             db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.arrayOfProduct[self.numberOfIndexPath!].id!)").delete{ (error) in
                 if error == nil {
+                    UserDefaults.standard.set(0, forKey: "fill")
                     print("delete is done ")
                 } else {
                     print("delete is not done ")

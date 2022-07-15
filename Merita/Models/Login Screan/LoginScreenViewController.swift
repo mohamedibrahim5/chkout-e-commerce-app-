@@ -36,6 +36,14 @@ class LoginScreenViewController: UIViewController {
                 UserDefaults.standard.set(true, forKey: "Login")
                 let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
             //   vc?.id = LoginScreenViewController.idUser
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { grented, error in
+                    if grented  {
+                        print("success")
+                    }
+                    else {
+                        print("error")
+                    }
+                }
                 UserDefaults.standard.set(LoginScreenViewController.idUser, forKey: "Login1")
                 self.navigationController!.pushViewController(vc!, animated: true)
                

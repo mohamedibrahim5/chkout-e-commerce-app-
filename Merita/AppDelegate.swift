@@ -14,7 +14,7 @@ import GoogleSignIn
 import Firebase
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
 
 
 
@@ -22,7 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // ********************************
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        UNUserNotificationCenter.current().delegate = self
         return true
+    }
+    // **************************************
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner,.sound])
     }
 
     // MARK: UISceneSession Lifecycle

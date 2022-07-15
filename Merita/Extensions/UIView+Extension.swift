@@ -115,3 +115,50 @@ extension UIImageView{
         layer.add(flash, forKey: nil)
     }
 }
+
+
+//extension UIViewController{
+//    func showActivityIndicator(indicator: NVActivityIndicatorView? ,startIndicator: Bool){
+//        guard let indicator = indicator else {return}
+//        DispatchQueue.main.async {
+//            indicator.translatesAutoresizingMaskIntoConstraints = false
+//            self.view.addSubview(indicator)
+//
+//            NSLayoutConstraint.activate([
+//                indicator.widthAnchor.constraint(equalToConstant: 40),
+//                indicator.heightAnchor.constraint(equalToConstant: 40),
+//                indicator.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+//                indicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor)
+//            ])
+//            if startIndicator{
+//                indicator.startAnimating()
+//            }else{
+//                indicator.stopAnimating()
+//            }
+//        }
+//
+//    }
+//}
+// self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
+//  let indicator = NVActivityIndicatorView(frame: .zero, type: .ballRotateChase, color: .label, padding: 0)
+
+//extension Shared{
+//    static func showMessage(message:String, error:Bool){
+//
+//            let view = MessageView.viewFromNib(layout: .messageView)
+//            if error == true {
+//                view.configureTheme(.error)
+//            }else{
+//                view.configureTheme(.success)
+//            }
+//            view.button?.isHidden = true
+//            view.titleLabel?.isHidden = true
+//            view.bodyLabel?.text = message
+//
+//            var config = SwiftMessages.Config()
+//            config.presentationStyle = .top
+//            SwiftMessages.show(config: config, view: view)
+//        }
+//
+//}
+//   Shared.showMessage(message: "Added To Cart Successfully!", error: false)

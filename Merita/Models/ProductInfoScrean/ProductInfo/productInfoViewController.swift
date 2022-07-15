@@ -75,6 +75,7 @@ class productInfoViewController: UIViewController {
                       print("add to favourite4")
                       print("Document does not exist")
                   self.favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                  self.scheduleNotifiction()
                   UserDefaults.standard.set(self.productId, forKey: "fill")
                   db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!], merge: true)
               }
@@ -107,6 +108,7 @@ class productInfoViewController: UIViewController {
               else {
                       print("add to Cart")
                       print("Document does not exist")
+                  self.scheduleNotifictionCart()
                   db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!,"DouplePrice":self.productPriceDouble!], merge: true)
               }
           }
@@ -203,6 +205,27 @@ extension productInfoViewController {
         alert.addAction(okAction)
         self.present(alert, animated: true)
         print("add to Cart")
+    }
+    func scheduleNotifiction(){
+        let content = UNMutableNotificationContent()
+        content.title = "You Are Add It In Favourite"
+        content.sound = .default
+        content.badge = 0
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(2), repeats: false)
+      let request = UNNotificationRequest(identifier: "FavId", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
+    }
+    
+    func scheduleNotifictionCart(){
+        let content = UNMutableNotificationContent()
+        content.title = "You Are Add It In Cart"
+        content.sound = .default
+        content.badge = 0
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(2), repeats: false)
+      let request = UNNotificationRequest(identifier: "CartId", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request)
     }
 }
 
