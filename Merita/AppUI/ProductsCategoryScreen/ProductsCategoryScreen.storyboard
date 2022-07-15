@@ -25,21 +25,7 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sT2-Au-azW">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="282"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="g88-hj-HXc">
-                                        <rect key="frame" x="47" y="90" width="321" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="WaI-PI-rJg"/>
-                                        </constraints>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
-                                </subviews>
                                 <color key="backgroundColor" name="Background2"/>
-                                <constraints>
-                                    <constraint firstItem="g88-hj-HXc" firstAttribute="top" secondItem="sT2-Au-azW" secondAttribute="top" constant="90" id="8bM-mE-B0p"/>
-                                    <constraint firstItem="g88-hj-HXc" firstAttribute="leading" secondItem="sT2-Au-azW" secondAttribute="leading" constant="47" id="e28-P8-Pv3"/>
-                                    <constraint firstAttribute="trailing" secondItem="g88-hj-HXc" secondAttribute="trailing" constant="46" id="xOt-gI-zol"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="LeftRadius">
                                         <real key="value" value="117"/>

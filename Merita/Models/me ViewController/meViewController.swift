@@ -10,8 +10,10 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseDatabase
 import SDWebImage
+import  NVActivityIndicatorView
 
 class meViewController: UIViewController {
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     var arrFav : Dictionary<String, Any>?
     var arrayPrice2 : [String] = []
     var arrayName : [String] = []
@@ -69,13 +71,16 @@ class meViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         let db = Firestore.firestore()
         let docRef = db.collection("customerinformation").document(Auth.auth().currentUser!.uid)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 self.welcome.text = "Welcome"
                 self.nameOfCustomer.text = document["name"] as? String
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             } else {
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 print("Document does not exist")
             }
         }
@@ -90,6 +95,7 @@ class meViewController: UIViewController {
                 self.valueArray.append(document.data()["name"] as! String)
                 self.valueArrayprice.append(document.data()["price"] as! String)
                 self.valueArrayimage.append(document.data()["image"] as! String)
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                
                   
         }

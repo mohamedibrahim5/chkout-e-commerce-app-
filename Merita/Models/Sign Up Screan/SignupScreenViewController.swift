@@ -10,18 +10,24 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseDatabase
 import Firebase
+import  NVActivityIndicatorView
 
 class SignupScreenViewController: UIViewController {
     
     let db = Firestore.firestore()
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBAction func customerSignup(_ sender: UIButton) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         if email.text == "" || password.text == "" || name.text == "" {
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             emptyEmailOrPassword()
+            
         }
         else if  password.text!.count < 6 {
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             showFailedPasswordAlert()
         }
         else {
@@ -32,18 +38,24 @@ class SignupScreenViewController: UIViewController {
                     db.collection("customerinformation").document(Auth.auth().currentUser!.uid).setData(["name":name.text!,"uid":authResult!.user.uid])
 
                     if  isPasswordValid(self.password.text!) == false {
+                        self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                         showPasswordWeakAlert()
+                        
                     }
                     print(Auth.auth().currentUser!.uid)
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                     self.showSuccesfulRegisterAlert()
                    
                     name.text = ""
                     email.text = ""
                     password.text = ""
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+
                     
                 }
                 if let error = error {
                     print(error.localizedDescription)
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                     self.showFaileEmailAlert()
                 }
         }

@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseDatabase
 import SDWebImage
+import  NVActivityIndicatorView
 
 class productInfoViewController: UIViewController {
     @IBOutlet weak var pageControler: UIPageControl!
@@ -31,8 +32,10 @@ class productInfoViewController: UIViewController {
     var timer :Timer?
     var currentCellIndex = 0
     var checkHeart : Int = 0
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     @IBOutlet weak var favourite: UIButton!
     @IBAction func favourite(_ sender: UIButton) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         sender.flash()
         if userId == nil {
             showAlertLogin()
@@ -41,6 +44,7 @@ class productInfoViewController: UIViewController {
           let docRef = db.collection("FAV").document("\(userId!)").collection("all information").document("\(productIdString!)")
           docRef.getDocument { (document, error) in
               if let document = document, document.exists {
+                  self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                   print("add to favourite1")
                   let checkFovuritename = db.collection("FAV").document("\(self.userId!)").documentID
                   print(checkFovuritename)
@@ -67,11 +71,13 @@ class productInfoViewController: UIViewController {
                       print("add to favourite2")
                   }
                   else {
+                      self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                       print("add to favourite3")
                       db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!], merge: true)
                   }
               }
               else {
+                  self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                       print("add to favourite4")
                       print("Document does not exist")
                   self.favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -85,6 +91,7 @@ class productInfoViewController: UIViewController {
     }
     @IBOutlet weak var brandName: UILabel!
     @IBAction func addToCart(_ sender: UIButton) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         print(productId!)
         print(productIdString!)
         if userId == nil {
@@ -98,6 +105,7 @@ class productInfoViewController: UIViewController {
                   let checkFovuritename = db.collection("Cart").document("\(self.userId!)").documentID
                   print(checkFovuritename)
                   if checkFovuritename == self.userId! {
+                      self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                       self.repetedCart()
                   }
                   else {
@@ -108,6 +116,7 @@ class productInfoViewController: UIViewController {
               else {
                       print("add to Cart")
                       print("Document does not exist")
+                  self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                   self.scheduleNotifictionCart()
                   db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!,"DouplePrice":self.productPriceDouble!], merge: true)
               }

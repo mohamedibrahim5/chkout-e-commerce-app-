@@ -9,10 +9,10 @@ import UIKit
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseDatabase
-
+import  NVActivityIndicatorView
 class HomePageScreanTabBarController: UITabBarController {
 //    var id :String?
-
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     override func viewDidLoad() {
         super.viewDidLoad()
         let id = UserDefaults.standard.string(forKey: "Login1")
@@ -28,6 +28,7 @@ class HomePageScreanTabBarController: UITabBarController {
         )
     }
     @IBAction func signOut(_ sender: AnyObject) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         let alert = UIAlertController(title: "Warning", message: "Are you want to sign out ", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
@@ -39,8 +40,10 @@ class HomePageScreanTabBarController: UITabBarController {
         }
             UserDefaults.standard.set(false, forKey: "Login")
             self.navigationController?.popViewController(animated: true)
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
         })
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
         })
         alert.addAction(okAction)
         alert.addAction(cancelAction)

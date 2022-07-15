@@ -15,9 +15,11 @@ import FBSDKLoginKit
 import FBSDKCoreKit
 import GoogleSignIn
 import Firebase
+import  NVActivityIndicatorView
 
 class LoginScreenViewController: UIViewController {
 
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     static var idUser:String = ""
     @IBOutlet weak var password2: UITextField!
     let db = Firestore.firestore()
@@ -26,6 +28,7 @@ class LoginScreenViewController: UIViewController {
     @IBOutlet weak var password: UIView!
     @IBOutlet weak var email: UITextField!
     @IBAction func login(_ sender: UIButton) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
        
         Auth.auth().signIn(withEmail: email.text!, password: password2.text!) {[self] authResult, error in
             if authResult != nil {
@@ -36,6 +39,7 @@ class LoginScreenViewController: UIViewController {
                 UserDefaults.standard.set(true, forKey: "Login")
                 let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
             //   vc?.id = LoginScreenViewController.idUser
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { grented, error in
                     if grented  {
                         print("success")
@@ -50,6 +54,7 @@ class LoginScreenViewController: UIViewController {
             }
             if error != nil {
                     self.showReaptedEmailAlert()
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
         }
     }
@@ -65,14 +70,16 @@ class LoginScreenViewController: UIViewController {
     
     
     @IBAction func LoginWithFscebook(_ sender: UIButton) {
-        
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         let loginManger = LoginManager()
         loginManger.logIn(permissions: ["public_profile","email"], from: self,handler: {(result,error) in
             if result != nil {
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
             if let error = error {
                 print("failed to login")
                 print(error.localizedDescription)
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                 return
             }
             guard AccessToken.current != nil else {
@@ -89,8 +96,10 @@ class LoginScreenViewController: UIViewController {
                     let graphRequest : GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields": "id, name, email"])
                     graphRequest.start(completionHandler: { connection, restult, error in
                         if error != nil {
+                            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                             print("error")
                         }else {
+                            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                             guard let data : [String:AnyObject] = restult as? [String:AnyObject] else {
                                 print("Can't pull data from JSON")
                             return
@@ -117,11 +126,21 @@ class LoginScreenViewController: UIViewController {
                     print(LoginScreenViewController.idUser)
                     UserDefaults.standard.set(true, forKey: "Login")
                     let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { grented, error in
+                        if grented  {
+                            print("success")
+                        }
+                        else {
+                            print("error")
+                        }
+                    }
                     UserDefaults.standard.set(LoginScreenViewController.idUser, forKey: "Login1")
                 //    vc?.id = LoginScreenViewController.idUser
                     self.navigationController!.pushViewController(vc!, animated: true)
                 }
                 if error != nil {
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                     print("login error")
                     return
                 }
@@ -137,18 +156,21 @@ class LoginScreenViewController: UIViewController {
     
     
     @IBAction func google(_ sender: UIButton) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
         let config = GIDConfiguration(clientID: clientID)
         GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { user, error in
 
             if let error = error {
+                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
           print(error)
           }
             guard let auth = user?.authentication else { return }
             let credintal = GoogleAuthProvider.credential(withIDToken: auth.idToken!, accessToken: auth.accessToken)
             Auth.auth().signIn(with: credintal) { AuthResult, error in
                 if let error = error {
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                     print(error)
                 }
                 if AuthResult != nil {
@@ -158,6 +180,15 @@ class LoginScreenViewController: UIViewController {
                     LoginScreenViewController.idUser = Auth.auth().currentUser!.uid
                     UserDefaults.standard.set(true, forKey: "Login")
                     let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { grented, error in
+                        if grented  {
+                            print("success")
+                        }
+                        else {
+                            print("error")
+                        }
+                    }
                     UserDefaults.standard.set(LoginScreenViewController.idUser, forKey: "Login1")
                        //         vc?.id = Auth.auth().currentUser?.uid
                                 self.navigationController!.pushViewController(vc!, animated: true)
