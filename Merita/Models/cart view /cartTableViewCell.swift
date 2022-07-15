@@ -8,7 +8,15 @@
 import UIKit
 
 class cartTableViewCell: UITableViewCell {
+    var plus:(()->())?
+    var mines:(()->())?
     
+    @IBAction func minesbutton(_ sender: UIButton) {
+        mines?()
+    }
+    @IBAction func plusbutton(_ sender: UIButton) {
+        plus?()
+    }
     @IBOutlet weak var nameProduct: UILabel!
     
     @IBOutlet weak var priceProduct: UILabel!

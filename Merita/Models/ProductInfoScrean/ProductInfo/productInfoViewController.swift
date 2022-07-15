@@ -25,6 +25,7 @@ class productInfoViewController: UIViewController {
     var productvendor : String?
     var productId : Int?
     var productprice : String?
+    var productPriceDouble : Double?
     var productimage : String?
     var productimages : [String]?
     var timer :Timer?
@@ -100,13 +101,13 @@ class productInfoViewController: UIViewController {
                   }
                   else {
                       print("add to Cart")
-                      db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!], merge: true)
+                      db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"DouplePrice":self.productPriceDouble!], merge: true)
                   }
               }
               else {
                       print("add to Cart")
                       print("Document does not exist")
-                  db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!], merge: true)
+                  db.collection("Cart").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!,"DouplePrice":self.productPriceDouble!], merge: true)
               }
           }
         }
@@ -128,6 +129,7 @@ class productInfoViewController: UIViewController {
         productId = (arrayOfProducts?.id)
         productIdString = "\(productId!)"
         productprice = arrayOfProducts?.variants![0].price
+        productPriceDouble = Double(productprice!)
         productPrice.text = ("\(productprice!)$")
         productimage = arrayOfProducts?.images![0].src
         if arrayOfProducts?.images?.count == 2 {
