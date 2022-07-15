@@ -11,6 +11,7 @@ class cartTableViewCell: UITableViewCell {
     var plus:(()->())?
     var mines:(()->())?
     
+    @IBOutlet weak var total: UILabel!
     @IBAction func minesbutton(_ sender: UIButton) {
         mines?()
     }

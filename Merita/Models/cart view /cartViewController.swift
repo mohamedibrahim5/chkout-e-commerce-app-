@@ -95,6 +95,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
         cell.imageProduct.sd_setImage(with: URL(string: valueArrayimage[indexPath.row]))
         cell.nameProduct.text = valueArray[indexPath.row]
         cell.priceProduct.text = valueArrayprice[indexPath.row]
+        cell.total.text = "\(totalOfPrice[indexPath.row])"
         var count = 1
         cell.plus = { [self] in
             count+=1
@@ -110,6 +111,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.numberProductInCell.text = "\(count)"
                 numberOfItems = numberOfItems+1
                 numberOfProduct.text = "\(2+numberOfItems)"
+                cell.total.text = "\(Double(count) * totalOfPrice[indexPath.row])"
             }
                
             
@@ -128,6 +130,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
                 cell.numberProductInCell.text = "\(count)"
                 numberOfItems = numberOfItems-1
                 numberOfProduct.text = "\(2+numberOfItems)"
+                cell.total.text = "\(Double(count) * totalOfPrice[indexPath.row])"
             }
            
         }

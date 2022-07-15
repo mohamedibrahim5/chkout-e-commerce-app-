@@ -141,19 +141,54 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEE-Zw-Gcb">
+                                                            <rect key="frame" x="116" y="56" width="121" height="20.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0OF-2q-Toy">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="20.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="49" id="db9-e0-cRd"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                    <color key="textColor" red="0.90196078430000004" green="0.65490196079999996" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HT6-HL-RWv">
+                                                                    <rect key="frame" x="49" y="0.0" width="59" height="20.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="59" id="Wu3-jN-dT0"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                    <color key="textColor" red="0.90196078430000004" green="0.65490196079999996" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGm-kT-Sjr">
+                                                                    <rect key="frame" x="108" y="0.0" width="13" height="20.5"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="13" id="eH8-SI-fUf"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                                    <color key="textColor" red="0.90196078430000004" green="0.65490196079999996" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.69019609689999994" green="0.15686275059999999" blue="0.44313728810000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="fa6-tS-qCM" secondAttribute="bottom" constant="8" id="2hj-3h-ibN"/>
+                                                        <constraint firstItem="6ss-x1-IJX" firstAttribute="top" secondItem="GEE-Zw-Gcb" secondAttribute="bottom" constant="8.5" id="3h5-3p-1Gy"/>
                                                         <constraint firstItem="fa6-tS-qCM" firstAttribute="top" secondItem="13n-Qg-IZM" secondAttribute="bottom" constant="32" id="8jg-ud-9ks"/>
                                                         <constraint firstAttribute="bottom" secondItem="k0g-PU-rHr" secondAttribute="bottom" constant="6" id="BF1-86-fcR"/>
                                                         <constraint firstAttribute="bottom" secondItem="6ss-x1-IJX" secondAttribute="bottom" constant="8.5" id="FEC-jD-8qP"/>
                                                         <constraint firstItem="fa6-tS-qCM" firstAttribute="leading" secondItem="6ss-x1-IJX" secondAttribute="trailing" constant="65" id="MN7-dt-yUs"/>
                                                         <constraint firstItem="6ss-x1-IJX" firstAttribute="leading" secondItem="k0g-PU-rHr" secondAttribute="trailing" constant="8" symbolic="YES" id="PiI-on-J92"/>
+                                                        <constraint firstItem="GEE-Zw-Gcb" firstAttribute="top" secondItem="13n-Qg-IZM" secondAttribute="bottom" constant="12" id="WVR-b0-Mfw"/>
                                                         <constraint firstItem="k0g-PU-rHr" firstAttribute="top" secondItem="WWK-ef-b4X" secondAttribute="top" constant="8" id="ZJR-cB-A0r"/>
                                                         <constraint firstItem="13n-Qg-IZM" firstAttribute="leading" secondItem="k0g-PU-rHr" secondAttribute="trailing" constant="8" symbolic="YES" id="enx-gY-6Cz"/>
                                                         <constraint firstItem="13n-Qg-IZM" firstAttribute="top" secondItem="WWK-ef-b4X" secondAttribute="top" constant="8" id="hP7-4m-u66"/>
                                                         <constraint firstAttribute="trailing" secondItem="13n-Qg-IZM" secondAttribute="trailing" constant="8" id="hPH-ST-3Z2"/>
+                                                        <constraint firstItem="GEE-Zw-Gcb" firstAttribute="leading" secondItem="6ss-x1-IJX" secondAttribute="leading" id="lJl-Ew-x0G"/>
                                                         <constraint firstAttribute="trailing" secondItem="fa6-tS-qCM" secondAttribute="trailing" constant="8" id="mK9-Cr-701"/>
                                                         <constraint firstItem="6ss-x1-IJX" firstAttribute="top" secondItem="13n-Qg-IZM" secondAttribute="bottom" constant="41" id="o8E-yU-XX8"/>
                                                         <constraint firstItem="k0g-PU-rHr" firstAttribute="leading" secondItem="WWK-ef-b4X" secondAttribute="leading" constant="8" id="sPg-el-XH4"/>
@@ -174,6 +209,7 @@
                                             <outlet property="nameProduct" destination="13n-Qg-IZM" id="goM-2Y-zr1"/>
                                             <outlet property="numberProductInCell" destination="dc1-b8-rxj" id="a9d-WB-c7K"/>
                                             <outlet property="priceProduct" destination="ZNr-1k-TVv" id="TuM-E1-dLq"/>
+                                            <outlet property="total" destination="HT6-HL-RWv" id="3eK-3V-c9Y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -228,7 +264,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12d-Dd-zkk">
-                                        <rect key="frame" x="257" y="39" width="16" height="22"/>
+                                        <rect key="frame" x="257" y="40" width="48" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" name="colorButton"/>
