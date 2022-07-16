@@ -78,7 +78,7 @@ class cartViewController: UIViewController {
                                 self.totalPrice2 = self.totalPrice2 + self.totalOfPrice[index]
                             }
                             print(self.totalPrice2)
-                            self.totalPrice.text = "\(self.totalPrice2)$"
+                            self.totalPrice.text = "\(self.totalPrice2)"
                             cartViewController.totall = self.totalPrice2
                             print("koko\(cartViewController.totall)")
                           
@@ -89,11 +89,27 @@ class cartViewController: UIViewController {
         }
         self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
 }
+    @IBAction func Cgeckout(_ sender: UIButton) {
+        if self.valueArray.count > 0 {
+            let vc = UIStoryboard(name: "checkout", bundle: nil).instantiateViewController(withIdentifier: "check") as? CheckOut
+            vc!.userId = userId
+            let totalPricr = Double(totalPrice.text!)
+            vc?.totalPrice = totalPricr
+            self.navigationController!.pushViewController(vc!, animated: true)
+        } else {
+            emptyCart()
+        }
+        
+    }
 }
 
 
 extension cartViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if valueArray.count == 0 {
+            self.numberOfProduct.text = "0"
+            self.totalPrice.text = "0"
+        }
         return valueArray.count
     }
     
@@ -117,7 +133,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
                 newTotalPrice = newTotalPrice + num
                 let total = totalPrice2 + newTotalPrice
                 cartViewController.totall = total
-                totalPrice.text = "\(total)$"
+                totalPrice.text = "\(total)"
                 cell.numberProductInCell.text = "\(count)"
                 numberOfItems = numberOfItems+1
                 numberOfProduct.text = "\(valueArray.count+numberOfItems)"
@@ -137,7 +153,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
                 newTotalPrice = newTotalPrice - num
                  let total = totalPrice2 + newTotalPrice
                 cartViewController.totall = total
-                totalPrice.text = "\(total)$"
+                totalPrice.text = "\(total)"
                 cell.numberProductInCell.text = "\(count)"
                 numberOfItems = numberOfItems-1
                 numberOfProduct.text = "\(valueArray.count+numberOfItems)"
@@ -150,6 +166,9 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 136
     }
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//                let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { action, view, complationHandler in
+//    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { action, view, complationHandler in
@@ -183,7 +202,7 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
             vc!.userId = self.userId
             self.navigationController!.pushViewController(vc!, animated: true)
         }
-        
+
         return UISwipeActionsConfiguration(actions: [deleteAtion])
     }
     
@@ -208,6 +227,11 @@ extension cartViewController {
             self.tableview.refreshControl?.endRefreshing()
         }
     }
+    func emptyCart(){
+        let alert = UIAlertController(title: "Sorry", message: "you cart is empty ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+}
 
     
 }

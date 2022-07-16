@@ -96,6 +96,7 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
         }
         vc?.userId = userId
         vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
+        UserDefaults.standard.set(self.arrayOfProduct[numberOfIndexPath!].id, forKey: "fill")
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

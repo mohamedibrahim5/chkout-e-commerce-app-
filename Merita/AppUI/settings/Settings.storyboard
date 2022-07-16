@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="F0M-nh-EeB">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Settings-->
+        <scene sceneID="poY-cB-puL">
+            <objects>
+                <viewController storyboardIdentifier="setting" id="F0M-nh-EeB" customClass="settings" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lA2-Od-bKF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5g-1W-AEJ">
+                                <rect key="frame" x="8" y="74" width="398" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="FmE-ML-D3j"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Adress">
+                                            <attributes>
+                                                <font key="NSFont" size="26" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="address:" destination="F0M-nh-EeB" eventType="touchUpInside" id="bwt-76-l3a"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qaf-gE-zsX">
+                                <rect key="frame" x="8" y="148" width="398" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="5iw-1F-BvJ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Currency">
+                                            <attributes>
+                                                <font key="NSFont" size="26" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="currency:" destination="F0M-nh-EeB" eventType="touchUpInside" id="Ea9-Nz-xZ1"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TtY-uR-hle">
+                                <rect key="frame" x="309" y="165.5" width="93" height="32"/>
+                                <color key="backgroundColor" name="BackgroundView"/>
+                                <segments>
+                                    <segment title="USD"/>
+                                    <segment title="EGP"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" name="CircelColor"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eve-t7-HLa">
+                                <rect key="frame" x="8" y="222" width="398" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="qgS-yb-lBr"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Contact Us">
+                                            <attributes>
+                                                <font key="NSFont" size="26" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="contactUsAction:" destination="F0M-nh-EeB" eventType="touchUpInside" id="go8-Hz-BBO"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tYO-xi-15P"/>
+                        <color key="backgroundColor" name="Background2"/>
+                        <constraints>
+                            <constraint firstItem="a5g-1W-AEJ" firstAttribute="top" secondItem="tYO-xi-15P" secondAttribute="top" constant="30" id="52b-6r-aTo"/>
+                            <constraint firstItem="Qaf-gE-zsX" firstAttribute="top" secondItem="a5g-1W-AEJ" secondAttribute="bottom" constant="8" symbolic="YES" id="F22-bc-Cuj"/>
+                            <constraint firstItem="a5g-1W-AEJ" firstAttribute="leading" secondItem="tYO-xi-15P" secondAttribute="leading" constant="8" id="NQK-Fb-tUq"/>
+                            <constraint firstItem="Eve-t7-HLa" firstAttribute="leading" secondItem="tYO-xi-15P" secondAttribute="leading" constant="8" id="Or7-c8-mIg"/>
+                            <constraint firstItem="Qaf-gE-zsX" firstAttribute="leading" secondItem="tYO-xi-15P" secondAttribute="leading" constant="8" id="afg-Ny-rLs"/>
+                            <constraint firstItem="tYO-xi-15P" firstAttribute="trailing" secondItem="Qaf-gE-zsX" secondAttribute="trailing" constant="8" id="cll-sF-Bg2"/>
+                            <constraint firstItem="tYO-xi-15P" firstAttribute="trailing" secondItem="a5g-1W-AEJ" secondAttribute="trailing" constant="8" id="j0V-yb-fyA"/>
+                            <constraint firstItem="Qaf-gE-zsX" firstAttribute="top" secondItem="a5g-1W-AEJ" secondAttribute="bottom" constant="8" id="lBA-Lx-uLj"/>
+                            <constraint firstItem="Eve-t7-HLa" firstAttribute="top" secondItem="Qaf-gE-zsX" secondAttribute="bottom" constant="8" symbolic="YES" id="o3t-eq-pNN"/>
+                            <constraint firstItem="tYO-xi-15P" firstAttribute="trailing" secondItem="Eve-t7-HLa" secondAttribute="trailing" constant="8" id="rLK-K4-ZMZ"/>
+                            <constraint firstItem="tYO-xi-15P" firstAttribute="trailing" secondItem="TtY-uR-hle" secondAttribute="trailing" constant="12" id="sEO-jK-MY9"/>
+                            <constraint firstItem="TtY-uR-hle" firstAttribute="centerY" secondItem="Qaf-gE-zsX" secondAttribute="centerY" id="vZQ-HX-MYW"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="VHW-PJ-s7E"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XlO-YG-BNb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="388" y="-131"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Background2">
+            <color red="0.94900000095367432" green="0.70200002193450928" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundView">
+            <color red="0.96899998188018799" green="0.96100002527236938" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CircelColor">
+            <color red="0.94099998474121094" green="0.75300002098083496" blue="0.50199997425079346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

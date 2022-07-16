@@ -7,6 +7,10 @@
 
 import UIKit
 import  NVActivityIndicatorView
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseDatabase
+import Firebase
 class ProductsCategoryVC: UIViewController {
     var userId :String?
     let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
@@ -140,8 +144,23 @@ extension ProductsCategoryVC: UICollectionViewDelegate, UICollectionViewDelegate
         let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
         vc?.arrayOfProducts = arrayOfProductsCategory[indexPath.row]
         vc?.userId = userId
+        check(numberOfIndexPath: indexPath.row)
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     
 }
 
+extension ProductsCategoryVC {
+    func check (numberOfIndexPath:Int){
+        let db = Firestore.firestore()
+        db.collection("Fav").document(self.userId!).collection("all information").getDocuments { [self]snapshot, error in
+            if error == nil && snapshot != nil {
+                for document in snapshot!.documents{
+                    if document.documentID == "\(arrayOfProductsCategory[numberOfIndexPath].id!) "{
+                        UserDefaults.standard.set(self.arrayOfProductsCategory[numberOfIndexPath].id, forKey: "fill")
+                    }
+                }
+            }
+        }
+    }
+}
