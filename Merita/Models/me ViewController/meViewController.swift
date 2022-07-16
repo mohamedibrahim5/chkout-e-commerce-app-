@@ -142,6 +142,7 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { action, view, complationHandler in
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
             print(indexPath.row)
             print(self.valueArray[indexPath.row])
             let checkName = self.valueArray[indexPath.row]
@@ -165,8 +166,11 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
             self.tableview.beginUpdates()
             self.tableview.deleteRows(at: [indexPath], with: .automatic)
             self.tableview.endUpdates()
+            
             complationHandler(true)
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
         }
+        
         return UISwipeActionsConfiguration(actions: [deleteAtion])
     }
 }

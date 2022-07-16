@@ -6,11 +6,12 @@
 //
 
 import UIKit
-
+import  NVActivityIndicatorView
 class GlobalSearchForProductsVC: UIViewController {
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     @IBOutlet weak var imageview: UIImageView!
-    var searchText2 : [String] = []
-    var filterData : [String] = []
+    var search1 : [searchingData] = [searchingData]()
+    var search2 : [searchingData] = [searchingData]()
     @IBOutlet weak var searchBar: UISearchBar!
     var userId : String?
     @IBOutlet weak var allProductsCView: UICollectionView!{
@@ -69,6 +70,7 @@ class GlobalSearchForProductsVC: UIViewController {
      */
     
     @IBAction func subCategoryBtn(_ sender: UIButton) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         imageview.isHidden = true
         print("HI")
         
@@ -85,22 +87,24 @@ class GlobalSearchForProductsVC: UIViewController {
             self.present(viewController, animated: true, completion: nil)
             
         }
-        
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
     }
     
 }
 
 extension GlobalSearchForProductsVC: SubCategoryProductsProtocol {
     
+    
     func setSubCategory(subCategory: [ProductCategory]) {
         arrayOfAllProducts.removeAll()
         arrayOfAllProducts = subCategory
-        searchText2.removeAll()
+        search1.removeAll()
         for i in 0..<self.arrayOfAllProducts.count {
-            self.searchText2.append(self.arrayOfAllProducts[i].title!)
+            let search = searchingData(name: arrayOfAllProducts[i].title!, price: (arrayOfAllProducts[i].variants?[0].price!)!, image: (arrayOfAllProducts[i].image?.src)!)
+            search1.append(search)
         }
-        self.filterData = self.searchText2
-        print("number of product \(filterData.count)")
+        print("number of product \(search1.count)")
+        self.search2 = self.search1
         self.searchBar.delegate = self
         allProductsCView.reloadData()
     }
@@ -110,18 +114,20 @@ extension GlobalSearchForProductsVC: SubCategoryProductsProtocol {
 
 extension GlobalSearchForProductsVC: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filterData.count
-      //  return arrayOfAllProducts.count
+      //  return filterData.count
+       
+        return search2.count
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let ProductCell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllProductsCViewCell", for: indexPath) as! AllProductsCViewCell
-        
-        
-        let productDetails = arrayOfAllProducts[indexPath.row]
-        ProductCell.configureAllProductCell(imageProduct: productDetails.image?.src ?? "", titleProduct: filterData[indexPath.row], priceProduct: productDetails.variants?[0].price ?? "")
-        
+     
+            ProductCell.nameProduct.text = search2[indexPath.row].name
+            ProductCell.priceProduct.text = search2[indexPath.row].price
+        ProductCell.imageProduct.sd_setImage(with: URL(string: search2[indexPath.row].image!))
         return ProductCell
     }
     
@@ -148,13 +154,27 @@ extension GlobalSearchForProductsVC: UICollectionViewDelegate, UICollectionViewD
     }
     
 }
-
 extension GlobalSearchForProductsVC : UISearchBarDelegate
 {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterData = searchText.isEmpty ? searchText2 : searchText2.filter({(dataString: String) -> Bool in
-            return dataString.range(of: searchText, options: .caseInsensitive) != nil
-        })
+        if searchText.isEmpty {
+            search2.removeAll()
+            search2 = search1
+        }
+        else {
+            search2.removeAll()
+            for player1 in search1 {
+                if (player1.name!.contains(searchText)) {
+                    search2.append(player1)
+                }
+            }
+        }
+        
+        
+        
+//        filterData = searchText.isEmpty ? searchText2 : searchText2.filter({(dataString: String) -> Bool in
+//            return dataString.range(of: searchText, options: .caseInsensitive) != nil
+//        })
 
         allProductsCView.reloadData()
     }

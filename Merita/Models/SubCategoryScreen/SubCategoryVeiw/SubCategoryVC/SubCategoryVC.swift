@@ -6,9 +6,9 @@
 //
 
 import UIKit
-
+import  NVActivityIndicatorView
 class SubCategoryVC: UIViewController {
-    
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     var userId:String?
     @IBOutlet weak var shoesBtnOutlet: UIButton!
     
@@ -25,6 +25,7 @@ class SubCategoryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         
         productCategoryViewModel.fetchProductCategory()
         productCategoryViewModel.bindingProductCategory = { allProducts, error in
@@ -38,6 +39,7 @@ class SubCategoryVC: UIViewController {
                 }
             }
         }
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
         
     }
     
@@ -45,18 +47,21 @@ class SubCategoryVC: UIViewController {
         
         let buttonShoesTitle = shoesBtnOutlet?.titleLabel?.text
         getSubCategory(arrayOfAllProducts: arrayOfAllProducts, productType: buttonShoesTitle)
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
     }
     
     @IBAction func accessoriesBtnAction(_ sender: UIButton) {
         
         let buttonAccessoriesTitle = sender.titleLabel?.text
         getSubCategory(arrayOfAllProducts: arrayOfAllProducts, productType: buttonAccessoriesTitle)
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         
     }
     
     @IBAction func tshirtBtnAction(_ sender: UIButton) {
         let buttonTshirtTitle = sender.titleLabel?.text
         getSubCategory(arrayOfAllProducts: arrayOfAllProducts, productType: buttonTshirtTitle)
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         
     }
     
@@ -65,6 +70,7 @@ class SubCategoryVC: UIViewController {
         
         if let passShoesCategoryDelegate = passShoesCategoryDelegate {
             passShoesCategoryDelegate.setSubCategory(subCategory: arrayOfAllProducts)
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         }
         
         dismissSubCategoryVc()

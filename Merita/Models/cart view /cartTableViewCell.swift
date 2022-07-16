@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 class cartTableViewCell: UITableViewCell {
     var plus:(()->())?
     var mines:(()->())?

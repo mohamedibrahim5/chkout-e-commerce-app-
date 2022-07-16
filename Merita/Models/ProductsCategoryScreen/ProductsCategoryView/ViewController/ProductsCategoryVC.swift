@@ -6,9 +6,10 @@
 //
 
 import UIKit
-
+import  NVActivityIndicatorView
 class ProductsCategoryVC: UIViewController {
     var userId :String?
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     
     @IBOutlet weak var productCategoryCView: UICollectionView!{
         didSet{
@@ -28,7 +29,7 @@ class ProductsCategoryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         productCategoryViewModel.fetchProductCategory()
         productCategoryViewModel.bindingProductCategory = { productsCategory, error in
             if let productsCategory = productsCategory {
@@ -40,6 +41,7 @@ class ProductsCategoryVC: UIViewController {
                     print(error.localizedDescription)
                 }
             }
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
         }
     }
 }

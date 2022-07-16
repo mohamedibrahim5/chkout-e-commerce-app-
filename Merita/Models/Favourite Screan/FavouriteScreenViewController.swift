@@ -10,9 +10,10 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseDatabase
 import SDWebImage
-
+import  NVActivityIndicatorView
 class FavouriteScreenViewController: UIViewController {
     
+    let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     var userId : String?
     var valueArray: [String] = []
     var valueArrayprice: [String] = []
@@ -44,6 +45,7 @@ class FavouriteScreenViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
                         let db = Firestore.firestore()
                 db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
                     
@@ -58,6 +60,7 @@ class FavouriteScreenViewController: UIViewController {
                           
                 }
                         self.tableview.reloadData()
+                        self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             }
                     
         }
@@ -100,6 +103,7 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
     }
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { action, view, complationHandler in
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
             print(indexPath.row)
             print(self.valueArray[indexPath.row])
             let checkName = self.valueArray[indexPath.row]
@@ -128,7 +132,9 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
                 self.tableview.reloadData()
             }
             complationHandler(true)
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
         }
+       
         return UISwipeActionsConfiguration(actions: [deleteAtion])
     }
 }

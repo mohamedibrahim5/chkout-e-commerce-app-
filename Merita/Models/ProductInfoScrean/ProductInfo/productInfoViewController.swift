@@ -129,6 +129,7 @@ class productInfoViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         
         pageControler.numberOfPages = (arrayOfProducts?.images!.count)!
         productname = (arrayOfProducts?.title)!
@@ -156,6 +157,7 @@ class productInfoViewController: UIViewController {
         let rndomNumber = Double.random(in: 2...5)
         let finalRandomNumber = Double(round(10*rndomNumber)/10)
         rating.text = String(finalRandomNumber)
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
         
     }
     func statrtTimer(){
@@ -173,10 +175,12 @@ class productInfoViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
         self.checkHeart = UserDefaults.standard.integer(forKey: "fill")
         if self.checkHeart == productId {
             favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
+        self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
     }
 }
 extension productInfoViewController : UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout{
