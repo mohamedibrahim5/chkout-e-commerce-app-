@@ -52,9 +52,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B4t-I6-yz3">
-                                                    <rect key="frame" x="0.0" y="11" width="374" height="105"/>
+                                                    <rect key="frame" x="8" y="11" width="358" height="105"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tng-zK-GoF">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tng-zK-GoF">
                                                             <rect key="frame" x="125" y="8" width="187" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="M5k-wR-uSd"/>
@@ -62,7 +62,7 @@
                                                                 <constraint firstAttribute="width" constant="187" id="X5f-x9-q8J"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="Background2"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyn-Fc-cq1">
@@ -101,13 +101,13 @@
                                                                 <constraint firstAttribute="height" constant="21" id="YEE-5N-TxE"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="Background2"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wnk-Mb-qrO">
                                                             <rect key="frame" x="173" y="76" width="187" height="21"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" name="Background2"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -122,19 +122,25 @@
                                                         <constraint firstItem="tng-zK-GoF" firstAttribute="leading" secondItem="Xyn-Fc-cq1" secondAttribute="trailing" constant="8" id="gvk-6t-qHr"/>
                                                         <constraint firstItem="Wnk-Mb-qrO" firstAttribute="top" secondItem="tng-zK-GoF" secondAttribute="bottom" constant="47" id="lec-62-Cm4"/>
                                                         <constraint firstItem="tng-zK-GoF" firstAttribute="top" secondItem="B4t-I6-yz3" secondAttribute="topMargin" id="m2X-fq-Hci"/>
-                                                        <constraint firstAttribute="trailing" secondItem="tng-zK-GoF" secondAttribute="trailing" constant="62" id="q6U-EY-mP0"/>
+                                                        <constraint firstAttribute="trailing" secondItem="tng-zK-GoF" secondAttribute="trailing" constant="46" id="q6U-EY-mP0"/>
                                                         <constraint firstItem="tng-zK-GoF" firstAttribute="trailing" secondItem="Wnk-Mb-qrO" secondAttribute="trailing" constant="-48" id="x5f-m4-Psl"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" name="Background2"/>
                                             <constraints>
-                                                <constraint firstItem="B4t-I6-yz3" firstAttribute="leading" secondItem="tCJ-ut-mmZ" secondAttribute="leadingMargin" constant="-20" id="6FW-mx-ecK"/>
+                                                <constraint firstItem="B4t-I6-yz3" firstAttribute="leading" secondItem="tCJ-ut-mmZ" secondAttribute="leadingMargin" constant="-12" id="6FW-mx-ecK"/>
                                                 <constraint firstItem="B4t-I6-yz3" firstAttribute="centerX" secondItem="tCJ-ut-mmZ" secondAttribute="centerX" id="cND-Au-Qnf"/>
                                                 <constraint firstItem="B4t-I6-yz3" firstAttribute="top" secondItem="tCJ-ut-mmZ" secondAttribute="topMargin" id="qK9-ZY-uJb"/>
                                                 <constraint firstItem="B4t-I6-yz3" firstAttribute="bottom" secondItem="tCJ-ut-mmZ" secondAttribute="bottomMargin" id="sqw-yh-iZ8"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="imageview" destination="VVC-6V-6Jb" id="mhI-JA-oBW"/>
                                             <outlet property="name" destination="tng-zK-GoF" id="HFx-Fl-ryk"/>
@@ -142,6 +148,11 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="dataSource" destination="Kmh-ic-uhq" id="8rY-jr-pwX"/>
                                     <outlet property="delegate" destination="Kmh-ic-uhq" id="NBs-H8-rxZ"/>

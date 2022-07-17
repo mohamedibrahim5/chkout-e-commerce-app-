@@ -16,52 +16,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3p-72-JBJ">
-                                <rect key="frame" x="52" y="687" width="310.5" height="62.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Confirm To Your Address" cornerStyle="capsule">
-                                    <color key="baseBackgroundColor" name="colorButton"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="ConfirmOrder:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RSg-s5-eZx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCq-bp-Ern">
-                                <rect key="frame" x="52" y="600" width="310.5" height="62.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Add New Address" cornerStyle="capsule">
-                                    <color key="baseBackgroundColor" name="colorButton"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="AddAdress:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8hu-Uu-5OT"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zy3-6a-Fyc">
-                                <rect key="frame" x="52" y="513" width="310.5" height="62.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Using my location" cornerStyle="capsule">
-                                    <color key="baseBackgroundColor" name="colorButton"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="location:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CG1-gU-jtO"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4j-Te-yb8">
+                                <rect key="frame" x="0.0" y="347.5" width="414" height="548.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="3Pe-Te-dmz">
+                                        <rect key="frame" x="20" y="153" width="374" height="235.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zy3-6a-Fyc">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="62.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="62.5" id="ZHr-43-UTY"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Using my location" cornerStyle="capsule">
+                                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="baseBackgroundColor" name="colorButton"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="location:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CG1-gU-jtO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCq-bp-Ern">
+                                                <rect key="frame" x="0.0" y="86.5" width="374" height="62.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="62.5" id="Rl2-ge-d7r"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Add New Address" cornerStyle="capsule">
+                                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="baseBackgroundColor" name="colorButton"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="AddAdress:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="8hu-Uu-5OT"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3p-72-JBJ">
+                                                <rect key="frame" x="0.0" y="173" width="374" height="62.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="62.5" id="SZR-KZ-jKC"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Confirm To Your Address" cornerStyle="capsule">
+                                                    <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="baseBackgroundColor" name="colorButton"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="ConfirmOrder:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RSg-s5-eZx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="BackgroundView"/>
+                                <constraints>
+                                    <constraint firstItem="3Pe-Te-dmz" firstAttribute="top" secondItem="E4j-Te-yb8" secondAttribute="top" constant="153" id="7hG-Ck-RfP"/>
+                                    <constraint firstAttribute="trailing" secondItem="3Pe-Te-dmz" secondAttribute="trailing" constant="20" id="Dy1-vD-7el"/>
+                                    <constraint firstAttribute="bottom" secondItem="3Pe-Te-dmz" secondAttribute="bottom" constant="160" id="Kl4-0C-iMr"/>
+                                    <constraint firstItem="3Pe-Te-dmz" firstAttribute="leading" secondItem="E4j-Te-yb8" secondAttribute="leading" constant="20" id="hIH-Io-fPu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="TopLAndRRadius">
+                                        <real key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background2"/>
+                        <constraints>
+                            <constraint firstItem="E4j-Te-yb8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="B4b-DK-8ie"/>
+                            <constraint firstItem="E4j-Te-yb8" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="CPU-cc-Byx"/>
+                            <constraint firstAttribute="bottom" secondItem="E4j-Te-yb8" secondAttribute="bottom" id="DNv-yg-JVQ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-413" y="-414"/>
+            <point key="canvasLocation" x="-413.04347826086962" y="-414.50892857142856"/>
         </scene>
     </scenes>
     <resources>
         <namedColor name="Background2">
             <color red="0.94900000095367432" green="0.70200002193450928" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundView">
+            <color red="0.96899998188018799" green="0.96100002527236938" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="colorButton">
             <color red="0.68999999761581421" green="0.15700000524520874" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

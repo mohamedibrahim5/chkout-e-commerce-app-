@@ -41,24 +41,24 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1022"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EIs-Dc-2r8">
-                                                <rect key="frame" x="30" y="300" width="354" height="663"/>
+                                                <rect key="frame" x="20" y="300" width="374" height="663"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylO-F5-e0d">
-                                                        <rect key="frame" x="103" y="425" width="243" height="35"/>
+                                                        <rect key="frame" x="103" y="425" width="234" height="50"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="0rD-Po-CHF"/>
+                                                            <constraint firstAttribute="height" constant="50" id="0rD-Po-CHF"/>
                                                         </constraints>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain">
                                                             <backgroundConfiguration key="background" cornerRadius="50">
-                                                                <color key="backgroundColor" name="Background1"/>
+                                                                <color key="backgroundColor" name="colorButton"/>
                                                             </backgroundConfiguration>
                                                             <attributedString key="attributedTitle">
                                                                 <fragment content="Add To Cart">
                                                                     <attributes>
                                                                         <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <font key="NSFont" size="16" name="Helvetica"/>
+                                                                        <font key="NSFont" size="16" name="Helvetica-Bold"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -67,21 +67,6 @@
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="addToCart:" destination="2Tg-0n-9nb" eventType="touchUpInside" id="pNq-QQ-PQf"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcs-Go-asm">
-                                                        <rect key="frame" x="17" y="425" width="46" height="35"/>
-                                                        <color key="backgroundColor" name="BackgroundView"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="35" id="sAb-Qj-Ok8"/>
-                                                        </constraints>
-                                                        <color key="tintColor" systemColor="systemRedColor"/>
-                                                        <buttonConfiguration key="configuration" style="filled" image="heart.slash" catalog="system">
-                                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
-                                                            <color key="baseBackgroundColor" name="BackgroundView"/>
-                                                        </buttonConfiguration>
-                                                        <connections>
-                                                            <action selector="favourite:" destination="2Tg-0n-9nb" eventType="touchUpInside" id="cl4-LP-DFY"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SxL-FW-0ci">
@@ -146,41 +131,56 @@
                                                         <color key="textColor" red="0.070588235289999995" green="0.074509803920000006" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vcs-Go-asm">
+                                                        <rect key="frame" x="17" y="425" width="46" height="50"/>
+                                                        <color key="backgroundColor" name="BackgroundView"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="sAb-Qj-Ok8"/>
+                                                        </constraints>
+                                                        <color key="tintColor" systemColor="systemRedColor"/>
+                                                        <buttonConfiguration key="configuration" style="filled" image="heart.slash" catalog="system">
+                                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                                            <color key="baseBackgroundColor" name="BackgroundView"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="favourite:" destination="2Tg-0n-9nb" eventType="touchUpInside" id="cl4-LP-DFY"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="BackgroundView"/>
                                                 <constraints>
                                                     <constraint firstItem="6q5-W5-TOC" firstAttribute="leading" secondItem="2Et-Mv-05Q" secondAttribute="leading" constant="-1" id="9ZB-wA-REj"/>
                                                     <constraint firstItem="PM0-14-Bgv" firstAttribute="top" secondItem="6q5-W5-TOC" secondAttribute="bottom" constant="23" id="D7Q-9w-81G"/>
                                                     <constraint firstItem="SxL-FW-0ci" firstAttribute="top" secondItem="EIs-Dc-2r8" secondAttribute="top" constant="41" id="DPg-Tg-Kui"/>
-                                                    <constraint firstAttribute="trailing" secondItem="PM0-14-Bgv" secondAttribute="trailing" constant="17" id="EGB-om-Vyx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="PM0-14-Bgv" secondAttribute="trailing" constant="37" id="EGB-om-Vyx"/>
                                                     <constraint firstItem="ylO-F5-e0d" firstAttribute="top" secondItem="PM0-14-Bgv" secondAttribute="bottom" constant="18" id="L19-ZL-klC"/>
-                                                    <constraint firstItem="2Et-Mv-05Q" firstAttribute="width" secondItem="EIs-Dc-2r8" secondAttribute="width" multiplier="0.9" id="OBX-Qd-HTM"/>
-                                                    <constraint firstItem="yAq-Zl-TDF" firstAttribute="width" secondItem="EIs-Dc-2r8" secondAttribute="width" multiplier="0.7" id="PRr-DJ-wCO"/>
+                                                    <constraint firstItem="2Et-Mv-05Q" firstAttribute="width" secondItem="EIs-Dc-2r8" secondAttribute="width" multiplier="0.9" constant="-18.100000000000023" id="OBX-Qd-HTM"/>
+                                                    <constraint firstItem="yAq-Zl-TDF" firstAttribute="width" secondItem="EIs-Dc-2r8" secondAttribute="width" multiplier="0.7" constant="-13.800000000000011" id="PRr-DJ-wCO"/>
                                                     <constraint firstItem="ylO-F5-e0d" firstAttribute="leading" secondItem="Vcs-Go-asm" secondAttribute="trailing" constant="40" id="QiX-Oh-8od"/>
                                                     <constraint firstItem="6q5-W5-TOC" firstAttribute="top" secondItem="2Et-Mv-05Q" secondAttribute="bottom" constant="20" id="QlD-ZA-Y8W"/>
                                                     <constraint firstItem="6Ka-ML-LY2" firstAttribute="leading" secondItem="6q5-W5-TOC" secondAttribute="trailing" constant="7.5" id="YG2-qk-Zw9"/>
                                                     <constraint firstItem="2Et-Mv-05Q" firstAttribute="top" secondItem="SxL-FW-0ci" secondAttribute="bottom" constant="26" id="ZSb-eH-c51"/>
                                                     <constraint firstItem="Vcs-Go-asm" firstAttribute="top" secondItem="PM0-14-Bgv" secondAttribute="bottom" constant="18" id="Zbj-gO-JQS"/>
-                                                    <constraint firstAttribute="trailing" secondItem="46C-PI-hAK" secondAttribute="trailing" constant="17" id="afU-fS-ceS"/>
+                                                    <constraint firstAttribute="trailing" secondItem="46C-PI-hAK" secondAttribute="trailing" constant="37" id="afU-fS-ceS"/>
                                                     <constraint firstItem="SxL-FW-0ci" firstAttribute="leading" secondItem="yAq-Zl-TDF" secondAttribute="trailing" constant="1" id="br3-1E-VFd"/>
                                                     <constraint firstItem="ylO-F5-e0d" firstAttribute="top" secondItem="PM0-14-Bgv" secondAttribute="bottom" constant="18" id="cph-vG-uS6"/>
                                                     <constraint firstItem="Vcs-Go-asm" firstAttribute="leading" secondItem="EIs-Dc-2r8" secondAttribute="leading" constant="17" id="h7F-3m-HSa"/>
-                                                    <constraint firstItem="SxL-FW-0ci" firstAttribute="width" secondItem="EIs-Dc-2r8" secondAttribute="width" multiplier="0.1" id="hC1-WU-oae"/>
+                                                    <constraint firstItem="SxL-FW-0ci" firstAttribute="width" secondItem="EIs-Dc-2r8" secondAttribute="width" multiplier="0.1" constant="-2.3999999999999986" id="hC1-WU-oae"/>
                                                     <constraint firstItem="yAq-Zl-TDF" firstAttribute="leading" secondItem="EIs-Dc-2r8" secondAttribute="leading" constant="18" id="itI-g9-mB9"/>
                                                     <constraint firstItem="2Et-Mv-05Q" firstAttribute="top" secondItem="yAq-Zl-TDF" secondAttribute="bottom" constant="26" id="jNm-af-WYR"/>
                                                     <constraint firstItem="2Et-Mv-05Q" firstAttribute="top" secondItem="46C-PI-hAK" secondAttribute="bottom" constant="26" id="jrO-V1-82y"/>
                                                     <constraint firstItem="yAq-Zl-TDF" firstAttribute="top" secondItem="EIs-Dc-2r8" secondAttribute="top" constant="41" id="jvb-f2-5RS"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ylO-F5-e0d" secondAttribute="trailing" constant="8" id="k4u-R2-Bf1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ylO-F5-e0d" secondAttribute="trailing" constant="37" id="k4u-R2-Bf1"/>
                                                     <constraint firstAttribute="height" constant="663" id="lra-WG-CAv"/>
                                                     <constraint firstItem="46C-PI-hAK" firstAttribute="top" secondItem="EIs-Dc-2r8" secondAttribute="top" constant="41" id="otR-ZD-oyQ"/>
-                                                    <constraint firstItem="46C-PI-hAK" firstAttribute="width" secondItem="EIs-Dc-2r8" secondAttribute="width" multiplier="0.1" id="rkg-70-Igo"/>
+                                                    <constraint firstItem="46C-PI-hAK" firstAttribute="width" secondItem="EIs-Dc-2r8" secondAttribute="width" multiplier="0.1" constant="-1.8999999999999986" id="rkg-70-Igo"/>
                                                     <constraint firstItem="6Ka-ML-LY2" firstAttribute="centerY" secondItem="6q5-W5-TOC" secondAttribute="centerY" id="sbC-bx-Wq4"/>
                                                     <constraint firstItem="PM0-14-Bgv" firstAttribute="leading" secondItem="EIs-Dc-2r8" secondAttribute="leading" constant="17" id="t5o-Gp-nTr"/>
                                                     <constraint firstItem="2Et-Mv-05Q" firstAttribute="leading" secondItem="EIs-Dc-2r8" secondAttribute="leading" constant="18" id="tw0-Fl-76F"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="3"/>
+                                                        <real key="value" value="20"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusByBottonLeft">
                                                         <real key="value" value="3"/>
@@ -188,33 +188,32 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="cell" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Eno-Ke-yV3">
-                                                <rect key="frame" x="0.0" y="17" width="414" height="244"/>
+                                                <rect key="frame" x="20" y="17" width="374" height="244"/>
                                                 <color key="backgroundColor" name="Background2"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="244" id="xuI-MT-FmP"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SkO-Cn-RTk">
-                                                    <size key="itemSize" width="400" height="237"/>
+                                                    <size key="itemSize" width="375" height="240"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="productinfocell" id="tE8-85-tS1" customClass="productInfoCollectionViewCell" customModule="Merita" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="3.5" width="400" height="237"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="productinfocell" id="tE8-85-tS1" customClass="productInfoCollectionViewCell" customModule="Merita" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="2" width="375" height="240"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lrU-ym-pwV">
-                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="237"/>
-                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxX-2P-5V3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaV-J7-eFI">
-                                                                    <rect key="frame" x="0.0" y="8" width="400" height="229"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="240"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yOF-ad-uLp">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="400" height="229"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="240"/>
                                                                             <color key="backgroundColor" name="colorInCart"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="229" id="HEY-gy-Lde"/>
+                                                                                <constraint firstAttribute="height" constant="240" id="HEY-gy-Lde"/>
                                                                             </constraints>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -225,11 +224,10 @@
                                                                     </subviews>
                                                                     <color key="backgroundColor" name="colorInCart"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="leading" secondItem="GaV-J7-eFI" secondAttribute="leading" id="0iA-4o-9uR"/>
-                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="centerX" secondItem="GaV-J7-eFI" secondAttribute="centerX" id="5ix-g9-zLb"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="yOF-ad-uLp" secondAttribute="trailing" id="6qb-6g-lbQ"/>
-                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="centerY" secondItem="GaV-J7-eFI" secondAttribute="centerY" id="bMV-r1-shV"/>
-                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="top" secondItem="GaV-J7-eFI" secondAttribute="topMargin" constant="-8" id="r4z-eT-EGr"/>
+                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="centerY" secondItem="GaV-J7-eFI" secondAttribute="centerY" id="7RC-wR-0ih"/>
+                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="centerX" secondItem="GaV-J7-eFI" secondAttribute="centerX" id="hWJ-ju-Tjw"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="yOF-ad-uLp" secondAttribute="trailing" id="rg9-bN-6R6"/>
+                                                                        <constraint firstItem="yOF-ad-uLp" firstAttribute="leading" secondItem="GaV-J7-eFI" secondAttribute="leading" id="tMf-RV-gV7"/>
                                                                     </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -238,15 +236,21 @@
                                                                     </userDefinedRuntimeAttributes>
                                                                 </view>
                                                             </subviews>
-                                                            <color key="backgroundColor" name="Background2"/>
+                                                            <viewLayoutGuide key="safeArea" id="kQV-bS-Nae"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="GaV-J7-eFI" secondAttribute="trailing" id="DdA-ym-71V"/>
-                                                                <constraint firstItem="GaV-J7-eFI" firstAttribute="top" secondItem="lrU-ym-pwV" secondAttribute="top" constant="8" id="hv7-XG-InJ"/>
-                                                                <constraint firstItem="GaV-J7-eFI" firstAttribute="leading" secondItem="lrU-ym-pwV" secondAttribute="leading" id="iFX-jz-bar"/>
-                                                                <constraint firstAttribute="bottom" secondItem="GaV-J7-eFI" secondAttribute="bottom" id="m41-za-Yo4"/>
+                                                                <constraint firstItem="GaV-J7-eFI" firstAttribute="leading" secondItem="pxX-2P-5V3" secondAttribute="leading" id="D8J-bk-fNl"/>
+                                                                <constraint firstAttribute="trailing" secondItem="GaV-J7-eFI" secondAttribute="trailing" constant="1" id="hUs-dc-pSG"/>
+                                                                <constraint firstItem="GaV-J7-eFI" firstAttribute="top" secondItem="pxX-2P-5V3" secondAttribute="top" id="uuS-zz-QtF"/>
+                                                                <constraint firstAttribute="bottom" secondItem="GaV-J7-eFI" secondAttribute="bottom" id="vz5-9F-tC1"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="400" height="237"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="pxX-2P-5V3" secondAttribute="trailing" constant="-8" id="Duw-vL-hIG"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="pxX-2P-5V3" secondAttribute="bottom" constant="-8" id="M5w-kz-wOH"/>
+                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="leading" secondItem="tE8-85-tS1" secondAttribute="leadingMargin" constant="-8" id="PtO-G4-mvd"/>
+                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="top" secondItem="tE8-85-tS1" secondAttribute="topMargin" constant="-8" id="fz2-Zr-AQ4"/>
+                                                        </constraints>
+                                                        <size key="customSize" width="375" height="240"/>
                                                         <connections>
                                                             <outlet property="imageviewproduct" destination="yOF-ad-uLp" id="bw6-se-KGc"/>
                                                         </connections>
@@ -264,18 +268,18 @@
                                             </collectionView>
                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="LVv-ww-Gmc">
                                                 <rect key="frame" x="149" y="269" width="116" height="26"/>
-                                                <color key="pageIndicatorTintColor" red="0.91437468389999998" green="0.14772679089999999" blue="0.31194894620000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="currentPageIndicatorTintColor" name="AccentColor"/>
+                                                <color key="pageIndicatorTintColor" systemColor="systemGray5Color"/>
+                                                <color key="currentPageIndicatorTintColor" name="colorButton"/>
                                             </pageControl>
                                         </subviews>
                                         <color key="backgroundColor" name="Background2"/>
                                         <constraints>
                                             <constraint firstItem="EIs-Dc-2r8" firstAttribute="width" relation="greaterThanOrEqual" secondItem="iTy-Lo-5VE" secondAttribute="width" multiplier="0.855072" id="47h-54-jsG"/>
-                                            <constraint firstAttribute="trailing" secondItem="EIs-Dc-2r8" secondAttribute="trailing" constant="30" id="5LJ-Uf-ldW"/>
-                                            <constraint firstItem="Eno-Ke-yV3" firstAttribute="leading" secondItem="iTy-Lo-5VE" secondAttribute="leading" id="9ZL-wo-fe9"/>
-                                            <constraint firstAttribute="trailing" secondItem="Eno-Ke-yV3" secondAttribute="trailing" id="ADn-Tj-4I2"/>
+                                            <constraint firstAttribute="trailing" secondItem="EIs-Dc-2r8" secondAttribute="trailing" constant="20" id="5LJ-Uf-ldW"/>
+                                            <constraint firstItem="Eno-Ke-yV3" firstAttribute="leading" secondItem="iTy-Lo-5VE" secondAttribute="leading" constant="20" id="9ZL-wo-fe9"/>
+                                            <constraint firstAttribute="trailing" secondItem="Eno-Ke-yV3" secondAttribute="trailing" constant="20" id="ADn-Tj-4I2"/>
                                             <constraint firstItem="Eno-Ke-yV3" firstAttribute="top" secondItem="iTy-Lo-5VE" secondAttribute="top" constant="17" id="AUS-5b-1rC"/>
-                                            <constraint firstItem="EIs-Dc-2r8" firstAttribute="leading" secondItem="iTy-Lo-5VE" secondAttribute="leading" constant="30" id="Hb4-MD-Flh"/>
+                                            <constraint firstItem="EIs-Dc-2r8" firstAttribute="leading" secondItem="iTy-Lo-5VE" secondAttribute="leading" constant="20" id="Hb4-MD-Flh"/>
                                             <constraint firstItem="EIs-Dc-2r8" firstAttribute="top" secondItem="Eno-Ke-yV3" secondAttribute="bottom" constant="39" id="ZOW-la-SXn"/>
                                             <constraint firstItem="LVv-ww-Gmc" firstAttribute="centerX" secondItem="Eno-Ke-yV3" secondAttribute="centerX" id="fCs-To-Amg"/>
                                             <constraint firstItem="LVv-ww-Gmc" firstAttribute="bottom" secondItem="Eno-Ke-yV3" secondAttribute="bottom" constant="34" id="wT1-Iz-dPv"/>
@@ -323,17 +327,14 @@
     <resources>
         <image name="heart.slash" catalog="system" width="128" height="115"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Background1">
-            <color red="0.80000001192092896" green="0.45100000500679016" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="Background2">
             <color red="0.94900000095367432" green="0.70200002193450928" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="BackgroundView">
             <color red="0.96899998188018799" green="0.96100002527236938" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="colorButton">
+            <color red="0.68999999761581421" green="0.15700000524520874" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="colorInCart">
             <color red="0.74099999666213989" green="0.2669999897480011" blue="0.42399999499320984" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -343,6 +344,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

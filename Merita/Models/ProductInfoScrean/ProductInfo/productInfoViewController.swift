@@ -195,11 +195,12 @@ extension productInfoViewController : UICollectionViewDataSource,UICollectionVie
     }
    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.width*1, height: self.view.frame.height*0.3)
+        return CGSize(width: 375 /*self.view.frame.width*1*/, height:240 /*self.view.frame.height*0.3*/)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         self.pageControler.currentPage = indexPath.row
     }

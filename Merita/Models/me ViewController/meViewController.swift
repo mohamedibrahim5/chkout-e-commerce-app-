@@ -29,7 +29,19 @@ class meViewController: UIViewController {
     var arrayTime : [String] = []
     var arrayAddress : [String] = []
    
-    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var wishListTableview: UITableView!{
+        didSet{
+            wishListTableview.dataSource = self
+            wishListTableview.delegate = self
+        }
+    }
+    
+    @IBOutlet weak var orderTableView: UITableView?{
+        didSet{
+            orderTableView?.dataSource = self
+            orderTableView?.delegate = self
+        }
+    }
     
     @IBAction func settings(_ sender: UIBarButtonItem) {
         let vc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "setting") as? settings
@@ -60,6 +72,9 @@ class meViewController: UIViewController {
     @IBOutlet weak var nameOfCustomer: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        orderTableView?.register(UINib(nibName: "OredrTVCell", bundle: nil), forCellReuseIdentifier: "OredrTVCell")
+        
         productCategoryViewModel.fetchProductCategory()
         productCategoryViewModel.bindingProductCategory = { productsCategory, error in
             if let productsCategory = productsCategory {
@@ -107,7 +122,7 @@ class meViewController: UIViewController {
                   
         }
                 
-                self.tableview.reloadData()
+                self.wishListTableview.reloadData()
               
         }
             
@@ -128,30 +143,109 @@ class meViewController: UIViewController {
                   
         }
                 
-                self.tableview.reloadData()
+               // self.tableview.reloadData()
               
         }
-            
+            print("address \(self.arrayAddress)")
+
         }
 }
 }
 
 extension meViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        switch tableView {
+        case orderTableView:
+            print("address = TableViewTop")
+            if arrayAddress.count > 2 {
+                return 2
+            }else{
+                return arrayAddress.count
+            }
+        case wishListTableview:
+            print("address = TableviewBotton")
+            if valueArray.count  > 2 {
+                return 2
+            } else {
+                return valueArray.count
+            }
+            
+        default:
+            print("Somthig wrong")
+            return 1
+        }
+        /*
+        if tableView ==  orderTableView {
+            if arrayAddress.count > 2 {
+                return 2
+            }else{
+                return arrayAddress.count
+            }
+        }
+        
+    
         if valueArray.count  > 2 {
             return 2
         } else {
             return valueArray.count
         }
+        */
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableview.dequeueReusableCell(withIdentifier: "washlistcell", for: indexPath) as! meWashListTableViewCell
-        let index = indexPath.row
-        cell.nameOfProduct.text = "\(valueArrayprice[index])$"
-        cell.imageview.sd_setImage(with: URL(string: valueArrayimage[index]))
-        cell.name.text = valueArray[index]
-        return cell
+        let cellDame = UITableViewCell()
+        switch tableView {
+        case orderTableView:
+            
+            let orderCell = tableView.dequeueReusableCell(withIdentifier: "OredrTVCell", for: indexPath) as! OredrTVCell
+            
+            print("address \(arrayAddress)")
+            print("address = TableViewTop")
+
+            orderCell.address.text = arrayAddress[indexPath.row]
+            orderCell.price.text = "\(arrayTptalPrice[indexPath.row])$"
+            orderCell.date.text = arrayTime[indexPath.row]
+            
+        return orderCell
+            
+        case wishListTableview:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "washlistcell", for: indexPath) as! meWashListTableViewCell
+            print("address = TableviewBotton")
+
+            let index = indexPath.row
+            cell.nameOfProduct.text = "\(valueArrayprice[index])$"
+            cell.imageview.sd_setImage(with: URL(string: valueArrayimage[index]))
+            cell.name.text = valueArray[index]
+            return cell
+        default:
+            return cellDame
+        }
+        /*
+         if tableView == orderTableView{
+             let orderCell = tableView.dequeueReusableCell(withIdentifier: "meOrderTableViewCell", for: indexPath) as! meOrderTableViewCell
+             
+             print("address \(arrayAddress)")
+             
+             orderCell.adressOrder.text = arrayAddress[indexPath.row]
+             orderCell.priceOrder.text = "\(arrayTptalPrice[indexPath.row])$"
+             orderCell.dateOrder.text = arrayTime[indexPath.row]
+             
+         return orderCell
+         }
+         
+         
+         let cell = tableView.dequeueReusableCell(withIdentifier: "washlistcell", for: indexPath) as! meWashListTableViewCell
+         let index = indexPath.row
+         cell.nameOfProduct.text = "\(valueArrayprice[index])$"
+         cell.imageview.sd_setImage(with: URL(string: valueArrayimage[index]))
+         cell.name.text = valueArray[index]
+         return cell
+         
+         */
+       
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
