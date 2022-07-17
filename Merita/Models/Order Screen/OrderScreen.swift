@@ -16,6 +16,10 @@ class OrderScreen: UIViewController {
     var check : String = ""
 
     @IBAction func location(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "user", bundle: nil).instantiateViewController(withIdentifier: "user") as! user
+        vc.userId = userId
+        vc.TotalPrice = TotalPrice
+        self.navigationController!.pushViewController(vc, animated: true)
     }
     @IBAction func ConfirmOrder(_ sender: UIButton) {
         db.collection("AdressMain").getDocuments { [self] snapshot, error in

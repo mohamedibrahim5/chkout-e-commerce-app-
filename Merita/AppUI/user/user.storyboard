@@ -15,16 +15,53 @@
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C1Y-YA-Ofk">
+                                <rect key="frame" x="0.0" y="44" width="414" height="779"/>
+                            </mapView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.tip" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WkB-AF-BKC">
+                                <rect key="frame" x="182" y="424" width="50" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="TWe-oO-zIw"/>
+                                    <constraint firstAttribute="height" constant="50" id="Wv5-6J-x90"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPh-Jd-hRi">
+                                <rect key="frame" x="185" y="831" width="44" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <connections>
+                                    <action selector="addLocation:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="49V-TG-oXw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background2"/>
+                        <constraints>
+                            <constraint firstItem="C1Y-YA-Ofk" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="0HR-wm-sf4"/>
+                            <constraint firstItem="HPh-Jd-hRi" firstAttribute="top" secondItem="C1Y-YA-Ofk" secondAttribute="bottom" constant="8" symbolic="YES" id="0MT-0N-Jca"/>
+                            <constraint firstItem="WkB-AF-BKC" firstAttribute="centerX" secondItem="HPh-Jd-hRi" secondAttribute="centerX" id="0je-Dp-kla"/>
+                            <constraint firstItem="HPh-Jd-hRi" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="As1-Hw-4Tm"/>
+                            <constraint firstItem="C1Y-YA-Ofk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="BOs-J4-K2x"/>
+                            <constraint firstItem="C1Y-YA-Ofk" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" id="JOJ-h5-bd1"/>
+                            <constraint firstItem="HPh-Jd-hRi" firstAttribute="height" secondItem="5EZ-qb-Rvc" secondAttribute="height" multiplier="0.0345982" id="K54-SM-ceQ"/>
+                            <constraint firstItem="WkB-AF-BKC" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="N1Z-eD-yur"/>
+                            <constraint firstItem="C1Y-YA-Ofk" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="OZ2-RB-QrZ"/>
+                            <constraint firstItem="HPh-Jd-hRi" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="bkL-XN-R76"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapkit" destination="C1Y-YA-Ofk" id="Gnb-JS-DSB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="64"/>
+            <point key="canvasLocation" x="50.724637681159422" y="-62.276785714285708"/>
         </scene>
     </scenes>
     <resources>
+        <image name="pencil.tip" catalog="system" width="99" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="Background2">
             <color red="0.94900000095367432" green="0.70200002193450928" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

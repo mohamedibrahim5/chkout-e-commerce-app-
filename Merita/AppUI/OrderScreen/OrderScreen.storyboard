@@ -46,13 +46,9 @@
                                     <color key="baseBackgroundColor" name="colorButton"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="location:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Vj1-wI-oZw"/>
+                                    <action selector="location:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="CG1-gU-jtO"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EPh-WC-wmk">
-                                <rect key="frame" x="0.0" y="89" width="414" height="204"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Background2"/>
@@ -60,7 +56,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-107.24637681159422" y="-398.4375"/>
+            <point key="canvasLocation" x="-413" y="-414"/>
         </scene>
     </scenes>
     <resources>

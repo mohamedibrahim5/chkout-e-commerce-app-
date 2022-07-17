@@ -29,6 +29,13 @@ class ConfirmOrder: UIViewController {
         }
         super.viewDidLoad()
     }
+    func getCurrentData () -> String {
+        let formater = DateFormatter()
+        formater.dateStyle = .long
+        formater.timeStyle = .medium
+        let str = formater.string(from: Date())
+        return str
+    }
     override func viewWillAppear(_ animated: Bool) {
         if checkAddress == "main" {
             let docRef = db.collection("AdressMain").document(self.userId!)
@@ -88,7 +95,7 @@ extension ConfirmOrder {
 
             }
             let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
-            db.collection("order").document(self.userId!).setData(["address":self.address.text!,"price":self.TotalPrice!], merge: true)
+            db.collection("order").document(self.userId!).collection("all information").document(self.getCurrentData()).setData(["address":self.address.text!,"price":self.TotalPrice!,"time":self.getCurrentData()], merge: true)
             self.navigationController!.pushViewController(vc!, animated: true)
             self.scheduleNotifictionOrder()
         })
