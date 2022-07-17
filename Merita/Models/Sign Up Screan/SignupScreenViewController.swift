@@ -19,16 +19,16 @@ class SignupScreenViewController: UIViewController {
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
+  //  let varSignUp = SignUp(name: name.text, password: password.text, email: email.text)
     @IBAction func customerSignup(_ sender: UIButton) {
         self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
-        if email.text == "" || password.text == "" || name.text == "" {
+       if checkEmpty() {
             self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-            emptyEmailOrPassword()
-            
+           alert(title: Alert.sorry.rawValue, message: Alert.emptyFillData.rawValue)
         }
-        else if  password.text!.count < 6 {
+        else if  weakPassword() {
             self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-            showFailedPasswordAlert()
+            alert(title: Alert.sorry.rawValue, message: Alert.weakPassword.rawValue)
         }
         else {
             Auth.auth().createUser(withEmail: email.text!, password: password.text!) { [self] authResult, error in
@@ -37,34 +37,25 @@ class SignupScreenViewController: UIViewController {
 
                     db.collection("customerinformation").document(Auth.auth().currentUser!.uid).setData(["name":name.text!,"uid":authResult!.user.uid])
 
-                    if  isPasswordValid(self.password.text!) == false {
-                        self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-                        showPasswordWeakAlert()
+                    if  isPasswordValid(password.text!) == false {
+                        showActivityIndicator(indicator: indicator, startIndicator: false)
+                        alert(title: Alert.Done.rawValue, message: Alert.registerPasswordWeak.rawValue)
                         
                     }
-                    print(Auth.auth().currentUser!.uid)
-                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-                    self.showSuccesfulRegisterAlert()
-                   
-                    name.text = ""
-                    email.text = ""
-                    password.text = ""
-                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+                    showActivityIndicator(indicator: indicator, startIndicator: false)
+                    alert(title: Alert.Done.rawValue, message: Alert.suucefulRegister.rawValue)
+                    emptyData()
 
                     
                 }
-                if let error = error {
-                    print(error.localizedDescription)
-                    self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-                    self.showFaileEmailAlert()
+                if error != nil {
+                    showActivityIndicator(indicator: indicator, startIndicator: false)
+                    alert(title: Alert.sorry.rawValue, message: Alert.failEmail.rawValue)
                 }
         }
     }
         
 }
-    @IBOutlet weak var customerPassword: UITextField!
-    @IBOutlet weak var customerName: UILabel!
-    @IBOutlet weak var customerEmail: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -72,43 +63,39 @@ class SignupScreenViewController: UIViewController {
 
 }
 extension SignupScreenViewController{
-    func emptyEmailOrPassword (){
-        let alert = UIAlertController(title: "Sorry", message: "you must fill all data ", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-}
-    
-    func showSuccesfulRegisterAlert(){
-        let alert = UIAlertController(title: "Done", message: "You are register now  ", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    func signUp () {
         
-}
-    
-    func showFailedPasswordAlert(){
-        let alert = UIAlertController(title: "Sorry", message: "The password must be 6 characters long or more.", preferredStyle: .alert)
+    }
+    func checkEmpty () -> Bool {
+        if email.text == "" || password.text == "" || name.text == "" {
+         return true
+        }else {
+         return false
+        }
+    }
+    func weakPassword () -> Bool {
+      if  password.text!.count < 6 {
+            return true
+        }else {
+            return false
+        }
+    }
+    func emptyData () {
+        name.text = ""
+        email.text = ""
+        password.text = ""
+    }
+    func alert (title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
-        
-}
-    
-    func showFaileEmailAlert(){
-        let alert = UIAlertController(title: "Sorry", message: "The email address is already in use by another account or The email address is badly formatted.l", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-}
-    
-    func showPasswordWeakAlert(){
-        let alert = UIAlertController(title: "Done", message: " you are register now but be careful your password is very weak", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-}
+    }
     func isPasswordValid(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
         return passwordTest.evaluate(with: password)
-}
+    }
     func isPasswordValidMoreComplites(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$")
         return passwordTest.evaluate(with: password)
-}
+    }
 }

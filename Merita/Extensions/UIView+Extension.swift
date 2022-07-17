@@ -143,3 +143,21 @@ extension UIViewController{
       
     }
 }
+
+struct Indecator {
+    var indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
+    
+   }
+enum ino {
+    
+}
+
+enum Alert:String {
+    case sorry = "Sorry"
+    case Done = "Done"
+    case emptyFillData = "you must fill all data "
+    case weakPassword = "The password must be 6 characters long or more"
+    case failEmail = "The email address is already in use by another account or The email address is badly formatted"
+    case registerPasswordWeak = "you are register now but be careful your password is very weak"
+    case suucefulRegister = "You are register now  "
+}
