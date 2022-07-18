@@ -81,10 +81,10 @@
                                                             <color key="baseForegroundColor" systemColor="systemYellowColor"/>
                                                         </buttonConfiguration>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adidas Super Star " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAq-Zl-TDF">
-                                                        <rect key="frame" x="18" y="41" width="248" height="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adidas Super Star " textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yAq-Zl-TDF">
+                                                        <rect key="frame" x="18" y="41" width="248" height="42"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="24" id="4qv-3x-aSb"/>
+                                                            <constraint firstAttribute="height" constant="42" id="4qv-3x-aSb"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -167,7 +167,7 @@
                                                     <constraint firstItem="Vcs-Go-asm" firstAttribute="leading" secondItem="EIs-Dc-2r8" secondAttribute="leading" constant="17" id="h7F-3m-HSa"/>
                                                     <constraint firstItem="SxL-FW-0ci" firstAttribute="width" secondItem="EIs-Dc-2r8" secondAttribute="width" multiplier="0.1" constant="-2.3999999999999986" id="hC1-WU-oae"/>
                                                     <constraint firstItem="yAq-Zl-TDF" firstAttribute="leading" secondItem="EIs-Dc-2r8" secondAttribute="leading" constant="18" id="itI-g9-mB9"/>
-                                                    <constraint firstItem="2Et-Mv-05Q" firstAttribute="top" secondItem="yAq-Zl-TDF" secondAttribute="bottom" constant="26" id="jNm-af-WYR"/>
+                                                    <constraint firstItem="2Et-Mv-05Q" firstAttribute="top" secondItem="yAq-Zl-TDF" secondAttribute="bottom" constant="8" id="jNm-af-WYR"/>
                                                     <constraint firstItem="2Et-Mv-05Q" firstAttribute="top" secondItem="46C-PI-hAK" secondAttribute="bottom" constant="26" id="jrO-V1-82y"/>
                                                     <constraint firstItem="yAq-Zl-TDF" firstAttribute="top" secondItem="EIs-Dc-2r8" secondAttribute="top" constant="41" id="jvb-f2-5RS"/>
                                                     <constraint firstAttribute="trailing" secondItem="ylO-F5-e0d" secondAttribute="trailing" constant="37" id="k4u-R2-Bf1"/>
@@ -245,10 +245,10 @@
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="pxX-2P-5V3" secondAttribute="trailing" constant="-8" id="Duw-vL-hIG"/>
-                                                            <constraint firstAttribute="bottomMargin" secondItem="pxX-2P-5V3" secondAttribute="bottom" constant="-8" id="M5w-kz-wOH"/>
-                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="leading" secondItem="tE8-85-tS1" secondAttribute="leadingMargin" constant="-8" id="PtO-G4-mvd"/>
-                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="top" secondItem="tE8-85-tS1" secondAttribute="topMargin" constant="-8" id="fz2-Zr-AQ4"/>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="pxX-2P-5V3" secondAttribute="trailing" constant="-8" id="6yx-lR-UGZ"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="pxX-2P-5V3" secondAttribute="bottom" constant="-8" id="9Cy-b1-dLv"/>
+                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="leading" secondItem="tE8-85-tS1" secondAttribute="leadingMargin" constant="-8" id="lVZ-e7-crK"/>
+                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="top" secondItem="tE8-85-tS1" secondAttribute="topMargin" constant="-8" id="qSF-s7-BDD"/>
                                                         </constraints>
                                                         <size key="customSize" width="375" height="240"/>
                                                         <connections>
