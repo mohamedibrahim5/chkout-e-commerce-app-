@@ -164,6 +164,8 @@ enum Alert:String {
     case registerPasswordWeak = "you are register now but be careful your password is very weak"
     case suucefulRegister = "You are register now  "
     case wrongLogin = "This Email or pass is wrongs "
+    case LoginFirst = "You must Login first"
+    case Reapted = " you are add it before"
 }
 
 
@@ -199,3 +201,6 @@ func deleteFromFirebase (userId:String,productId:Int,collection:String) {
         }
     }
 }
+
+
+

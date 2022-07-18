@@ -14,13 +14,6 @@ import  NVActivityIndicatorView
 
 class meViewController: UIViewController {
     let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
-    var arrFav : Dictionary<String, Any>?
-    var arrayPrice2 : [String] = []
-    var arrayName : [String] = []
-    var arrImage : [String] = []
-    var valueArrayimage : [String] = []
-    var valueArrayprice : [String] = []
-    var valueArray : [String] = []
     var arrayOfProduct = [ProductCategory]()
     let productCategoryViewModel = ProductsCategoryViewModel()
     var arrayTitle : [String] = []
@@ -28,6 +21,8 @@ class meViewController: UIViewController {
     var arrayTotalPrice : [Double] = []
     var arrayTime : [String] = []
     var arrayAddress : [String] = []
+    var arrayOfData : [Favourite] = []
+    var arrayOfDataOrder:[Favourite] = []
    
     @IBOutlet weak var wishListTableview: UITableView!{
         didSet{
@@ -88,11 +83,10 @@ class meViewController: UIViewController {
                     self.arrayTitle.removeAll()
                     for index in 0..<self.arrayOfProduct.count{
                         self.arrayTitle.append(self.arrayOfProduct[index].title!)
-                        print(self.arrayTitle[index])
                     }
                 }
                 if let error = error{
-                    print(error.localizedDescription)
+                    print("error\(error.localizedDescription)")
                 }
             }
         }
@@ -111,28 +105,13 @@ class meViewController: UIViewController {
                 print("Document does not exist")
             }
         }
-
-        db.collection("FAV").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
-            
-            if error == nil && snapshot != nil {
-                self.valueArrayimage.removeAll()
-                self.valueArray.removeAll()
-                self.valueArrayprice.removeAll()
-                for document in snapshot!.documents {
-                self.valueArray.append(document.data()["name"] as! String)
-                self.valueArrayprice.append(document.data()["price"] as! String)
-                self.valueArrayimage.append(document.data()["image"] as! String)
-                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-               
-                  
-        }
-                
-                self.wishListTableview.reloadData()
-              
-        }
-            
-        }
         
+       
+        getDataFromFirebase(collection: "FAV", userId: self.userId!, arrayOfField: ["name","price","image"]) { [self]arrayOfData in
+            self.arrayOfData = arrayOfData
+           wishListTableview.reloadData()
+        }
+   
         db.collection("order").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
             
             if error == nil && snapshot != nil {
@@ -171,32 +150,16 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
             }
         case wishListTableview:
             print("address = TableviewBotton")
-            if valueArray.count  > 2 {
+            if arrayOfData.count  > 2 {
                 return 2
             } else {
-                return valueArray.count
+                return arrayOfData.count
             }
             
         default:
             print("Somthig wrong")
             return 1
         }
-        /*
-        if tableView ==  orderTableView {
-            if arrayAddress.count > 2 {
-                return 2
-            }else{
-                return arrayAddress.count
-            }
-        }
-        
-    
-        if valueArray.count  > 2 {
-            return 2
-        } else {
-            return valueArray.count
-        }
-        */
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -220,37 +183,11 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
             print("address = TableviewBotton")
 
             let index = indexPath.row
-            cell.nameOfProduct.text = "\(valueArrayprice[index])$"
-            cell.imageview.sd_setImage(with: URL(string: valueArrayimage[index]))
-            cell.name.text = valueArray[index]
+            cell.fetchSingleData(data: arrayOfData[index])
             return cell
         default:
             return cellDame
         }
-        /*
-         if tableView == orderTableView{
-             let orderCell = tableView.dequeueReusableCell(withIdentifier: "meOrderTableViewCell", for: indexPath) as! meOrderTableViewCell
-             
-             print("address \(arrayAddress)")
-             
-             orderCell.adressOrder.text = arrayAddress[indexPath.row]
-             orderCell.priceOrder.text = "\(arrayTotalPrice[indexPath.row])$"
-             orderCell.dateOrder.text = arrayTime[indexPath.row]
-             
-         return orderCell
-         }
-         
-         
-         let cell = tableView.dequeueReusableCell(withIdentifier: "washlistcell", for: indexPath) as! meWashListTableViewCell
-         let index = indexPath.row
-         cell.nameOfProduct.text = "\(valueArrayprice[index])$"
-         cell.imageview.sd_setImage(with: URL(string: valueArrayimage[index]))
-         cell.name.text = valueArray[index]
-         return cell
-         
-         */
-       
-        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == orderTableView{
@@ -261,18 +198,46 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == wishListTableview{
             let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
-            let checkName = valueArray[indexPath.row]
-            for i in 0..<arrayOfProduct.count{
-                if checkName == arrayOfProduct[i].title {
-                    numberOfIndexPath = i
-                }
+            getIndexPath(index: indexPath.row) { numberOfIndexPath in
+                self.numberOfIndexPath = numberOfIndexPath
             }
             vc?.userId = userId
             vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
-            UserDefaults.standard.set(self.arrayOfProduct[numberOfIndexPath!].id, forKey: "fill")
+            UserDefaults.standard.set(self.arrayOfProduct[numberOfIndexPath!].id, forKey: "\(self.arrayOfProduct[numberOfIndexPath!].id!)")
             self.navigationController!.pushViewController(vc!, animated: true)
         }
         
         
+    }
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        if tableView == wishListTableview{
+//            let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { [self] action, view, complationHandler in
+//
+//                deleteFromFirebase(userId:self.userId!,productId:self.arrayOfProduct[self.numberOfIndexPath!].id!, collection: "FAV")
+//             //   self.arrayOfData.remove(at: indexPath.row)
+//                self.wishListTableview.beginUpdates()
+//                self.wishListTableview.deleteRows(at: [indexPath], with: .automatic)
+//                self.wishListTableview.endUpdates()
+//                complationHandler(true)
+//            }
+//
+//            return UISwipeActionsConfiguration(actions: [deleteAtion])
+//        }
+//        else {
+//
+//        }
+//
+//    }
+}
+extension meViewController {
+    func getIndexPath (index:Int,completion:@escaping(Int)->()) {
+        let checkName = arrayOfData[index].valueArrayName
+        for i in 0..<self.arrayOfProduct.count{
+            if checkName == self.arrayOfProduct[i].title {
+                self.numberOfIndexPath = i
+                completion(numberOfIndexPath!)
+            }
+        }
+
     }
 }

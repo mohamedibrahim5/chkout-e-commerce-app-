@@ -944,6 +944,88 @@
 			path = "Home Tab Bar Controoler";
 			sourceTree = "<group>";
 		};
+		A18500F42885E49F001DA4D2 /* meViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A186E37F287CD03800B72134 /* meViewController.swift */,
+			);
+			path = meViewController;
+			sourceTree = "<group>";
+		};
+		A18500F62885E4D4001DA4D2 /* meCell */ = {
+			isa = PBXGroup;
+			children = (
+				A186E381287CD09B00B72134 /* meWashListTableViewCell.swift */,
+				A1877B092883489E00F4C467 /* meOrderTableViewCell.swift */,
+			);
+			path = meCell;
+			sourceTree = "<group>";
+		};
+		A18500F72885E4FA001DA4D2 /* FavouriteViewContrler */ = {
+			isa = PBXGroup;
+			children = (
+				A1870EA7287CB38700743344 /* FavouriteScreenViewController.swift */,
+			);
+			path = FavouriteViewContrler;
+			sourceTree = "<group>";
+		};
+		A18500F82885E513001DA4D2 /* Favourite cell */ = {
+			isa = PBXGroup;
+			children = (
+				A182C52B287CB4E000F74F2E /* FavouriteTableViewCell.swift */,
+			);
+			path = "Favourite cell";
+			sourceTree = "<group>";
+		};
+		A18500F92885E523001DA4D2 /* FavouriteModel */ = {
+			isa = PBXGroup;
+			children = (
+				A185A82C2884EEBD004476DE /* Favourite.swift */,
+			);
+			path = FavouriteModel;
+			sourceTree = "<group>";
+		};
+		A18500FA2885E5B9001DA4D2 /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */,
+			);
+			path = SignUpViewController;
+			sourceTree = "<group>";
+		};
+		A18500FB2885E5D3001DA4D2 /* FireBaseSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				A185A82128846410004476DE /* Sign Up Model */,
+				A18500FA2885E5B9001DA4D2 /* SignUpViewController */,
+			);
+			path = FireBaseSignUp;
+			sourceTree = "<group>";
+		};
+		A18500FC2885E601001DA4D2 /* postingSignUp */ = {
+			isa = PBXGroup;
+			children = (
+				A186CE76287F6FE2009EC26D /* SignUpAddingPostInApi.swift */,
+			);
+			path = postingSignUp;
+			sourceTree = "<group>";
+		};
+		A18500FD2885E631001DA4D2 /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A1FFE5C5287CA83A0042CC13 /* LoginScreenViewController.swift */,
+			);
+			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		A18500FE2885E65B001DA4D2 /* LoginModel */ = {
+			isa = PBXGroup;
+			children = (
+				A185A82A2884B1E2004476DE /* Login.swift */,
+			);
+			path = LoginModel;
+			sourceTree = "<group>";
+		};
 		A1859795287D8A380023E9B3 /* cart view  */ = {
 			isa = PBXGroup;
 			children = (
@@ -953,12 +1035,12 @@
 			path = "cart view ";
 			sourceTree = "<group>";
 		};
-		A185A82128846410004476DE /* Model */ = {
+		A185A82128846410004476DE /* Sign Up Model */ = {
 			isa = PBXGroup;
 			children = (
 				A185A8232884643E004476DE /* SignUp.swift */,
 			);
-			path = Model;
+			path = "Sign Up Model";
 			sourceTree = "<group>";
 		};
 		A186E37B287CC22E00B72134 /* Profile Screen */ = {
@@ -972,9 +1054,8 @@
 		A186E37E287CCFFF00B72134 /* me ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				A186E37F287CD03800B72134 /* meViewController.swift */,
-				A186E381287CD09B00B72134 /* meWashListTableViewCell.swift */,
-				A1877B092883489E00F4C467 /* meOrderTableViewCell.swift */,
+				A18500F42885E49F001DA4D2 /* meViewController */,
+				A18500F62885E4D4001DA4D2 /* meCell */,
 			);
 			path = "me ViewController";
 			sourceTree = "<group>";
@@ -982,9 +1063,8 @@
 		A1870EA5287CB35F00743344 /* Sign Up Screan */ = {
 			isa = PBXGroup;
 			children = (
-				A185A82128846410004476DE /* Model */,
-				A1FFE5C9287CAE5C0042CC13 /* SignupScreenViewController.swift */,
-				A186CE76287F6FE2009EC26D /* SignUpAddingPostInApi.swift */,
+				A18500FB2885E5D3001DA4D2 /* FireBaseSignUp */,
+				A18500FC2885E601001DA4D2 /* postingSignUp */,
 			);
 			path = "Sign Up Screan";
 			sourceTree = "<group>";
@@ -992,9 +1072,9 @@
 		A1870EA6287CB37200743344 /* Favourite Screan */ = {
 			isa = PBXGroup;
 			children = (
-				A1870EA7287CB38700743344 /* FavouriteScreenViewController.swift */,
-				A182C52B287CB4E000F74F2E /* FavouriteTableViewCell.swift */,
-				A185A82C2884EEBD004476DE /* Favourite.swift */,
+				A18500F72885E4FA001DA4D2 /* FavouriteViewContrler */,
+				A18500F82885E513001DA4D2 /* Favourite cell */,
+				A18500F92885E523001DA4D2 /* FavouriteModel */,
 			);
 			path = "Favourite Screan";
 			sourceTree = "<group>";
@@ -1118,8 +1198,8 @@
 		A1FFE5C4287CA8140042CC13 /* Login Screan */ = {
 			isa = PBXGroup;
 			children = (
-				A1FFE5C5287CA83A0042CC13 /* LoginScreenViewController.swift */,
-				A185A82A2884B1E2004476DE /* Login.swift */,
+				A18500FD2885E631001DA4D2 /* LoginViewController */,
+				A18500FE2885E65B001DA4D2 /* LoginModel */,
 			);
 			path = "Login Screan";
 			sourceTree = "<group>";

@@ -32,3 +32,11 @@ struct Variant: Codable {
     var price: String?
 
 }
+struct ProductInfo {
+    var nameOfProduct:String?
+    var vendor:String?
+    var price:String?
+    var description:String?
+    var images : [String]?
+    
+}

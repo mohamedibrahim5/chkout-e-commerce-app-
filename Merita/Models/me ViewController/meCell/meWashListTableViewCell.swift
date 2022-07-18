@@ -16,6 +16,11 @@ class meWashListTableViewCell: UITableViewCell {
         super.awakeFromNib()
        
     }
+    func fetchSingleData (data:Favourite){
+       self.name.text = data.valueArrayName
+       self.nameOfProduct.text = "\(data.valueArrayPrice)$"
+       self.imageview.sd_setImage(with: URL(string: data.valueArrayImage))
+   }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

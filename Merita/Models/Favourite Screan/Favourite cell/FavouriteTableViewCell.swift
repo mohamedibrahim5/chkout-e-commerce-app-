@@ -17,7 +17,7 @@ class FavouriteTableViewCell: UITableViewCell {
     }
      func fetchSingleData (data:Favourite){
         self.name.text = data.valueArrayName
-        self.price.text = data.valueArrayPrice
+        self.price.text = "\(data.valueArrayPrice)$"
         self.imageview.sd_setImage(with: URL(string: data.valueArrayImage))
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,7 +43,7 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
         }
         vc?.userId = userId
         vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
-        UserDefaults.standard.set(self.arrayOfProduct[numberOfIndexPath!].id, forKey: "fill")
+        UserDefaults.standard.set(self.arrayOfProduct[numberOfIndexPath!].id, forKey: "\(self.arrayOfProduct[numberOfIndexPath!].id!)")
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
