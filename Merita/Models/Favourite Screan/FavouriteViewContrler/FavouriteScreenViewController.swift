@@ -16,6 +16,7 @@ class FavouriteScreenViewController: UIViewController {
     var arrayOfData : [Favourite] = []
     var arrayTitle : [String] = []
     var numberOfIndexPath : Int?
+    var checkFav : Double = 1
     
     @IBOutlet weak var tableview: UITableView!
     override func viewDidLoad() {
@@ -38,12 +39,16 @@ class FavouriteScreenViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        indecator(indicator: indicator, check: true)
-        getDataFromFirebase(collection: "FAV", userId: self.userId!, arrayOfField: ["name","price","image"]) { [self]arrayOfData in
-            self.arrayOfData = arrayOfData
-            tableview.reloadData()
-            indecator(indicator: indicator, check: false)
+        if userId != nil {
+            indecator(indicator: indicator, check: true)
+            getDataFromFirebase(collection: "FAV", userId: self.userId!, arrayOfField: ["name","price","image"]) { [self]arrayOfData in
+                self.arrayOfData = arrayOfData
+                tableview.reloadData()
+                indecator(indicator: indicator, check: false)
+            }
+            
         }
+      
        
 }
     override func viewDidAppear(_ animated: Bool) {

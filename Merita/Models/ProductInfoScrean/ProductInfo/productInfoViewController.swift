@@ -32,65 +32,12 @@ class productInfoViewController: UIViewController {
     var productimages : [String] = []
     var timer :Timer?
     var currentCellIndex = 0
-    var checkHeart : Int = 0
+    var checkHeart : Double = 0
     let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     @IBOutlet weak var favourite: UIButton!
     @IBAction func favourite(_ sender: UIButton) {
         addToFavourite()
         sender.flash()
-//        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
-//        sender.flash()
-//        if userId == nil {
-//            alert(title: Alert.sorry.rawValue, message: Alert.LoginFirst.rawValue)
-//        }else {
-//            let db = Firestore.firestore()
-//          let docRef = db.collection("FAV").document("\(userId!)").collection("all information").document("\(productIdString!)")
-//          docRef.getDocument { (document, error) in
-//              if let document = document, document.exists {
-//                  self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-//                  print("add to favourite1")
-//                  let checkFovuritename = db.collection("FAV").document("\(self.userId!)").documentID
-//                  print(checkFovuritename)
-//                  if checkFovuritename == self.userId! {
-//                      let alert = UIAlertController(title: "Warning", message: "Are you want to remove this product from favourite ", preferredStyle: .alert)
-//
-//                      let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
-//                          let db = Firestore.firestore()
-//                          UserDefaults.standard.set(0, forKey: "fill")
-//                          self.favourite.setImage(UIImage(systemName: "heart.slash"), for: .normal)
-//                          db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").delete{ (error) in
-//                              if error == nil {
-//                                  print("delete is done ")
-//                              } else {
-//                                  print("delete is not done ")
-//                              }
-//                          }
-//                      })
-//                      let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
-//                      })
-//                      alert.addAction(okAction)
-//                      alert.addAction(cancelAction)
-//                      self.present(alert, animated: true)
-//                      print("add to favourite2")
-//                  }
-//                  else {
-//                      self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-//                      print("add to favourite3")
-//                      db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!], merge: true)
-//                  }
-//              }
-//              else {
-//                  self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-//                      print("add to favourite4")
-//                      print("Document does not exist")
-//                  self.favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-//                  self.scheduleNotifiction(title: "You Are Add It In Favourite", identifir: "FavId")
-//                  UserDefaults.standard.set(self.productId, forKey: "fill")
-//                  db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!], merge: true)
-//              }
-//          }
-//        }
-
     }
     @IBOutlet weak var brandName: UILabel!
     @IBAction func addToCart(_ sender: UIButton) {
@@ -165,8 +112,8 @@ class productInfoViewController: UIViewController {
   
     override func viewWillAppear(_ animated: Bool) {
         self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
-        self.checkHeart = UserDefaults.standard.integer(forKey: "\(productId!)")
-        if self.checkHeart == productId {
+        self.checkHeart = Double(UserDefaults.standard.integer(forKey: "\(productId!)"))
+        if self.checkHeart == productPriceDouble {
             favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
         self.showActivityIndicator(indicator: self.indicator, startIndicator: false)

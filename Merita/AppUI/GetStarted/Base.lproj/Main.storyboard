@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="-946" y="35"/>
         </scene>
-        <!--View Controller-->
+        <!--Get-->
         <scene sceneID="e5q-sp-3iM">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="kFa-9N-vUf" customClass="ViewController" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="kFa-9N-vUf" customClass="Get" customModule="Merita" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3ue-ja-fLJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -183,7 +183,8 @@ dreams. you will find here
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="WuU-vi-sba" kind="show" id="DgV-AW-Iti"/>
+                                    <action selector="AddNotifcation:" destination="kFa-9N-vUf" eventType="touchUpInside" id="EoG-2F-qGQ"/>
+                                    <segue destination="I2f-HZ-4zV" kind="show" id="gJp-xH-0RQ"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="igG-3Q-YGx">
@@ -205,6 +206,7 @@ dreams. you will find here
                                             <color key="baseForegroundColor" name="colorButton"/>
                                         </buttonConfiguration>
                                         <connections>
+                                            <action selector="Adding:" destination="kFa-9N-vUf" eventType="touchUpInside" id="Ca8-sk-bx4"/>
                                             <segue destination="MGb-k8-Uj1" kind="show" id="gGV-oK-rh7"/>
                                         </connections>
                                     </button>
@@ -252,6 +254,16 @@ dreams. you will find here
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SD5-4Q-C4R" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="616" y="35"/>
+        </scene>
+        <!--HomePageScreen-->
+        <scene sceneID="vwM-12-hxh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomePageScreen" id="I2f-HZ-4zV" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="kQS-v4-mit"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="60Q-Os-hTh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1132" y="-29"/>
         </scene>
         <!--LoginScreen-->
         <scene sceneID="xsV-K8-7bO">

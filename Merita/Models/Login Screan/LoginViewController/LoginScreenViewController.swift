@@ -53,10 +53,6 @@ class LoginScreenViewController: UIViewController {
 
 }
 extension LoginScreenViewController {
-    func allowNotifcation () {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { grented, error in }
-        
-    }
     func autoLogin () {
         UserDefaults.standard.set(true, forKey: "Login")
         UserDefaults.standard.set(loginVariable?.idUser, forKey: "Login1")
@@ -174,7 +170,6 @@ extension LoginScreenViewController {
     func navigateTabBar (animted:Bool) {
         let vc = UIStoryboard(name: "HomePageScreen", bundle: nil).instantiateViewController(withIdentifier: "cell") as? HomePageScreanTabBarController
         if animted {
-            allowNotifcation()
             autoLogin()
         }
         indecator(indicator: indicator, check: false)

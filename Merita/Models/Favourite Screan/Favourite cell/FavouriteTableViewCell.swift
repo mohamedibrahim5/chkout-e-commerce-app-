@@ -43,7 +43,8 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
         }
         vc?.userId = userId
         vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
-        UserDefaults.standard.set(self.arrayOfProduct[numberOfIndexPath!].id, forKey: "\(self.arrayOfProduct[numberOfIndexPath!].id!)")
+        self.checkFav = Double(arrayOfData[indexPath.row].valueArrayPrice)!
+        UserDefaults.standard.set(self.checkFav, forKey: "\(self.arrayOfProduct[numberOfIndexPath!].id!)")
         self.navigationController!.pushViewController(vc!, animated: true)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

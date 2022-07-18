@@ -65,7 +65,7 @@ extension productInfoViewController {
                       print("Document does not exist")
                   self.favourite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
                   self.scheduleNotifiction(title: "You Are Add It In Favourite", identifir: "FavId")
-                  UserDefaults.standard.set(self.productId, forKey: "\(productId!)")
+                  UserDefaults.standard.set(self.productPriceDouble, forKey: "\(productId!)")
                   db.collection("FAV").document("\(self.userId!)").collection("all information").document("\(self.productIdString!)").setData(["price":self.productprice!,"name":self.productName.text!,"image":self.productimage!,"productid":self.productId!], merge: true)
               }
           }

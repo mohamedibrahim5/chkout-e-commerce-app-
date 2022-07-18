@@ -153,6 +153,20 @@ extension UIViewController{
     func indecator (indicator:NVActivityIndicatorView, check:Bool) {         
              self.showActivityIndicator(indicator: indicator, startIndicator: check)
      }
+    func loginAlert () {
+        let alert = UIAlertController(title: "Warning", message: "Are you want to sign out ", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: { (action) in
+            let vc = UIStoryboard(name: "LoginScreen", bundle: nil).instantiateViewController(withIdentifier: "celllogin") as? LoginScreenViewController
+            self.navigationController?.pushViewController(vc!, animated: true)
+           
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+        })
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true)
+    }
 }
 
 enum Alert:String {

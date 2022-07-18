@@ -180,8 +180,6 @@ extension HomePageViewC: PassProductsCategory {
             }
             
         }
-        
-        
     }
     
     

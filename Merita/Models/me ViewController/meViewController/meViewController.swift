@@ -23,6 +23,7 @@ class meViewController: UIViewController {
     var arrayAddress : [String] = []
     var arrayOfData : [Favourite] = []
     var arrayOfDataOrder:[Favourite] = []
+    var checkFav : Double = 1
    
     @IBOutlet weak var wishListTableview: UITableView!{
         didSet{
@@ -39,31 +40,52 @@ class meViewController: UIViewController {
     }
     
     @IBAction func settings(_ sender: UIBarButtonItem) {
-        let vc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "setting") as? settings
-        vc?.userId = userId
-        
-        self.navigationController!.pushViewController(vc!, animated: true)
+        if userId != nil {
+            let vc = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "setting") as? settings
+            vc?.userId = userId
+            
+            self.navigationController!.pushViewController(vc!, animated: true)
+        } else {
+            loginAlert()
+            
+        }
+       
     }
     
     @IBAction func cart(_ sender: UIBarButtonItem) {
-        print("ordersMore")
-        let vc = UIStoryboard(name: "AddCartScreen", bundle: nil).instantiateViewController(withIdentifier: "cartcell") as? cartViewController
-        vc!.userId = userId
-        self.navigationController!.pushViewController(vc!, animated: true)
+        if userId != nil {
+            print("ordersMore")
+            let vc = UIStoryboard(name: "AddCartScreen", bundle: nil).instantiateViewController(withIdentifier: "cartcell") as? cartViewController
+            vc!.userId = userId
+            self.navigationController!.pushViewController(vc!, animated: true)
+        } else {
+            loginAlert()
+        }
+       
         
     }
     @IBAction func washListMore(_ sender: UIButton) {
-        print("washListMore")
-        let vc = UIStoryboard(name: "Favourite Screen", bundle: nil).instantiateViewController(withIdentifier: "cell2") as? FavouriteScreenViewController
-        vc!.userId = userId
-        self.navigationController!.pushViewController(vc!, animated: true)
+        if userId != nil {
+            print("washListMore")
+            let vc = UIStoryboard(name: "Favourite Screen", bundle: nil).instantiateViewController(withIdentifier: "cell2") as? FavouriteScreenViewController
+            vc!.userId = userId
+            self.navigationController!.pushViewController(vc!, animated: true)
+        } else {
+            loginAlert()
+        }
+       
     }
    
     @IBAction func ordersMore(_ sender: UIButton) {
-        let vc = UIStoryboard(name: "MYOrderScreen", bundle: nil).instantiateViewController(withIdentifier: "MYOrderVC") as? MYOrderVC
+        if userId != nil {
+            let vc = UIStoryboard(name: "MYOrderScreen", bundle: nil).instantiateViewController(withIdentifier: "MYOrderVC") as? MYOrderVC
+            
+            vc!.userId = userId
+            self.navigationController!.pushViewController(vc!, animated: true)
+        } else {
+            loginAlert()
+        }
         
-        vc!.userId = userId
-        self.navigationController!.pushViewController(vc!, animated: true)
         
     }
     @IBOutlet weak var welcome: UILabel!
@@ -92,46 +114,48 @@ class meViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
-        let db = Firestore.firestore()
-        let docRef = db.collection("customerinformation").document(Auth.auth().currentUser!.uid)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                self.welcome.text = "Welcome"
-                self.nameOfCustomer.text = document["name"] as? String
-                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-            } else {
-                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-                print("Document does not exist")
-            }
-        }
-        
-       
-        getDataFromFirebase(collection: "FAV", userId: self.userId!, arrayOfField: ["name","price","image"]) { [self]arrayOfData in
-            self.arrayOfData = arrayOfData
-           wishListTableview.reloadData()
-        }
-   
-        db.collection("order").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
+        if userId != nil {
+                    self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
+                    let db = Firestore.firestore()
+                    let docRef = db.collection("customerinformation").document(Auth.auth().currentUser!.uid)
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            self.welcome.text = "Welcome"
+                            self.nameOfCustomer.text = document["name"] as? String
+                            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+                        } else {
+                            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+                            print("Document does not exist")
+                        }
+                    }
             
-            if error == nil && snapshot != nil {
-                self.arrayTime.removeAll()
-                self.arrayAddress.removeAll()
-                self.arrayTotalPrice.removeAll()
-                for document in snapshot!.documents {
-                self.arrayTime.append(document.data()["time"] as! String)
-                self.arrayTotalPrice.append(document.data()["price"] as! Double)
-                self.arrayAddress.append(document.data()["address"] as! String)
-                self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
-               
-                  
-        }
-                
-                self.orderTableView?.reloadData()
-              
-        }
-            print("address \(self.arrayAddress)")
-
+            
+                    getDataFromFirebase(collection: "FAV", userId: self.userId!, arrayOfField: ["name","price","image"]) { [self]arrayOfData in
+                        self.arrayOfData = arrayOfData
+                       wishListTableview.reloadData()
+                    }
+            
+                    db.collection("order").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
+            
+                        if error == nil && snapshot != nil {
+                            self.arrayTime.removeAll()
+                            self.arrayAddress.removeAll()
+                            self.arrayTotalPrice.removeAll()
+                            for document in snapshot!.documents {
+                            self.arrayTime.append(document.data()["time"] as! String)
+                            self.arrayTotalPrice.append(document.data()["price"] as! Double)
+                            self.arrayAddress.append(document.data()["address"] as! String)
+                            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+            
+            
+                    }
+            
+                            self.orderTableView?.reloadData()
+            
+                    }
+                        print("address \(self.arrayAddress)")
+            
+                    }
         }
 }
 }
@@ -203,31 +227,34 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
             }
             vc?.userId = userId
             vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
-            UserDefaults.standard.set(self.arrayOfProduct[numberOfIndexPath!].id, forKey: "\(self.arrayOfProduct[numberOfIndexPath!].id!)")
+            self.checkFav = Double(arrayOfData[indexPath.row].valueArrayPrice)!
+            UserDefaults.standard.set(self.checkFav, forKey: "\(self.arrayOfProduct[numberOfIndexPath!].id!)")
             self.navigationController!.pushViewController(vc!, animated: true)
         }
         
         
     }
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        if tableView == wishListTableview{
-//            let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { [self] action, view, complationHandler in
-//
-//                deleteFromFirebase(userId:self.userId!,productId:self.arrayOfProduct[self.numberOfIndexPath!].id!, collection: "FAV")
-//             //   self.arrayOfData.remove(at: indexPath.row)
-//                self.wishListTableview.beginUpdates()
-//                self.wishListTableview.deleteRows(at: [indexPath], with: .automatic)
-//                self.wishListTableview.endUpdates()
-//                complationHandler(true)
-//            }
-//
-//            return UISwipeActionsConfiguration(actions: [deleteAtion])
-//        }
-//        else {
-//
-//        }
-//
-//    }
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if tableView == wishListTableview{
+            let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { [self] action, view, complationHandler in
+                getIndexPath(index: indexPath.row) { numberOfIndexPath in
+                    self.numberOfIndexPath = numberOfIndexPath
+                }
+                deleteFromFirebase(userId:self.userId!,productId:self.arrayOfProduct[self.numberOfIndexPath!].id!, collection: "FAV")
+                self.arrayOfData.remove(at: indexPath.row)
+                self.wishListTableview.beginUpdates()
+                self.wishListTableview.deleteRows(at: [indexPath], with: .automatic)
+                self.wishListTableview.endUpdates()
+                complationHandler(true)
+            }
+
+            return UISwipeActionsConfiguration(actions: [deleteAtion])
+        }
+        else {
+            return nil
+        }
+
+    }
 }
 extension meViewController {
     func getIndexPath (index:Int,completion:@escaping(Int)->()) {

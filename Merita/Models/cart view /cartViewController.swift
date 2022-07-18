@@ -59,45 +59,53 @@ class cartViewController: UIViewController {
         }
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
-                        let db = Firestore.firestore()
-                db.collection("Cart").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
-                    
-                    if error == nil && snapshot != nil {
-                        self.totalOfPrice.removeAll()
-                        self.valueArrayimage.removeAll()
-                        self.valueArray.removeAll()
-                        self.valueArrayprice.removeAll()
-                        for document in snapshot!.documents {
-                        self.valueArray.append(document.data()["name"] as! String)
-                        self.valueArrayprice.append(document.data()["price"] as! String)
-                        self.valueArrayimage.append(document.data()["image"] as! String)
-                        self.totalOfPrice.append(document.data()["DouplePrice"] as! Double)
-                        self.totalPrice2 = 0
-                            for index in 0..<self.valueArray.count {
-                                self.totalPrice2 = self.totalPrice2 + self.totalOfPrice[index]
-                            }
-                            print(self.totalPrice2)
-                            self.totalPrice.text = "\(self.totalPrice2)"
-                            cartViewController.totall = self.totalPrice2
-                            print("koko\(cartViewController.totall)")
-                          
+        if userId != nil {
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
+                            let db = Firestore.firestore()
+                    db.collection("Cart").document("\(self.userId!)").collection("all information").getDocuments { (snapshot, error) in
+                        
+                        if error == nil && snapshot != nil {
+                            self.totalOfPrice.removeAll()
+                            self.valueArrayimage.removeAll()
+                            self.valueArray.removeAll()
+                            self.valueArrayprice.removeAll()
+                            for document in snapshot!.documents {
+                            self.valueArray.append(document.data()["name"] as! String)
+                            self.valueArrayprice.append(document.data()["price"] as! String)
+                            self.valueArrayimage.append(document.data()["image"] as! String)
+                            self.totalOfPrice.append(document.data()["DouplePrice"] as! Double)
+                            self.totalPrice2 = 0
+                                for index in 0..<self.valueArray.count {
+                                    self.totalPrice2 = self.totalPrice2 + self.totalOfPrice[index]
+                                }
+                                print(self.totalPrice2)
+                                self.totalPrice.text = "\(self.totalPrice2)"
+                                cartViewController.totall = self.totalPrice2
+                                print("koko\(cartViewController.totall)")
+                              
+                    }
+                            self.tableview.reloadData()
                 }
-                        self.tableview.reloadData()
+                        
             }
-                    
+            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
         }
-        self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
+      
 }
     @IBAction func Cgeckout(_ sender: UIButton) {
-        if self.valueArray.count > 0 {
-            let vc = UIStoryboard(name: "checkout", bundle: nil).instantiateViewController(withIdentifier: "check") as? CheckOut
-            vc!.userId = userId
-            let totalPricr = Double(totalPrice.text!)
-            vc?.totalPrice = totalPricr
-            self.navigationController!.pushViewController(vc!, animated: true)
+        if userId != nil {
+            if self.valueArray.count > 0 {
+                let vc = UIStoryboard(name: "checkout", bundle: nil).instantiateViewController(withIdentifier: "check") as? CheckOut
+                vc!.userId = userId
+                let totalPricr = Double(totalPrice.text!)
+                vc?.totalPrice = totalPricr
+                self.navigationController!.pushViewController(vc!, animated: true)
+            } else {
+                emptyCart()
+            }
+
         } else {
-            emptyCart()
+            loginAlert()
         }
         
     }
@@ -166,9 +174,6 @@ extension cartViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 136
     }
-//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//                let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { action, view, complationHandler in
-//    }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAtion = UIContextualAction(style: .destructive, title: "Delete") { action, view, complationHandler in

@@ -141,26 +141,33 @@ extension ProductsCategoryVC: UICollectionViewDelegate, UICollectionViewDelegate
         
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
-        vc?.arrayOfProducts = arrayOfProductsCategory[indexPath.row]
-        vc?.userId = userId
-        check(numberOfIndexPath: indexPath.row)
-        self.navigationController!.pushViewController(vc!, animated: true)
+        if userId != nil {
+            let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
+            vc?.arrayOfProducts = arrayOfProductsCategory[indexPath.row]
+            vc?.userId = userId
+            check(numberOfIndexPath: indexPath.row)
+            self.navigationController!.pushViewController(vc!, animated: true)
+        } else {
+            loginAlert()
+        }
     }
     
 }
 
 extension ProductsCategoryVC {
     func check (numberOfIndexPath:Int){
-        let db = Firestore.firestore()
-        db.collection("Fav").document(self.userId!).collection("all information").getDocuments { [self]snapshot, error in
-            if error == nil && snapshot != nil {
-                for document in snapshot!.documents{
-                    if document.documentID == "\(arrayOfProductsCategory[numberOfIndexPath].id!) "{
-                        UserDefaults.standard.set(self.arrayOfProductsCategory[numberOfIndexPath].id, forKey: "fill")
+        if userId != nil {
+            let db = Firestore.firestore()
+            db.collection("Fav").document(self.userId!).collection("all information").getDocuments { [self]snapshot, error in
+                if error == nil && snapshot != nil {
+                    for document in snapshot!.documents{
+                        if document.documentID == "\(arrayOfProductsCategory[numberOfIndexPath].id!) "{
+//                            UserDefaults.standard.set(self.userId, forKey: "\(self.arrayOfProductsCategory[numberOfIndexPath].id!)")
+                        }
                     }
                 }
             }
         }
+       
     }
 }
