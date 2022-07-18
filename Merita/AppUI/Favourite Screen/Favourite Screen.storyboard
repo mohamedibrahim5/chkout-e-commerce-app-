@@ -42,7 +42,7 @@
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="93J-oG-lx2">
                                 <rect key="frame" x="20" y="76" width="374" height="743"/>
-                                <color key="backgroundColor" name="Background2"/>
+                                <color key="backgroundColor" name="BackgroundView"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="127" id="Fa6-PA-Q5C" customClass="FavouriteTableViewCell" customModule="Merita" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="374" height="127"/>
@@ -132,7 +132,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" name="Background2"/>
+                                            <color key="backgroundColor" name="BackgroundView"/>
                                             <constraints>
                                                 <constraint firstItem="B4t-I6-yz3" firstAttribute="leading" secondItem="tCJ-ut-mmZ" secondAttribute="leadingMargin" constant="-12" id="6FW-mx-ecK"/>
                                                 <constraint firstItem="B4t-I6-yz3" firstAttribute="centerX" secondItem="tCJ-ut-mmZ" secondAttribute="centerX" id="cND-Au-Qnf"/>
@@ -140,7 +140,7 @@
                                                 <constraint firstItem="B4t-I6-yz3" firstAttribute="bottom" secondItem="tCJ-ut-mmZ" secondAttribute="bottomMargin" id="sqw-yh-iZ8"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="BackgroundView"/>
                                         <connections>
                                             <outlet property="imageview" destination="VVC-6V-6Jb" id="mhI-JA-oBW"/>
                                             <outlet property="name" destination="tng-zK-GoF" id="HFx-Fl-ryk"/>
@@ -204,6 +204,9 @@
         </namedColor>
         <namedColor name="Background2">
             <color red="0.94900000095367432" green="0.70200002193450928" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundView">
+            <color red="0.96899998188018799" green="0.96100002527236938" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="colorButton">
             <color red="0.68999999761581421" green="0.15700000524520874" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
