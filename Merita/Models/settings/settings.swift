@@ -12,6 +12,16 @@ class settings: UIViewController {
 
     @IBAction func currency(_ sender: UIButton) {
     }
+    
+    
+    @IBAction func myOrderBtn(_ sender: UIButton) {
+        let vc = UIStoryboard(name: "MYOrderScreen", bundle: nil).instantiateViewController(withIdentifier: "MYOrderVC") as? MYOrderVC
+        
+        vc!.userId = userId
+        self.navigationController!.pushViewController(vc!, animated: true)
+    }
+    
+    
     @IBAction func address(_ sender: Any) {
         
         let vc = UIStoryboard(name: "AdressMain", bundle: nil).instantiateViewController(withIdentifier: "addressmain") as? AdressMain

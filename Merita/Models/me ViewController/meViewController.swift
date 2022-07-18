@@ -25,7 +25,7 @@ class meViewController: UIViewController {
     let productCategoryViewModel = ProductsCategoryViewModel()
     var arrayTitle : [String] = []
     var numberOfIndexPath : Int?
-    var arrayTptalPrice : [Double] = []
+    var arrayTotalPrice : [Double] = []
     var arrayTime : [String] = []
     var arrayAddress : [String] = []
    
@@ -36,7 +36,7 @@ class meViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var orderTableView: UITableView?{
+    @IBOutlet weak var orderTableView: UITableView!{
         didSet{
             orderTableView?.dataSource = self
             orderTableView?.delegate = self
@@ -65,7 +65,11 @@ class meViewController: UIViewController {
     }
    
     @IBAction func ordersMore(_ sender: UIButton) {
-       
+        let vc = UIStoryboard(name: "MYOrderScreen", bundle: nil).instantiateViewController(withIdentifier: "MYOrderVC") as? MYOrderVC
+        
+        vc!.userId = userId
+        self.navigationController!.pushViewController(vc!, animated: true)
+        
     }
     @IBOutlet weak var welcome: UILabel!
     var userId : String?
@@ -73,7 +77,8 @@ class meViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        orderTableView?.register(UINib(nibName: "OredrTVCell", bundle: nil), forCellReuseIdentifier: "OredrTVCell")
+        orderTableView.register(UINib(nibName: "OrderTVCell", bundle: nil), forCellReuseIdentifier: "OrderTVCell")
+        
         
         productCategoryViewModel.fetchProductCategory()
         productCategoryViewModel.bindingProductCategory = { productsCategory, error in
@@ -133,17 +138,17 @@ class meViewController: UIViewController {
             if error == nil && snapshot != nil {
                 self.arrayTime.removeAll()
                 self.arrayAddress.removeAll()
-                self.arrayTptalPrice.removeAll()
+                self.arrayTotalPrice.removeAll()
                 for document in snapshot!.documents {
                 self.arrayTime.append(document.data()["time"] as! String)
-                self.arrayTptalPrice.append(document.data()["price"] as! Double)
+                self.arrayTotalPrice.append(document.data()["price"] as! Double)
                 self.arrayAddress.append(document.data()["address"] as! String)
                 self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
                
                   
         }
                 
-               // self.tableview.reloadData()
+                self.orderTableView?.reloadData()
               
         }
             print("address \(self.arrayAddress)")
@@ -199,13 +204,13 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
         switch tableView {
         case orderTableView:
             
-            let orderCell = tableView.dequeueReusableCell(withIdentifier: "OredrTVCell", for: indexPath) as! OredrTVCell
+            let orderCell = tableView.dequeueReusableCell(withIdentifier: "OrderTVCell", for: indexPath) as! OrderTVCell
             
             print("address \(arrayAddress)")
             print("address = TableViewTop")
 
             orderCell.address.text = arrayAddress[indexPath.row]
-            orderCell.price.text = "\(arrayTptalPrice[indexPath.row])$"
+            orderCell.price.text = "\(arrayTotalPrice[indexPath.row])$"
             orderCell.date.text = arrayTime[indexPath.row]
             
         return orderCell
@@ -229,7 +234,7 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
              print("address \(arrayAddress)")
              
              orderCell.adressOrder.text = arrayAddress[indexPath.row]
-             orderCell.priceOrder.text = "\(arrayTptalPrice[indexPath.row])$"
+             orderCell.priceOrder.text = "\(arrayTotalPrice[indexPath.row])$"
              orderCell.dateOrder.text = arrayTime[indexPath.row]
              
          return orderCell
@@ -248,19 +253,26 @@ extension meViewController:UITableViewDelegate,UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == orderTableView{
+            return 110
+        }
         return 150
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
-        let checkName = valueArray[indexPath.row]
-        for i in 0..<arrayOfProduct.count{
-            if checkName == arrayOfProduct[i].title {
-                numberOfIndexPath = i
+        if tableView == wishListTableview{
+            let vc = UIStoryboard(name: "ProductInfo", bundle: nil).instantiateViewController(withIdentifier: "cell") as? productInfoViewController
+            let checkName = valueArray[indexPath.row]
+            for i in 0..<arrayOfProduct.count{
+                if checkName == arrayOfProduct[i].title {
+                    numberOfIndexPath = i
+                }
             }
+            vc?.userId = userId
+            vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
+            UserDefaults.standard.set(self.arrayOfProduct[numberOfIndexPath!].id, forKey: "fill")
+            self.navigationController!.pushViewController(vc!, animated: true)
         }
-        vc?.userId = userId
-        vc?.arrayOfProducts = arrayOfProduct[numberOfIndexPath!]
-        UserDefaults.standard.set(self.arrayOfProduct[numberOfIndexPath!].id, forKey: "fill")
-        self.navigationController!.pushViewController(vc!, animated: true)
+        
+        
     }
 }

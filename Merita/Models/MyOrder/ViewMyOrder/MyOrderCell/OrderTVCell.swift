@@ -1,5 +1,5 @@
 //
-//  OredrTVCell.swift
+//  OrderTVCell.swift
 //  Merita
 //
 //  Created by Abo Saleh on 17/07/2022.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OredrTVCell: UITableViewCell {
+class OrderTVCell: UITableViewCell {
 
     @IBOutlet weak var address: UILabel!
     

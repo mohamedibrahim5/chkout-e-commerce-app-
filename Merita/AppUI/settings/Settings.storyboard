@@ -44,7 +44,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qaf-gE-zsX">
-                                <rect key="frame" x="8" y="148" width="398" height="66"/>
+                                <rect key="frame" x="8" y="222" width="398" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="5iw-1F-BvJ"/>
@@ -70,7 +70,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TtY-uR-hle">
-                                <rect key="frame" x="309" y="165.5" width="93" height="32"/>
+                                <rect key="frame" x="301" y="239.5" width="93" height="32"/>
                                 <color key="backgroundColor" name="BackgroundView"/>
                                 <segments>
                                     <segment title="USD"/>
@@ -79,7 +79,7 @@
                                 <color key="selectedSegmentTintColor" name="CircelColor"/>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eve-t7-HLa">
-                                <rect key="frame" x="8" y="222" width="398" height="66"/>
+                                <rect key="frame" x="8" y="296" width="398" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="qgS-yb-lBr"/>
@@ -105,21 +105,51 @@
                                     <action selector="contactUsAction:" destination="F0M-nh-EeB" eventType="touchUpInside" id="go8-Hz-BBO"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ni4-4g-OrP">
+                                <rect key="frame" x="8" y="148" width="398" height="66"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="PbT-zD-tbW"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="My Orders">
+                                            <attributes>
+                                                <font key="NSFont" size="26" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="myOrderBtn:" destination="F0M-nh-EeB" eventType="touchUpInside" id="FMu-qK-nLC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tYO-xi-15P"/>
                         <color key="backgroundColor" name="Background2"/>
                         <constraints>
                             <constraint firstItem="a5g-1W-AEJ" firstAttribute="top" secondItem="tYO-xi-15P" secondAttribute="top" constant="30" id="52b-6r-aTo"/>
-                            <constraint firstItem="Qaf-gE-zsX" firstAttribute="top" secondItem="a5g-1W-AEJ" secondAttribute="bottom" constant="8" symbolic="YES" id="F22-bc-Cuj"/>
+                            <constraint firstItem="ni4-4g-OrP" firstAttribute="trailing" secondItem="a5g-1W-AEJ" secondAttribute="trailing" id="CU7-aE-kxg"/>
+                            <constraint firstItem="Qaf-gE-zsX" firstAttribute="top" secondItem="ni4-4g-OrP" secondAttribute="bottom" constant="8" id="F22-bc-Cuj"/>
+                            <constraint firstItem="ni4-4g-OrP" firstAttribute="leading" secondItem="a5g-1W-AEJ" secondAttribute="leading" id="FaM-Mz-RYa"/>
                             <constraint firstItem="a5g-1W-AEJ" firstAttribute="leading" secondItem="tYO-xi-15P" secondAttribute="leading" constant="8" id="NQK-Fb-tUq"/>
                             <constraint firstItem="Eve-t7-HLa" firstAttribute="leading" secondItem="tYO-xi-15P" secondAttribute="leading" constant="8" id="Or7-c8-mIg"/>
                             <constraint firstItem="Qaf-gE-zsX" firstAttribute="leading" secondItem="tYO-xi-15P" secondAttribute="leading" constant="8" id="afg-Ny-rLs"/>
                             <constraint firstItem="tYO-xi-15P" firstAttribute="trailing" secondItem="Qaf-gE-zsX" secondAttribute="trailing" constant="8" id="cll-sF-Bg2"/>
+                            <constraint firstItem="ni4-4g-OrP" firstAttribute="top" secondItem="a5g-1W-AEJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ikI-UG-A5a"/>
                             <constraint firstItem="tYO-xi-15P" firstAttribute="trailing" secondItem="a5g-1W-AEJ" secondAttribute="trailing" constant="8" id="j0V-yb-fyA"/>
-                            <constraint firstItem="Qaf-gE-zsX" firstAttribute="top" secondItem="a5g-1W-AEJ" secondAttribute="bottom" constant="8" id="lBA-Lx-uLj"/>
+                            <constraint firstItem="Qaf-gE-zsX" firstAttribute="top" secondItem="ni4-4g-OrP" secondAttribute="bottom" constant="8" id="lBA-Lx-uLj"/>
                             <constraint firstItem="Eve-t7-HLa" firstAttribute="top" secondItem="Qaf-gE-zsX" secondAttribute="bottom" constant="8" symbolic="YES" id="o3t-eq-pNN"/>
                             <constraint firstItem="tYO-xi-15P" firstAttribute="trailing" secondItem="Eve-t7-HLa" secondAttribute="trailing" constant="8" id="rLK-K4-ZMZ"/>
-                            <constraint firstItem="tYO-xi-15P" firstAttribute="trailing" secondItem="TtY-uR-hle" secondAttribute="trailing" constant="12" id="sEO-jK-MY9"/>
+                            <constraint firstItem="tYO-xi-15P" firstAttribute="trailing" secondItem="TtY-uR-hle" secondAttribute="trailing" constant="20" id="sEO-jK-MY9"/>
                             <constraint firstItem="TtY-uR-hle" firstAttribute="centerY" secondItem="Qaf-gE-zsX" secondAttribute="centerY" id="vZQ-HX-MYW"/>
                         </constraints>
                     </view>

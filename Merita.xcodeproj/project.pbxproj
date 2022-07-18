@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E0398342877861D00DA2B8A /* ProtocolToPassProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0398332877861D00DA2B8A /* ProtocolToPassProduct.swift */; };
-		3E12F2B82884ADFF0061C772 /* OredrTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12F2B62884ADFF0061C772 /* OredrTVCell.swift */; };
-		3E12F2B92884ADFF0061C772 /* OredrTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E12F2B72884ADFF0061C772 /* OredrTVCell.xib */; };
+		3E12F2B82884ADFF0061C772 /* OrderTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E12F2B62884ADFF0061C772 /* OrderTVCell.swift */; };
+		3E12F2B92884ADFF0061C772 /* OrderTVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E12F2B72884ADFF0061C772 /* OrderTVCell.xib */; };
 		3E19DA9D28738581005ACCED /* ClassNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E19DA9C28738581005ACCED /* ClassNetworkManager.swift */; };
 		3E19DAA02873B189005ACCED /* TVCellForBrands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E19DA9F2873B189005ACCED /* TVCellForBrands.swift */; };
 		3E19DAA22873B1B3005ACCED /* CVCellForBrandsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E19DAA12873B1B3005ACCED /* CVCellForBrandsItem.swift */; };
@@ -28,6 +28,8 @@
 		3E538482287640F50032D0D8 /* ProductCategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E538481287640F50032D0D8 /* ProductCategoryProtocol.swift */; };
 		3E939417287BFCC900170549 /* SubCategoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E939416287BFCC900170549 /* SubCategoryProtocol.swift */; };
 		3E939419287C261B00170549 /* ProtocolToPassProductsBrand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E939418287C261B00170549 /* ProtocolToPassProductsBrand.swift */; };
+		3EC580FB288593C0000B89A2 /* MYOrderScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EC580FA288593C0000B89A2 /* MYOrderScreen.storyboard */; };
+		3EC5810128859994000B89A2 /* MYOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC5810028859994000B89A2 /* MYOrderVC.swift */; };
 		3EC6BF762871C57A00B6AF34 /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6BF752871C57A00B6AF34 /* OnboardingSlide.swift */; };
 		3EC6BF792871C61B00B6AF34 /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6BF782871C61B00B6AF34 /* OnboardingVC.swift */; };
 		3EC6BF7C2871C65F00B6AF34 /* OnboardingCViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC6BF7B2871C65F00B6AF34 /* OnboardingCViewCell.swift */; };
@@ -107,8 +109,8 @@
 
 /* Begin PBXFileReference section */
 		3E0398332877861D00DA2B8A /* ProtocolToPassProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolToPassProduct.swift; sourceTree = "<group>"; };
-		3E12F2B62884ADFF0061C772 /* OredrTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OredrTVCell.swift; sourceTree = "<group>"; };
-		3E12F2B72884ADFF0061C772 /* OredrTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OredrTVCell.xib; sourceTree = "<group>"; };
+		3E12F2B62884ADFF0061C772 /* OrderTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTVCell.swift; sourceTree = "<group>"; };
+		3E12F2B72884ADFF0061C772 /* OrderTVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTVCell.xib; sourceTree = "<group>"; };
 		3E19DA9C28738581005ACCED /* ClassNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassNetworkManager.swift; sourceTree = "<group>"; };
 		3E19DA9F2873B189005ACCED /* TVCellForBrands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCellForBrands.swift; sourceTree = "<group>"; };
 		3E19DAA12873B1B3005ACCED /* CVCellForBrandsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCellForBrandsItem.swift; sourceTree = "<group>"; };
@@ -127,6 +129,8 @@
 		3E538481287640F50032D0D8 /* ProductCategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategoryProtocol.swift; sourceTree = "<group>"; };
 		3E939416287BFCC900170549 /* SubCategoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryProtocol.swift; sourceTree = "<group>"; };
 		3E939418287C261B00170549 /* ProtocolToPassProductsBrand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolToPassProductsBrand.swift; sourceTree = "<group>"; };
+		3EC580FA288593C0000B89A2 /* MYOrderScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MYOrderScreen.storyboard; sourceTree = "<group>"; };
+		3EC5810028859994000B89A2 /* MYOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYOrderVC.swift; sourceTree = "<group>"; };
 		3EC6BF752871C57A00B6AF34 /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		3EC6BF782871C61B00B6AF34 /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
 		3EC6BF7B2871C65F00B6AF34 /* OnboardingCViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCViewCell.swift; sourceTree = "<group>"; };
@@ -323,6 +327,48 @@
 			path = SubCategoryProtocol;
 			sourceTree = "<group>";
 		};
+		3EC580F928859391000B89A2 /* MyOrderScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3EC580FA288593C0000B89A2 /* MYOrderScreen.storyboard */,
+			);
+			path = MyOrderScreen;
+			sourceTree = "<group>";
+		};
+		3EC580FC28859925000B89A2 /* MyOrder */ = {
+			isa = PBXGroup;
+			children = (
+				3EC580FD2885993D000B89A2 /* ViewMyOrder */,
+			);
+			path = MyOrder;
+			sourceTree = "<group>";
+		};
+		3EC580FD2885993D000B89A2 /* ViewMyOrder */ = {
+			isa = PBXGroup;
+			children = (
+				3EC580FF28859953000B89A2 /* MyOrderViewController */,
+				3EC580FE28859947000B89A2 /* MyOrderCell */,
+			);
+			path = ViewMyOrder;
+			sourceTree = "<group>";
+		};
+		3EC580FE28859947000B89A2 /* MyOrderCell */ = {
+			isa = PBXGroup;
+			children = (
+				3E12F2B62884ADFF0061C772 /* OrderTVCell.swift */,
+				3E12F2B72884ADFF0061C772 /* OrderTVCell.xib */,
+			);
+			path = MyOrderCell;
+			sourceTree = "<group>";
+		};
+		3EC580FF28859953000B89A2 /* MyOrderViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3EC5810028859994000B89A2 /* MYOrderVC.swift */,
+			);
+			path = MyOrderViewController;
+			sourceTree = "<group>";
+		};
 		3EC6BF712871C4F900B6AF34 /* OnboardingScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -488,6 +534,7 @@
 		40AED8AB286F28FA006830BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3EC580FC28859925000B89A2 /* MyOrder */,
 				A1877B042883351600F4C467 /* user */,
 				A1877AF92883229400F4C467 /* settings */,
 				A1877AF32883019500F4C467 /* Confirm */,
@@ -543,6 +590,7 @@
 		40AED8B7286F2DE5006830BD /* AppUI */ = {
 			isa = PBXGroup;
 			children = (
+				3EC580F928859391000B89A2 /* MyOrderScreen */,
 				A1877B01288334CF00F4C467 /* user */,
 				A1877AF6288321ED00F4C467 /* settings */,
 				A1877AF02883013500F4C467 /* confirm */,
@@ -930,8 +978,6 @@
 				A186E37F287CD03800B72134 /* meViewController.swift */,
 				A186E381287CD09B00B72134 /* meWashListTableViewCell.swift */,
 				A1877B092883489E00F4C467 /* meOrderTableViewCell.swift */,
-				3E12F2B62884ADFF0061C772 /* OredrTVCell.swift */,
-				3E12F2B72884ADFF0061C772 /* OredrTVCell.xib */,
 			);
 			path = "me ViewController";
 			sourceTree = "<group>";
@@ -1148,7 +1194,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E12F2B92884ADFF0061C772 /* OredrTVCell.xib in Resources */,
+				3E12F2B92884ADFF0061C772 /* OrderTVCell.xib in Resources */,
+				3EC580FB288593C0000B89A2 /* MYOrderScreen.storyboard in Resources */,
 				A1877AFE2883295300F4C467 /* AdressMain.storyboard in Resources */,
 				A1877AE52882DFF600F4C467 /* checkout.storyboard in Resources */,
 				40AED98E28734844006830BD /* SettingScreen.storyboard in Resources */,
@@ -1225,6 +1272,7 @@
 			files = (
 				3EC6BF792871C61B00B6AF34 /* OnboardingVC.swift in Sources */,
 				A19A72B2288076C000D02A3E /* cartTableViewCell.swift in Sources */,
+				3EC5810128859994000B89A2 /* MYOrderVC.swift in Sources */,
 				3EC6BF822871DB5300B6AF34 /* UserDefaults+Extension.swift in Sources */,
 				3EC6BF762871C57A00B6AF34 /* OnboardingSlide.swift in Sources */,
 				40AED899286F28E1006830BD /* ProductsCategoryVC.swift in Sources */,
@@ -1249,7 +1297,7 @@
 				A185A8242884643E004476DE /* SignUp.swift in Sources */,
 				A180C62228724BD900521F89 /* productInfoTableViewCell.swift in Sources */,
 				40AED89F286F28E1006830BD /* Merita.xcdatamodeld in Sources */,
-				3E12F2B82884ADFF0061C772 /* OredrTVCell.swift in Sources */,
+				3E12F2B82884ADFF0061C772 /* OrderTVCell.swift in Sources */,
 				A1877AE82882E01D00F4C467 /* CheckOut.swift in Sources */,
 				40AED902286F431C006830BD /* SevModel.swift in Sources */,
 				40AED8CB286F3B11006830BD /* HomaPageViewModel.swift in Sources */,
