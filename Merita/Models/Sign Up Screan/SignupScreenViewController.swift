@@ -10,62 +10,55 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseDatabase
 import Firebase
-import  NVActivityIndicatorView
+import NVActivityIndicatorView
 
 class SignupScreenViewController: UIViewController {
-    
-    let db = Firestore.firestore()
     let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
+    let db = Firestore.firestore()
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
-  //  let varSignUp = SignUp(name: name.text, password: password.text, email: email.text)
     @IBAction func customerSignup(_ sender: UIButton) {
-        self.showActivityIndicator(indicator: self.indicator, startIndicator: true)
        if checkEmpty() {
-            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
            alert(title: Alert.sorry.rawValue, message: Alert.emptyFillData.rawValue)
         }
         else if  weakPassword() {
-            self.showActivityIndicator(indicator: self.indicator, startIndicator: false)
             alert(title: Alert.sorry.rawValue, message: Alert.weakPassword.rawValue)
         }
         else {
-            Auth.auth().createUser(withEmail: email.text!, password: password.text!) { [self] authResult, error in
-                if authResult != nil {
-                    AddingEmailInApi(name: name.text!, email: email.text!, password: password.text!, uidFirebase: Auth.auth().currentUser!.uid)
-
-                    db.collection("customerinformation").document(Auth.auth().currentUser!.uid).setData(["name":name.text!,"uid":authResult!.user.uid])
-
-                    if  isPasswordValid(password.text!) == false {
-                        showActivityIndicator(indicator: indicator, startIndicator: false)
-                        alert(title: Alert.Done.rawValue, message: Alert.registerPasswordWeak.rawValue)
-                        
-                    }
-                    showActivityIndicator(indicator: indicator, startIndicator: false)
-                    alert(title: Alert.Done.rawValue, message: Alert.suucefulRegister.rawValue)
-                    emptyData()
-
-                    
-                }
-                if error != nil {
-                    showActivityIndicator(indicator: indicator, startIndicator: false)
-                    alert(title: Alert.sorry.rawValue, message: Alert.failEmail.rawValue)
-                }
+            signUp(name: name.text!, email: email.text!, password: password.text!, baseCollection: "customerinformation")
         }
-    }
         
 }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-
 }
 extension SignupScreenViewController{
-    func signUp () {
-        
+    func signUp (name:String,email:String,password:String,baseCollection:String) {
+        indecator(indicator: indicator, check: true)
+        Auth.auth().createUser(withEmail: email, password: password) { [self] authResult, error in
+            if authResult != nil {
+                AddingEmailInApi(name: name, email: email, password: password, uidFirebase: Auth.auth().currentUser!.uid)
+
+                db.collection(baseCollection).document(Auth.auth().currentUser!.uid).setData(["name":name,"uid":authResult!.user.uid])
+
+                if  isPasswordValid(password) == false {
+                    alert(title: Alert.Done.rawValue, message: Alert.registerPasswordWeak.rawValue)
+                    
+                }
+                alert(title: Alert.Done.rawValue, message: Alert.suucefulRegister.rawValue)
+                emptyData()
+                indecator(indicator: indicator, check: false)
+
+                
+            }
+            if error != nil {
+                alert(title: Alert.sorry.rawValue, message: Alert.failEmail.rawValue)
+                indecator(indicator: indicator, check: false)
+            }
     }
+ }
     func checkEmpty () -> Bool {
         if email.text == "" || password.text == "" || name.text == "" {
          return true
@@ -84,11 +77,6 @@ extension SignupScreenViewController{
         name.text = ""
         email.text = ""
         password.text = ""
-    }
-    func alert (title:String,message:String){
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
     }
     func isPasswordValid(_ password : String) -> Bool{
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
