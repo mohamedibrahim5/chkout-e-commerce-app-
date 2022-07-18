@@ -7,8 +7,11 @@
 
 import Foundation
 import UIKit
-import SwiftMessages
-import NVActivityIndicatorView
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseDatabase
+import SDWebImage
+import  NVActivityIndicatorView
 
  extension UIView {
     @IBInspectable var cornerRadius: CGFloat {
@@ -142,14 +145,14 @@ extension UIViewController{
         }
       
     }
-}
-
-struct Indecator {
-    var indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
-    
-   }
-enum ino {
-    
+    func alert (title:String,message:String){
+         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+         self.present(alert, animated: true, completion: nil)
+     }
+    func indecator (indicator:NVActivityIndicatorView, check:Bool) {         
+             self.showActivityIndicator(indicator: indicator, startIndicator: check)
+     }
 }
 
 enum Alert:String {
@@ -160,4 +163,39 @@ enum Alert:String {
     case failEmail = "The email address is already in use by another account or The email address is badly formatted"
     case registerPasswordWeak = "you are register now but be careful your password is very weak"
     case suucefulRegister = "You are register now  "
+    case wrongLogin = "This Email or pass is wrongs "
+}
+
+
+
+func getDataFromFirebase (collection:String,userId:String,arrayOfField:[String],completion:@escaping ([Favourite])->()) {
+    
+    var arrayofAppending  = [Favourite]()
+    let db = Firestore.firestore()
+    db.collection(collection).document(userId).collection("all information").getDocuments { (snapshot, error) in
+                
+        if error == nil && snapshot != nil {
+            arrayofAppending.removeAll()
+            for document in snapshot!.documents {
+                let singleData = Favourite(valueArrayName: (document.data()[arrayOfField[0]] as! String), valueArrayPrice: (document.data()[arrayOfField[1]] as! String), valueArrayImage: (document.data()[arrayOfField[2]] as! String))
+                arrayofAppending.append(singleData)
+
+    }
+            completion(arrayofAppending)
+        }
+        
+    }
+}
+
+
+func deleteFromFirebase (userId:String,productId:Int,collection:String) {
+    let db = Firestore.firestore()
+    db.collection(collection).document(userId).collection("all information").document("\(productId)").delete{ (error) in
+        if error == nil {
+            UserDefaults.standard.set(0, forKey: "fill")
+            print("delete is done ")
+        } else {
+            print("delete is not done ")
+        }
+    }
 }

@@ -26,7 +26,6 @@ func AddingEmailInApi (name:String,email:String,password:String,uidFirebase:Stri
             }catch let error {
                 print(error)
             }
-    //request.httpBody = postData
      URLSession.shared.dataTask(with: request) { data, response, error in
         print(response!)
         if let data = data {
@@ -40,9 +39,7 @@ func AddingEmailInApi (name:String,email:String,password:String,uidFirebase:Stri
             }
         }
         if let error = error {
-            print("error kokowawa")
             print(String(describing: error))
-            
         }
      }.resume()
 }
