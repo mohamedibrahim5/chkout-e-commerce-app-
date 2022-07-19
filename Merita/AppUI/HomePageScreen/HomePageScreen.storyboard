@@ -504,7 +504,7 @@
                                                         <subviews>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="AYe-Ze-4m2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="230"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <prototypes>
                                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrderTVCell" rowHeight="110" id="jjI-hn-Sz9" customClass="OrderTVCell" customModule="Merita" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="44.5" width="380" height="110"/>
@@ -543,7 +543,7 @@
                                                         <subviews>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fW8-NN-Znr">
                                                                 <rect key="frame" x="0.0" y="0.0" width="380" height="230"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <prototypes>
                                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="washlistcell" rowHeight="120" id="ZIp-YO-3e6" customClass="meWashListTableViewCell" customModule="Merita" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="44.5" width="380" height="120"/>
@@ -633,6 +633,7 @@
                                                                                 <constraint firstItem="pnA-Bi-Bpb" firstAttribute="top" secondItem="ISF-ji-NAz" secondAttribute="top" constant="8" id="r4K-7B-fNb"/>
                                                                             </constraints>
                                                                         </tableViewCellContentView>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <connections>
                                                                             <outlet property="imageview" destination="7nc-ki-2jt" id="Jc9-SZ-ZX0"/>
                                                                             <outlet property="name" destination="PPf-5Y-ib5" id="neO-xb-vRW"/>
