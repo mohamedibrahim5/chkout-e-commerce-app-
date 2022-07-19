@@ -86,7 +86,7 @@ extension MYOrderVC: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "OrderTVCell", for: indexPath) as! OrderTVCell
         
         cell.address.text = arrayAddress[indexPath.row]
-        cell.price.text = "\(arrayTotalPrice[indexPath.row])"
+        cell.price.text = "\(arrayTotalPrice[indexPath.row])$"
         cell.date.text = arrayTime[indexPath.row]
         return cell
     }

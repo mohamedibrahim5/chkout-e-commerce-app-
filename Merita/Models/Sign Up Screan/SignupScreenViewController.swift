@@ -14,6 +14,8 @@ import  NVActivityIndicatorView
 
 class SignupScreenViewController: UIViewController {
     
+    var btnSelected = true
+    
     let db = Firestore.firestore()
     let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     @IBOutlet weak var name: UITextField!
@@ -58,9 +60,23 @@ class SignupScreenViewController: UIViewController {
 }
     override func viewDidLoad() {
         super.viewDidLoad()
+        password.isSecureTextEntry = true
     }
     
-
+    @IBAction func showPassword(_ sender: UIButton) {
+        
+        btnSelected = !btnSelected
+                if btnSelected == true {
+                   sender.setImage(UIImage(named: "hidden.png"), for: .normal)
+                    password.isSecureTextEntry = true
+            } else {
+                  sender.setImage(UIImage(named: "viewer.png"), for: .normal)
+                password.isSecureTextEntry = false
+                
+            }
+        
+    }
+    
 }
 extension SignupScreenViewController{
     func signUp () {

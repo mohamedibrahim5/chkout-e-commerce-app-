@@ -19,11 +19,11 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C1Y-YA-Ofk">
                                 <rect key="frame" x="0.0" y="44" width="414" height="779"/>
                             </mapView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.tip" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="WkB-AF-BKC">
-                                <rect key="frame" x="182" y="424" width="50" height="48"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="WkB-AF-BKC">
+                                <rect key="frame" x="182" y="413" width="50" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="TWe-oO-zIw"/>
-                                    <constraint firstAttribute="height" constant="50" id="Wv5-6J-x90"/>
+                                    <constraint firstAttribute="height" constant="70" id="Wv5-6J-x90"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPh-Jd-hRi">
@@ -60,7 +60,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="pencil.tip" catalog="system" width="99" height="128"/>
+        <image name="placeholder" width="21.333333969116211" height="21.333333969116211"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="Background2">
             <color red="0.94900000095367432" green="0.70200002193450928" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

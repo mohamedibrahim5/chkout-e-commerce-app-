@@ -289,13 +289,13 @@
                                                     <constraint firstAttribute="height" constant="44" id="GLP-fs-1nv"/>
                                                 </constraints>
                                                 <items>
-                                                    <barButtonItem title="Item" image="rosette" catalog="system" id="jsb-BS-92Y">
-                                                        <color key="tintColor" name="colorButton"/>
+                                                    <barButtonItem title="Item" image="user" id="jsb-BS-92Y">
+                                                        <color key="tintColor" red="0.69019607843137254" green="0.15686274509803921" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <connections>
                                                             <action selector="settings:" destination="Qjm-PS-TJq" id="ie4-mm-Nmf"/>
                                                         </connections>
                                                     </barButtonItem>
-                                                    <barButtonItem image="cart.fill" catalog="system" width="70.5" id="x9C-34-EGq">
+                                                    <barButtonItem image="shopping-cart" width="70.5" id="x9C-34-EGq">
                                                         <color key="tintColor" name="colorButton"/>
                                                         <connections>
                                                             <action selector="cart:" destination="Qjm-PS-TJq" id="mZs-j0-VBr"/>
@@ -411,8 +411,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cart.fill" catalog="system" width="128" height="102"/>
-        <image name="rosette" catalog="system" width="106" height="128"/>
+        <image name="shopping-cart" width="32" height="32"/>
+        <image name="user" width="32" height="32"/>
         <namedColor name="Background1">
             <color red="0.80000001192092896" green="0.45100000500679016" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

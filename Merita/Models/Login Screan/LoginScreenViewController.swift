@@ -19,6 +19,9 @@ import  NVActivityIndicatorView
 
 class LoginScreenViewController: UIViewController {
 
+    
+    var btnSelected = true
+    
     let indicator = NVActivityIndicatorView(frame: .zero, type: .ballSpinFadeLoader, color: .systemRed, padding: 0)
     static var idUser:String = ""
     @IBOutlet weak var password2: UITextField!
@@ -62,6 +65,17 @@ class LoginScreenViewController: UIViewController {
     
     
     
+    @IBAction func ShowPassword(_ sender: UIButton) {
+        btnSelected = !btnSelected
+                if btnSelected == true {
+                   sender.setImage(UIImage(named: "hidden.png"), for: .normal)
+                    password2.isSecureTextEntry = true
+            } else {
+                  sender.setImage(UIImage(named: "viewer.png"), for: .normal)
+                password2.isSecureTextEntry = false
+                
+            }
+    }
     
     
     
