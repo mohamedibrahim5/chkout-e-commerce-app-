@@ -282,10 +282,10 @@
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <constraints>
-                                                            <constraint firstAttribute="trailingMargin" secondItem="pxX-2P-5V3" secondAttribute="trailing" constant="-8" id="6yx-lR-UGZ"/>
-                                                            <constraint firstAttribute="bottomMargin" secondItem="pxX-2P-5V3" secondAttribute="bottom" constant="-8" id="9Cy-b1-dLv"/>
-                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="leading" secondItem="tE8-85-tS1" secondAttribute="leadingMargin" constant="-8" id="lVZ-e7-crK"/>
-                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="top" secondItem="tE8-85-tS1" secondAttribute="topMargin" constant="-8" id="qSF-s7-BDD"/>
+                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="top" secondItem="tE8-85-tS1" secondAttribute="topMargin" constant="-8" id="75b-OZ-1Yp"/>
+                                                            <constraint firstAttribute="bottomMargin" secondItem="pxX-2P-5V3" secondAttribute="bottom" constant="-8" id="der-5A-KE8"/>
+                                                            <constraint firstItem="pxX-2P-5V3" firstAttribute="leading" secondItem="tE8-85-tS1" secondAttribute="leadingMargin" constant="-8" id="fY7-ox-XUY"/>
+                                                            <constraint firstAttribute="trailingMargin" secondItem="pxX-2P-5V3" secondAttribute="trailing" constant="-8" id="xMh-VU-TMG"/>
                                                         </constraints>
                                                         <size key="customSize" width="375" height="240"/>
                                                         <connections>

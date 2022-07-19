@@ -197,6 +197,9 @@
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
                                     <color key="baseBackgroundColor" name="colorButton"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="ApplePayment:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QBs-Zs-Q6K"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bj2-fA-pMJ">
                                 <rect key="frame" x="20" y="737" width="374" height="80"/>

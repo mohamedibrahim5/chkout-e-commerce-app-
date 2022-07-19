@@ -56,6 +56,7 @@ extension FavouriteScreenViewController :UITableViewDelegate,UITableViewDataSour
                 self.numberOfIndexPath = numberOfIndexPath
             }
             deleteFromFirebase(userId:self.userId!,productId:self.arrayOfProduct[self.numberOfIndexPath!].id!, collection: "FAV")
+            UserDefaults.standard.set(0, forKey: "\(self.arrayOfProduct[self.numberOfIndexPath!].id!)")
             self.arrayOfData.remove(at: indexPath.row)
             self.tableview.beginUpdates()
             self.tableview.deleteRows(at: [indexPath], with: .automatic)
