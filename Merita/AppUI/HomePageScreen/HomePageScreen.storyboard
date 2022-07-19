@@ -685,13 +685,13 @@
                                                     <constraint firstAttribute="height" constant="44" id="snw-o4-A85"/>
                                                 </constraints>
                                                 <items>
-                                                    <barButtonItem title="Item" image="rosette" catalog="system" id="5WC-LR-0tx">
+                                                    <barButtonItem title="Item" image="user" id="5WC-LR-0tx">
                                                         <color key="tintColor" name="colorButton"/>
                                                         <connections>
                                                             <action selector="settings:" destination="55t-5F-Nm0" id="JU9-95-FqD"/>
                                                         </connections>
                                                     </barButtonItem>
-                                                    <barButtonItem image="cart.fill" catalog="system" width="70.5" id="Rc6-Uo-1C3">
+                                                    <barButtonItem image="shopping-cart" width="70.5" id="Rc6-Uo-1C3">
                                                         <color key="tintColor" name="colorButton"/>
                                                         <connections>
                                                             <action selector="cart:" destination="55t-5F-Nm0" id="Ame-c1-hKw"/>
@@ -772,12 +772,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="cart.fill.badge.plus" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
+<<<<<<< HEAD
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rosette" catalog="system" width="106" height="128"/>
+=======
+        <image name="shopping-cart" width="32" height="32"/>
+        <image name="test" width="296" height="170"/>
+        <image name="user" width="32" height="32"/>
+>>>>>>> SetOneBranch
         <namedColor name="Background1">
             <color red="0.80000001192092896" green="0.45100000500679016" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
