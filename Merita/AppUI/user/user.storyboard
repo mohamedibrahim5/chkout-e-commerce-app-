@@ -27,9 +27,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPh-Jd-hRi">
-                                <rect key="frame" x="185" y="831" width="44" height="31"/>
+                                <rect key="frame" x="115" y="831" width="184.5" height="31"/>
+                                <color key="tintColor" red="0.69019607839999997" green="0.15686274510000001" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="address" title=" Add Home Address"/>
                                 <connections>
                                     <action selector="addLocation:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="49V-TG-oXw"/>
                                 </connections>
@@ -60,8 +61,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="address" width="32" height="32"/>
         <image name="placeholder" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="Background2">
             <color red="0.94900000095367432" green="0.70200002193450928" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

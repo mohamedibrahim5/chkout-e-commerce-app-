@@ -17,16 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IIZ-Bg-WYe">
-                                <rect key="frame" x="0.0" y="453" width="414" height="443"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your total price is " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxV-ej-XWp">
-                                        <rect key="frame" x="40" y="104" width="135" height="21"/>
+                                        <rect key="frame" x="44" y="400" width="135" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gd-vZ-HbJ">
-                                        <rect key="frame" x="250" y="104" width="79" height="21"/>
+                                        <rect key="frame" x="254" y="400" width="79" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="gLV-fK-dqu"/>
                                         </constraints>
@@ -35,7 +35,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xFe-Br-nzh">
-                                        <rect key="frame" x="212" y="165" width="155" height="56"/>
+                                        <rect key="frame" x="216" y="461" width="155" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="155" id="Tzm-oF-cpV"/>
                                             <constraint firstAttribute="height" constant="56" id="g9V-jV-SgM"/>
@@ -45,25 +45,34 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yout address is " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfE-OY-axz">
-                                        <rect key="frame" x="40" y="183" width="135" height="20"/>
+                                        <rect key="frame" x="44" y="479" width="135" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="martina-guy-with-a-sign-in-his-hands-from-the-monitor" translatesAutoresizingMaskIntoConstraints="NO" id="fqO-Ic-gIG">
+                                        <rect key="frame" x="8" y="47" width="398" height="312"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="312" id="2r2-uk-X6M"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" name="BackgroundView"/>
                                 <constraints>
-                                    <constraint firstItem="IxV-ej-XWp" firstAttribute="leading" secondItem="IIZ-Bg-WYe" secondAttribute="leading" constant="40" id="1vV-cY-A1t"/>
+                                    <constraint firstItem="IxV-ej-XWp" firstAttribute="leading" secondItem="IIZ-Bg-WYe" secondAttribute="leading" constant="44" id="1vV-cY-A1t"/>
                                     <constraint firstItem="1gd-vZ-HbJ" firstAttribute="leading" secondItem="IxV-ej-XWp" secondAttribute="trailing" constant="75" id="4W3-fm-vQ7"/>
                                     <constraint firstItem="xFe-Br-nzh" firstAttribute="top" secondItem="1gd-vZ-HbJ" secondAttribute="bottom" constant="40" id="BOa-Ps-til"/>
-                                    <constraint firstItem="xFe-Br-nzh" firstAttribute="top" secondItem="IIZ-Bg-WYe" secondAttribute="top" constant="165" id="DNz-Vn-Bua"/>
+                                    <constraint firstItem="xFe-Br-nzh" firstAttribute="top" secondItem="IIZ-Bg-WYe" secondAttribute="top" constant="461" id="DNz-Vn-Bua"/>
                                     <constraint firstItem="BfE-OY-axz" firstAttribute="trailing" secondItem="IxV-ej-XWp" secondAttribute="trailing" id="FH4-YE-Q2c"/>
-                                    <constraint firstAttribute="trailing" secondItem="1gd-vZ-HbJ" secondAttribute="trailing" constant="85" id="Kra-gN-vSe"/>
+                                    <constraint firstAttribute="trailing" secondItem="1gd-vZ-HbJ" secondAttribute="trailing" constant="81" id="Kra-gN-vSe"/>
                                     <constraint firstItem="xFe-Br-nzh" firstAttribute="centerY" secondItem="BfE-OY-axz" secondAttribute="centerY" id="Mym-kD-q8m"/>
                                     <constraint firstItem="IxV-ej-XWp" firstAttribute="baseline" secondItem="1gd-vZ-HbJ" secondAttribute="baseline" id="e2o-gL-ilQ"/>
                                     <constraint firstItem="xFe-Br-nzh" firstAttribute="leading" secondItem="BfE-OY-axz" secondAttribute="trailing" constant="37" id="ebn-zo-iON"/>
+                                    <constraint firstItem="fqO-Ic-gIG" firstAttribute="leading" secondItem="IIZ-Bg-WYe" secondAttribute="leading" constant="8" id="gAl-7y-G9K"/>
+                                    <constraint firstItem="fqO-Ic-gIG" firstAttribute="top" secondItem="IIZ-Bg-WYe" secondAttribute="top" constant="47" id="j5f-97-Yvu"/>
                                     <constraint firstItem="BfE-OY-axz" firstAttribute="leading" secondItem="IxV-ej-XWp" secondAttribute="leading" id="oA0-3H-yCC"/>
                                     <constraint firstItem="xFe-Br-nzh" firstAttribute="centerX" secondItem="1gd-vZ-HbJ" secondAttribute="centerX" id="qEF-zD-LBq"/>
+                                    <constraint firstAttribute="trailing" secondItem="fqO-Ic-gIG" secondAttribute="trailing" constant="8" id="ujG-2h-Gv2"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="TopLAndRRadius">
@@ -93,7 +102,7 @@
                             <constraint firstItem="IIZ-Bg-WYe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="bnc-nc-54Y"/>
                             <constraint firstItem="IIZ-Bg-WYe" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="c1I-6M-tNs"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="x27-Rm-6BQ" secondAttribute="bottom" constant="55" id="eQi-wt-KdE"/>
-                            <constraint firstItem="IIZ-Bg-WYe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="409" id="jqv-IL-OQs"/>
+                            <constraint firstItem="IIZ-Bg-WYe" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="100" id="jqv-IL-OQs"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="x27-Rm-6BQ" secondAttribute="trailing" constant="20" id="odo-VS-oPj"/>
                             <constraint firstAttribute="bottom" secondItem="IIZ-Bg-WYe" secondAttribute="bottom" id="vmM-uw-sh3"/>
                         </constraints>
@@ -109,6 +118,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="martina-guy-with-a-sign-in-his-hands-from-the-monitor" width="526" height="456"/>
         <namedColor name="Background2">
             <color red="0.94900000095367432" green="0.70200002193450928" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

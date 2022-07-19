@@ -5,7 +5,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvh-R1-tKF">
-                                <rect key="frame" x="0.0" y="168" width="414" height="728"/>
+                                <rect key="frame" x="0.0" y="114" width="414" height="782"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4g-Tk-TVw">
-                                        <rect key="frame" x="20" y="100" width="362" height="40"/>
+                                        <rect key="frame" x="26" y="185" width="362" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="CCd-CE-ECy"/>
                                         </constraints>
@@ -30,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hoQ-6d-L06">
-                                        <rect key="frame" x="20" y="382" width="362" height="88.5"/>
+                                        <rect key="frame" x="26" y="467" width="362" height="88.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8dX-KF-Coq">
                                                 <rect key="frame" x="0.0" y="0.0" width="362" height="20.5"/>
@@ -50,7 +49,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwj-kC-q3N">
-                                        <rect key="frame" x="20" y="534" width="362" height="75"/>
+                                        <rect key="frame" x="26" y="619" width="362" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="sro-UD-Umy"/>
                                         </constraints>
@@ -66,7 +65,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9xE-Xt-naf">
-                                        <rect key="frame" x="20" y="267" width="362" height="88.5"/>
+                                        <rect key="frame" x="26" y="352" width="362" height="88.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="36i-Fe-qxh">
                                                 <rect key="frame" x="0.0" y="0.0" width="362" height="20.5"/>
@@ -88,7 +87,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Tde-L0-EZ7">
-                                        <rect key="frame" x="20" y="164" width="362" height="88.5"/>
+                                        <rect key="frame" x="26" y="249" width="362" height="88.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Street Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTQ-2n-6hx">
                                                 <rect key="frame" x="0.0" y="0.0" width="362" height="20.5"/>
@@ -109,23 +108,32 @@
                                             <constraint firstAttribute="height" constant="88.5" id="o2f-04-g9t"/>
                                         </constraints>
                                     </stackView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutti-online-resume-search-1" translatesAutoresizingMaskIntoConstraints="NO" id="Laq-Ib-x2D">
+                                        <rect key="frame" x="87" y="8" width="240" height="169"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="169" id="gcZ-SD-P5s"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" name="BackgroundView"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="X4g-Tk-TVw" secondAttribute="trailing" constant="32" id="E7J-72-bpe"/>
-                                    <constraint firstItem="Tde-L0-EZ7" firstAttribute="leading" secondItem="pvh-R1-tKF" secondAttribute="leading" constant="20" symbolic="YES" id="K9X-j1-kJn"/>
+                                    <constraint firstItem="Laq-Ib-x2D" firstAttribute="leading" secondItem="pvh-R1-tKF" secondAttribute="leading" constant="87" id="6Yw-dM-B5u"/>
+                                    <constraint firstAttribute="trailing" secondItem="X4g-Tk-TVw" secondAttribute="trailing" constant="26" id="E7J-72-bpe"/>
+                                    <constraint firstItem="Tde-L0-EZ7" firstAttribute="leading" secondItem="pvh-R1-tKF" secondAttribute="leading" constant="26" id="K9X-j1-kJn"/>
                                     <constraint firstItem="hoQ-6d-L06" firstAttribute="trailing" secondItem="9xE-Xt-naf" secondAttribute="trailing" id="MuL-F1-51X"/>
                                     <constraint firstItem="Tde-L0-EZ7" firstAttribute="top" secondItem="X4g-Tk-TVw" secondAttribute="bottom" constant="24" id="OBv-Lk-W2a"/>
-                                    <constraint firstItem="X4g-Tk-TVw" firstAttribute="leading" secondItem="pvh-R1-tKF" secondAttribute="leading" constant="20" symbolic="YES" id="QEI-Kw-DTF"/>
+                                    <constraint firstItem="X4g-Tk-TVw" firstAttribute="leading" secondItem="pvh-R1-tKF" secondAttribute="leading" constant="26" id="QEI-Kw-DTF"/>
                                     <constraint firstItem="9xE-Xt-naf" firstAttribute="trailing" secondItem="Tde-L0-EZ7" secondAttribute="trailing" id="URi-aJ-rN4"/>
                                     <constraint firstItem="9xE-Xt-naf" firstAttribute="top" secondItem="Tde-L0-EZ7" secondAttribute="bottom" constant="14.5" id="URw-tU-kYw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Tde-L0-EZ7" secondAttribute="trailing" constant="32" id="UzO-4c-O4v"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tde-L0-EZ7" secondAttribute="trailing" constant="26" id="UzO-4c-O4v"/>
                                     <constraint firstItem="hoQ-6d-L06" firstAttribute="leading" secondItem="9xE-Xt-naf" secondAttribute="leading" id="bfK-8F-N4b"/>
                                     <constraint firstItem="hwj-kC-q3N" firstAttribute="trailing" secondItem="hoQ-6d-L06" secondAttribute="trailing" id="d1t-00-8a9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Laq-Ib-x2D" secondAttribute="trailing" constant="87" id="dY3-5J-QlH"/>
                                     <constraint firstItem="hwj-kC-q3N" firstAttribute="top" secondItem="hoQ-6d-L06" secondAttribute="bottom" constant="63.5" id="fcy-02-11F"/>
                                     <constraint firstItem="hwj-kC-q3N" firstAttribute="leading" secondItem="hoQ-6d-L06" secondAttribute="leading" id="gCI-dX-4yK"/>
-                                    <constraint firstItem="9xE-Xt-naf" firstAttribute="top" secondItem="pvh-R1-tKF" secondAttribute="top" constant="267" id="hpe-Gw-Elg"/>
+                                    <constraint firstItem="9xE-Xt-naf" firstAttribute="top" secondItem="pvh-R1-tKF" secondAttribute="top" constant="352" id="hpe-Gw-Elg"/>
                                     <constraint firstItem="9xE-Xt-naf" firstAttribute="leading" secondItem="Tde-L0-EZ7" secondAttribute="leading" id="oD6-5t-U5s"/>
+                                    <constraint firstItem="Laq-Ib-x2D" firstAttribute="top" secondItem="pvh-R1-tKF" secondAttribute="top" constant="8" id="pW4-2H-nAt"/>
                                     <constraint firstItem="hoQ-6d-L06" firstAttribute="top" secondItem="9xE-Xt-naf" secondAttribute="bottom" constant="26.5" id="x3o-mT-S4I"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -140,7 +148,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="pvh-R1-tKF" secondAttribute="bottom" id="0jR-LE-LBP"/>
                             <constraint firstItem="pvh-R1-tKF" firstAttribute="leading" secondItem="FHj-vQ-qB7" secondAttribute="leading" id="R0x-as-TUW"/>
-                            <constraint firstItem="pvh-R1-tKF" firstAttribute="top" secondItem="xYW-Lz-9I4" secondAttribute="top" constant="124" id="p8u-3h-viC"/>
+                            <constraint firstItem="pvh-R1-tKF" firstAttribute="top" secondItem="xYW-Lz-9I4" secondAttribute="top" constant="70" id="p8u-3h-viC"/>
                         </constraints>
                     </view>
                     <connections>
@@ -152,18 +160,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U9j-jD-LZb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-186" y="64"/>
+            <point key="canvasLocation" x="-186.95652173913044" y="63.616071428571423"/>
         </scene>
     </scenes>
     <resources>
+        <image name="tutti-online-resume-search-1" width="608" height="456"/>
         <namedColor name="Background2">
             <color red="0.94900000095367432" green="0.70200002193450928" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="BackgroundView">
+            <color red="0.96899998188018799" green="0.96100002527236938" blue="0.9179999828338623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="colorButton">
             <color red="0.68999999761581421" green="0.15700000524520874" blue="0.44299998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
