@@ -6,10 +6,21 @@
 //
 
 import XCTest
-
+@testable import Merita
 class SignupScreenViewControllertests: XCTestCase {
-
-  
+    let signUp = SignupScreenViewController()
+    
+    
+//    override func setUp() async throws {
+//        <#code#>
+//    }
+//    override func tearDown() async throws {
+//        <#code#>
+//    }
+//    
+//    func testcheckEmpty() {
+//        
+//    }
 
 }
 
