@@ -18,6 +18,8 @@
 		3E22E14D2879941A00F78067 /* GlobalSearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22E14C2879941900F78067 /* GlobalSearchModel.swift */; };
 		3E22E154287994C800F78067 /* AllProductsCViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22E153287994C800F78067 /* AllProductsCViewCell.swift */; };
 		3E22E156287994F800F78067 /* GlobalSearchForProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22E155287994F800F78067 /* GlobalSearchForProductsVC.swift */; };
+		3E2421A32886BE7A002197EA /* NetworkManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2421A22886BE7A002197EA /* NetworkManagerMock.swift */; };
+		3E2421A82886C544002197EA /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2421A72886C544002197EA /* NetworkManagerTests.swift */; };
 		3E35202228749AE50091D753 /* TVCellForCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35202128749AE50091D753 /* TVCellForCategory.swift */; };
 		3E35202428749B0C0091D753 /* CVCellForCategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35202328749B0C0091D753 /* CVCellForCategoryItem.swift */; };
 		3E35202628749EB60091D753 /* CategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E35202528749EB60091D753 /* CategoryModel.swift */; };
@@ -134,6 +136,8 @@
 		3E22E14C2879941900F78067 /* GlobalSearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSearchModel.swift; sourceTree = "<group>"; };
 		3E22E153287994C800F78067 /* AllProductsCViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductsCViewCell.swift; sourceTree = "<group>"; };
 		3E22E155287994F800F78067 /* GlobalSearchForProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSearchForProductsVC.swift; sourceTree = "<group>"; };
+		3E2421A22886BE7A002197EA /* NetworkManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerMock.swift; sourceTree = "<group>"; };
+		3E2421A72886C544002197EA /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		3E35202128749AE50091D753 /* TVCellForCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVCellForCategory.swift; sourceTree = "<group>"; };
 		3E35202328749B0C0091D753 /* CVCellForCategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVCellForCategoryItem.swift; sourceTree = "<group>"; };
 		3E35202528749EB60091D753 /* CategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryModel.swift; sourceTree = "<group>"; };
@@ -293,6 +297,22 @@
 				3E22E155287994F800F78067 /* GlobalSearchForProductsVC.swift */,
 			);
 			path = GlobalSearchViewController;
+			sourceTree = "<group>";
+		};
+		3E2421A12886BE28002197EA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3E2421A22886BE7A002197EA /* NetworkManagerMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3E2421A42886C49D002197EA /* NetworkManagerTest */ = {
+			isa = PBXGroup;
+			children = (
+				3E2421A72886C544002197EA /* NetworkManagerTests.swift */,
+			);
+			path = NetworkManagerTest;
 			sourceTree = "<group>";
 		};
 		3E35201E28749A780091D753 /* Brands */ = {
@@ -966,6 +986,8 @@
 		A1843F2C288698250064F0C6 /* MeritaTests */ = {
 			isa = PBXGroup;
 			children = (
+				3E2421A42886C49D002197EA /* NetworkManagerTest */,
+				3E2421A12886BE28002197EA /* Mocks */,
 				A1843F2D288698250064F0C6 /* MeritaTests.swift */,
 				A1843F34288699610064F0C6 /* SignupScreenViewControllertests.swift */,
 			);
@@ -1505,8 +1527,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E2421A82886C544002197EA /* NetworkManagerTests.swift in Sources */,
 				A1843F35288699610064F0C6 /* SignupScreenViewControllertests.swift in Sources */,
 				A1843F2E288698250064F0C6 /* MeritaTests.swift in Sources */,
+				3E2421A32886BE7A002197EA /* NetworkManagerMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
