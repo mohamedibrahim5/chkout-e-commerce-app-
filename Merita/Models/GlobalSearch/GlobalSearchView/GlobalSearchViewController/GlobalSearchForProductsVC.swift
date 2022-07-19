@@ -32,6 +32,7 @@ class GlobalSearchForProductsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         imageview.flash()
+        searchBar.autocapitalizationType = .none
          if !UserDefaults.standard.bool(forKey: "ExecuteOnce") {
              imageview.isHidden = false
         UserDefaults.standard.set(true, forKey: "ExecuteOnce")
@@ -168,18 +169,16 @@ extension GlobalSearchForProductsVC : UISearchBarDelegate
         }
         else {
             search2.removeAll()
-            for player1 in search1 {
-                if (player1.name!.contains(searchText)) {
-                    search2.append(player1)
+            for fetch in search1 {
+                if (fetch.name!.lowercased().contains(searchText)) {
+                    search2.append(fetch)
                 }
+                if (fetch.name!.contains(searchText)) {
+                    search2.append(fetch)
+                }
+                
             }
         }
-        
-        
-        
-//        filterData = searchText.isEmpty ? searchText2 : searchText2.filter({(dataString: String) -> Bool in
-//            return dataString.range(of: searchText, options: .caseInsensitive) != nil
-//        })
 
         allProductsCView.reloadData()
     }
