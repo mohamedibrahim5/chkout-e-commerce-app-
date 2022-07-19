@@ -775,14 +775,14 @@
         <image name="cart.fill.badge.plus" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person" catalog="system" width="128" height="117"/>
-<<<<<<< HEAD
+
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rosette" catalog="system" width="106" height="128"/>
-=======
+
         <image name="shopping-cart" width="32" height="32"/>
         <image name="test" width="296" height="170"/>
         <image name="user" width="32" height="32"/>
->>>>>>> SetOneBranch
+
         <namedColor name="Background1">
             <color red="0.80000001192092896" green="0.45100000500679016" blue="0.63899999856948853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
